@@ -1,0 +1,1070 @@
+\documentclass[letterpaper, twoside, 12pt]{book}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{yfonts}
+\usepackage{amsrefs}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{esint}
+\usepackage{harpoon}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+
+\usepackage{makeidx}
+\makeindex
+
+\definecolor{AuburnOrange}{RGB}{221,85,12}
+\definecolor{AuburnBlue}{RGB}{3,36,77}
+\definecolor{AuburnSecondaryBlue}{RGB}{73,110,156}
+\definecolor{AuburnSecondaryOrange}{RGB}{246,128,38}
+\definecolor{AlabamaCrimson}{RGB}{163,38,65}
+\definecolor{LSUpurple}{RGB}{70,29,124}
+\definecolor{VanderbiltGold}{RGB}{207,181,59}
+
+\usepackage[pdfpagelabels]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=AuburnSecondaryOrange}
+
+% \usepackage[tracking]{microtype}
+% \UseMicrotypeSet{all}
+% \SetTracking[spacing = {35*,0*,0*}]{encoding = *}{7}
+% \linespread{1.025}
+
+\def\scaleint#1{\vcenter{\hbox{\scaleto[3ex]{\displaystyle\int}{#1}}}}
+\def\bs{\!\!}
+
+\renewcommand{\arraystretch}{1.5}
+
+\pagestyle{fancy} \headheight 14.49998pt
+
+\newcommand{\tstamp}{\today}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\chaptermark}[1]{\markright{#1}}
+
+\lhead[\fancyplain{}{Clontz \thepage}]         {\fancyplain{}{\scshape\nouppercase{\rightmark}}}
+
+\chead[\fancyplain{}{}]
+{\fancyplain{}{}}
+
+
+\rhead[\fancyplain{}{Calculus II Lecture Notes}]       {\fancyplain{}{Clontz \thepage}}
+
+\lfoot[\fancyplain{}{Auburn University}]                 {\fancyplain{\tstamp}{\tstamp}}
+
+\cfoot[\fancyplain{\thepage}{}]         {\fancyplain{\thepage}{}}
+
+\rfoot[\fancyplain{\tstamp} {\tstamp}]  {\fancyplain{}{Auburn University}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+% \theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{recall}[theorem]{Recall}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{goal}[theorem]{Goal}
+\newtheorem{motivation}[theorem]{Motivation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{TrueFact}[theorem]{True Fact}
+\newtheorem{FalseFact}[theorem]{False Fact}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{eqn}[theorem]{Equation}
+\newtheorem{strategy}[theorem]{Strategy}
+\newtheorem{properties}[theorem]{Properties}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand*{\threevec}[3]{\ensuremath{\left\langle #1, #2, #3 \right\rangle}}
+\newcommand*{\twovec}[2]{\ensuremath{\left\langle #1, #2 \right\rangle}}
+\newcommand*{\unitvec}[1]{\ensuremath{\mathbf{\widehat{#1}}}}
+\newcommand{\veci}{\ensuremath{\mathbf{\widehat{i}}}}
+\newcommand{\vecj}{\ensuremath{\mathbf{\widehat{j}}}}
+\newcommand{\veck}{\ensuremath{\mathbf{\widehat{k}}}}
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+
+\newcommand{\contrasymb}{\mathrel{\raisebox{.1em}{\reflectbox{\rotatebox[origin=c]{220}{$\lightning$}}}}}
+
+\newenvironment{answer}{\paragraph{Answer.}}{\hfill$\blacklozenge$}
+\newenvironment{contraproof}{\paragraph{Proof.}}{\hfill$\contrasymb$}
+
+\begin{document}
+\setcounter{chapter}{10}
+\chapter{Sequences and Series}
+
+\setcounter{section}{-1}
+\section{Prepositional Logic}
+All of the definitions in this section are adaptations of Irving M. Copi's book \emph{Symbolic Logic}.
+
+\begin{definition}[Proposition\index{Proposition}]
+ A \textbf{proposition} is a statement which is either true or false.
+\end{definition}
+
+\begin{example}
+ Britney is a goat.  This statement has a definite truth value.  It is either true or false, whether or not one can tell the truth value is a different story.
+\end{example}
+
+\begin{definition}[Negation\index{Negation}]
+ The \textbf{negation} of a statement $P$ is a statement denoted $\neg P$ which has the opposite truth value of $P$.
+\end{definition}
+
+\begin{definition}[Argument\index{Argument}]
+ An \textbf{argument} is a group of propositions, one of which is claimed to follow from another, providing grounds for truth.
+\end{definition}
+
+\begin{definition}[Structure of an Argument\index{Structure of an Argument}]
+ An argument is normally presented as a \textbf{conditional statement}.  That is, it is of the form ``If something is a car then it is a vehicle.''  The statement that goes with the ``If'' clause is called the \textbf{hypothesis} while the statement that goes with the ``Then'' clause is called the \textbf{conclusion}.  For ease of notation, we typically call the hypothesis $P$ and the conclusion $Q$ and denote the argument ``If $P$ then $Q$'' by $P \Rightarrow Q$.  Statements of this form are false only when the premise is true and the conclusion is false.  Another way of saying $P \Rightarrow Q$ is ``$P$ implies $Q$''
+\end{definition}
+
+\begin{definition}[Truth Table\index{Truth Table}]
+ A \textbf{truth table} is an array which lists all of the possible truth values for a given argument.
+\end{definition}
+
+\begin{definition}
+ The truth table for ``$P$ and $Q$'' ($P \wedge Q$), ``$P$ or $Q$'' ($P \vee Q$), and ``$P$ implies $Q$'' ($P \Rightarrow Q$) is:
+ $$\begin{array}{c|c|c|c|c}
+    P & Q & P \wedge Q & P \vee Q & P \Rightarrow Q \\
+    \hline
+    T & T & T & T & T \\
+    T & F & F & T & F \\
+    F & T & F & T & T \\
+    F & F & F & F & T
+   \end{array}$$
+\end{definition}
+
+\begin{definition}[Converse\index{Converse}]
+ The \textbf{converse} of a conditional statement $P \Rightarrow Q$ is the statement $Q \Rightarrow P$.
+\end{definition}
+
+\begin{definition}[Contrapositive\index{Contrapositive}]
+ The \textbf{contrapositive} of a conditional statement $P \Rightarrow Q$ is the statement $\neg Q \Rightarrow \neg P$.
+\end{definition}
+
+\begin{definition}[Logical Equivalence\index{Logical Equivalence}]
+ Two propositions are called (logically) \textbf{equivalent} if given the
+ truth values of all subpropositions, both propositions share the same
+ truth value.
+\end{definition}
+
+\begin{problem}
+ Show that $P \Rightarrow Q$ and $\neg Q \Rightarrow \neg P$ are equivalent.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Show that $P \Rightarrow Q$ is not equivalent to $Q \Rightarrow P$.
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+  Give a ``real life example'' of propositions $P$, $Q$ such that $P\Rightarrow Q$,
+  (and thus $\neg Q\Rightarrow \neg P$,) but $Q\not\Rightarrow P$.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+  Give a ``mathematical example'' of propositions $P$, $Q$ such that $P\Rightarrow Q$,
+  (and thus $\neg Q\Rightarrow \neg P$,) but $Q\not\Rightarrow P$.
+\end{problem}
+
+\vfill
+
+\newpage
+
+\section{Sequences}
+
+\begin{definition}[Sequence\index{Sequence}]\footnote{
+Definition based on Steven R. Lay's book \emph{Analysis With an Introduction to
+Proof}.
+}\footnote{
+A final set of integers starts at some $n$, and contains every bigger integer.
+As examples: $\mathbb{N}=\{1,2,3,\dots\}$, $\mathbb{W}=\{0,1,2,\dots\}$,
+$\{4,5,6,\dots\}$, $\{-2,-1,0,1,\dots\}$, etc.
+}
+ A \textbf{sequence} is a function whose domain is a final set of integers.
+ If $s$ is a sequence, we usually write its value at
+ $n$ as $s_n$ instead of $s(n)$.  We may denote a sequence as
+ $\left( s_0,s_1, \ldots \right)$ or
+ $\left\{ s_3,s_4, \ldots \right\}$ or
+ $\left\langle s_{-1},s_0, \ldots \right\rangle$ or
+ $\left\{ s_n \right\}_{n = 1}^{\infty}$
+ or simply $s_n$ (depending on its domain).
+ If its domain is not given, we usually assume it to be
+ $\mathbb{N}=\{1,2,\dots\}$, $\mathbb{W}=\{0,1,\dots\}$, or some other final
+ set of integers which is always defined for the sequence definition.
+\end{definition}
+
+\begin{problem}
+ Write the first five terms of the following sequences:
+ \begin{itemize}
+  \item $\ds \left\{ \frac{n}{n+1} \right\}$
+  \item $\ds \left( \frac{\left(-1\right)^n \left(n+1\right)}{3^n} \right)_{n=0}^{\infty}$
+  \item $\ds \left\langle \sqrt{n-3} \right\rangle$
+  \item $\ds \left\{ \cos\left(\frac{n\pi}{6}\right) \right\}_{n=1}^\infty$
+ \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Find a general formula for the sequence
+ $
+  \ds \left\{
+  \frac{3}{5},
+  \frac{-4}{25},
+  \frac{5}{125},
+  \frac{-6}{625},
+  \frac{7}{3125},
+  \ldots \right\}
+ $.
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{note}
+ Some sequences do not have a simple defining equation.
+\end{note}
+
+\begin{example}
+ The $n^{\rm th}$ term of the decimals of $e$.  The sequence of decimals of $e$ look like $\left\{ 7,1,8,2,8,1,8,2,8,4,5, \ldots \right\}$.
+\end{example}
+
+\begin{note}
+ On the other hand, there are sequences that do have a closed form definition that are simply not easy to find.
+\end{note}
+
+\begin{example}
+ The Fibbonacci Sequence\index{Fibbonacci Sequence} is defined as $f_1 = f_2 = 1$ and for $n \geq 3, f_n = f_{n-1} + f_{n-2}$.  This has a closed form definition of $\ds \left( \frac{\varphi^n - \psi^n}{\sqrt{5}} \right),$ where $\ds \varphi = \frac{1+\sqrt{5}}{2}$ and $\ds \psi = \frac{1-\sqrt{5}}{2}$.
+\end{example}
+
+\begin{problem}
+ Visualize the sequence $\ds \left(\frac{n}{n+1}\right).$
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ What, if anything, does it seem like the sequence $\ds \left(\frac{n}{n+1}\right)$ is approaching?
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{definition}[Limit of a Sequence\index{Limit of a Sequence}]
+ A sequence $\left(a_n\right)$ has the \textbf{limit} $L$ if we can make the
+ terms of $\left(a_n\right)$ arbitrarily close to $L$ as we like my taking $n$
+ to be sufficiently large.  If $\left(a_n\right)$ has a limit $L$, then we write
+ $\ds \lim_{n \rightarrow \infty} a_n = L$ or $a_n\rightarrow L$.
+\end{definition}
+
+\begin{definition}[Convergence and Divergence\index{Sequence Convergence}\index{Sequence Divergence}]
+ If $\ds \lim_{n \rightarrow \infty} a_n$ exists, then we say that the sequence \textbf{converges}.  Otherwise, we say that the sequence \textbf{diverges} or is \textbf{divergent}.
+\end{definition}
+
+\begin{theorem}[Subset of a Continuous Function\index{Subset of Continuous Function}]
+ If $\ds \lim_{x \rightarrow \infty} f(x) = L$, and $f(n) = a_n$ wherever $n$
+ is in the domain of the sequence, then $\ds \lim_{n \rightarrow \infty} a_n = L$.
+\end{theorem}
+
+\begin{figure}[H]
+\centering
+
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-0.44,0) -- (7.65,0);
+\foreach \x in {,1,2,3,4,5,6,7}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-0.52) -- (0,3);
+\foreach \y in {,1,2,3}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-0.44,-0.52) rectangle (7.65,3);
+\draw[smooth,samples=100,domain=-0.43627287999999714:8.088042675555563]
+plot(\x,{\x*exp(-.111111*\x^2)+1});
+\draw [domain=-0.44:8.09]
+plot(\x,{(--1-0*\x)/1});
+\begin{scriptsize}
+\fill [color=uququq] (1,1.89) circle (1.5pt);
+\draw[color=uququq] (1.4,2.07) node {$1.89$};
+\fill [color=uququq] (2,2.28) circle (1.5pt);
+\draw[color=uququq] (2.4,2.46) node {$2.28$};
+\fill [color=uququq] (3,2.1) circle (1.5pt);
+\draw[color=uququq] (3.35,2.27) node {$2.1$};
+\fill [color=uququq] (4,1.68) circle (1.5pt);
+\draw[color=uququq] (4.41,1.84) node {$1.68$};
+\fill [color=uququq] (5,1.31) circle (1.5pt);
+\draw[color=uququq] (5.41,1.48) node {$1.31$};
+\fill [color=uququq] (6,1.11) circle (1.5pt);
+\draw[color=uququq] (6.41,1.29) node {$1.11$};
+\fill [color=uququq] (7,1.03) circle (1.5pt);
+\draw[color=uququq] (7.4,1.19) node {$1.03$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\caption{Sequence as a Subset of a Function}
+\label{SequenceSubsetOfFunction}
+\end{figure}
+
+\begin{corollary}
+  If $\langle a_n\rangle_{n=N'}^\infty$ converges (diverges) for some choice of
+  initial $N'$, then $\langle a_n\rangle_{n=N}^\infty$ converges (diverges) for
+  any choice of $N$ where $a_n$ is defined for all $n\geq N$.
+\end{corollary}
+
+\begin{properties}
+If $\left(a_n\right)$ and $\left(b_n\right)$ are convergent sequences and $c \in \mathbb{R}$, then the following properties hold:
+\begin{multicols}{2}
+\begin{itemize}
+ \item $\ds \lim_{n \rightarrow \infty} \left( a_n \pm b_n \right) = \lim_{n \rightarrow \infty} a_n \pm \lim_{n \rightarrow \infty} b_n$
+ \item $\ds \lim_{n \rightarrow \infty} ca_n = c\lim_{n \rightarrow \infty} a_n$
+ \item $\ds \lim_{n \rightarrow \infty} a_n b_n = \lim_{n \rightarrow \infty} a_n \cdot \lim_{n \rightarrow \infty}b_n$
+ \item $\ds \lim_{n \rightarrow \infty}\frac{a_n}{b_n} = \frac{\lim_{n \rightarrow \infty} a_n}{\lim_{n \rightarrow \infty} b_n}$ as long as $\ds \lim_{n \rightarrow \infty} b_n \neq 0$
+ \item $\ds \lim_{n \rightarrow \infty} a_n^p = \left(\lim_{n \rightarrow \infty} a_n\right)^p$ for $p > 0$ and $a_n > 0$.
+\end{itemize}
+\end{multicols}
+\end{properties}
+
+\begin{theorem}[Squeeze Theorem\index{Squeeze Theorem}\index{Sandwich Theorem}]
+ If $a_n \leq b_n \leq c_n$ for all $n \geq n_0$ and $\ds \lim_{n \rightarrow \infty} a_n = \lim_{n \rightarrow \infty} c_n = L$, then $\ds \lim_{n \rightarrow \infty} b_n = L.$
+\end{theorem}
+
+\begin{figure}[H]
+ \centering
+
+  \definecolor{qqqqff}{rgb}{0.33,0.33,0.33}
+  \definecolor{ffxfqq}{rgb}{0.5,0.5,0.5}
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.5in,y=1.7in]
+  \draw[->,color=black] (4.22,0) -- (5,0);
+  \foreach \x in {4.2,4.3,4.4,4.5,4.6,4.7,4.8,4.9,5}
+  \draw[shift={(\x,0)},color=black] (0pt,-2pt);
+  \clip(4.22,-0.37) rectangle (5,0.47);
+  \draw[line width=2pt,dotted,color=ffxfqq, smooth,samples=100,domain=4.223727675937699:5.004131749305106]
+  plot(\x,{((\x)-5)^2});
+  \draw[line width=2pt,dotted,color=qqqqff, smooth,samples=100,domain=4.223727675937699:5.004131749305106]
+  plot(\x,{0-((\x)-5)^2});
+  \draw[line width=2pt,dotted,color=qqqqff, smooth,samples=100,domain=0:2*pi]
+  plot(\x,{(((\x)-5)^2)*cos((1/((\x)-5))*180/pi)});
+  \draw [color=ffxfqq](4.36,0.32) node[anchor=north west] {$(c_n)$};
+  \draw [color=qqqqff](4.34,-0.18) node[anchor=north west] {$(a_n)$};
+  \draw (4.3,-0.37) -- (4.3,0.47);
+  \draw [color=qqqqff](4.36,0.09) node[anchor=north west] {$(b_n)$};
+  \end{tikzpicture}
+
+ \caption{Squeeze Theorem}
+ \label{SqueezeTheoremFigure}
+\end{figure}
+
+
+\begin{corollary}
+ If $\ds \lim_{n \rightarrow \infty} \left|a_n\right| = 0$, then $\ds \lim_{n \rightarrow \infty} a_n = 0.$
+\end{corollary}
+
+\begin{problem}
+ Determine whether the sequence $\ds \left(\frac{n}{n+1}\right)$ is convergent or divergent.  If it is convergent, what does it converge to?
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Determine whether the sequence $\ds \left( \frac{n}{\sqrt{10+n}} \right)$ is convergent or divergent.  If it is convergent, what does it converge to?
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Determine whether the sequence $\ds \left( \left(-1\right)^n \right)$ is convergent or divergent.  If it is convergent, what does it converge to?
+\end{problem}
+
+
+\vfill
+
+\begin{problem}
+ Determine whether the sequence $\ds \left( \frac{\ln\left(n\right)}{n} \right)$ is convergent or divergent.  If it is convergent, what does it converge to?
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+ Determine whether the sequence $\ds \left( \frac{\left(-1\right)^n}{n} \right)$ is convergent or divergent.  If it is convergent, what does it converge to?
+\end{problem}
+
+\vfill
+
+\begin{theorem}
+ If $\ds \lim_{n \rightarrow \infty} a_n = L$ and $f$ is continuous at $L$, then $\ds \lim_{n \rightarrow \infty} f\left(a_n\right) = f\left(L\right).$
+\end{theorem}
+
+\begin{problem}
+ Find $\ds \lim_{n \rightarrow \infty} \sin\left(\pi n\right)$
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+ Show that $\ds \lim_{n \rightarrow \infty} \frac{n!}{n^n} = 0$.  \emph{Hint} show that $\ds 0 \leq \frac{n!}{n^n} \leq \frac{1}{n}$
+\end{problem}
+
+\vfill
+
+\begin{theorem}[Preliminary for Geometric Series\index{Geometric Series}]
+ The sequence $\left(r^n\right)$ is convergent if $-1 \leq r \leq 1$ and divergent otherwise.
+\end{theorem}
+
+\begin{definition}[Monotone\index{Monotone Sequence}\index{Non-Increasing Sequence}\index{Non-Decreasing Sequence}\index{Decreasing Sequence}\index{Increasing Sequence}]
+ A sequence $\left(a_n\right)$ is called \textbf{non-decreasing} if $a_n \leq a_{n+1}$ for all $n \geq 1$.  Similarly, a sequence $\left(a_n\right)$ is called \textbf{non-increasing} if $a_n \geq a_{n+1}$ for all $n \geq 1$.  A sequence is \textbf{monotonic} if it is either non-decreasing or non-increasing.
+\end{definition}
+
+\begin{problem}
+ Show that $\ds \left( \frac{3}{n+5} \right)$ is decreasing.
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+ Show that $\ds \left( \frac{n}{n^2+1} \right)$ is decreasing.
+\end{problem}
+
+\vfill
+
+\begin{definition}[Bounded\index{Bounded Sequence}]
+ A sequence $\left( a_n \right)$ is \textbf{bounded above} if there exists an $M \in \mathbb{R}$ such that $a_n \leq M$ for all $n \geq 1$.  A sequence $\left( a_n \right)$ is \textbf{bounded below} if there exists an $m \in \mathbb{R}$ such that $a_n \geq m$ for all $n \geq 1$.  If a sequence is bounded above or bounded below then the sequence is said to be \textbf{bounded}.
+\end{definition}
+
+
+\begin{theorem}
+ Every bounded monotonic sequence is convergent.
+\end{theorem}
+
+\vspace{3in}
+
+\noindent Suggested Problems: Section $11.1$ numbers $5,$ $9,$ $13 - 15,$ $23 - 29,$ $33,$ $35,$ $37,$ $41,$ $42,$ $44,$ $49,$ $50,$ $53,$ $56$
+
+% \newpage
+
+% \section{Series}
+
+% \begin{observation}
+%  What do we mean when we write $\pi = 3.1415926535\ldots$?  It is a convenient way to write the following:
+%  $$\pi = \frac{3}{10^0} + \frac{1}{10^1} + \frac{4}{10^2} + \frac{1}{10^3} + \frac{5}{10^4} + \frac{9}{10^5} + \frac{2}{10^6} + \frac{6}{10^7} + \frac{5}{10^8} + \frac{3}{10^9} + \frac{5}{10^{10}} + \cdots.$$
+% \end{observation}
+
+% \begin{definition}[Series\index{Series}]
+%  Adding up the terms in an infinite sequence is a \textbf{series}.  That is to say, given a sequence $\left(a_n\right)$, the series would be denoted as $$\sum_{i = 1}^{\infty} a_i.$$
+% \end{definition}
+
+% \begin{definition}[Partial Sum\index{Partial Sum}]
+%  Let $\left( a_n \right)$ be a sequence.  The \textbf{partial sums} are
+%  $$\begin{array}{rclcl}
+%     s_1 &=& a_1 \\
+%     s_2 &=& a_1 + a_2 \\
+%     s_3 &=& a_1 + a_2 + a_3 \\
+%     \vdots \\
+%     s_m &=& a_1 + a_2 + a_3 &=& \ds \sum_{i = 1}^{m} a_i.
+%    \end{array}$$
+% \end{definition}
+
+% \begin{definition}[Series Convergence \& Sum\index{Series Convergence}\index{Series Divergence}\index{Series Sum}]
+%  Given a series $\sum_{i = 1}^{\infty} a_i$, let $s_n$ be the $n^{\rm th}$ partial sum.  If the sequence $\left( s_n \right)$ converges (that is $\lim_{n \rightarrow \infty} s_n = s$), then the series $\sum_{i = 1}^{\infty} a_n$ is said to \textbf{converge} and we write $$\sum_{i = 1}^{\infty} a_n = s.$$  The number $s$ is called the \textbf{sum} of the series.  Moreover, if $\left( s_n \right)$ diverges, then the series is also said to be \textbf{divergent}.
+% \end{definition}
+
+% \newpage
+
+% \begin{problem}
+%  Determine whether or not the series whose first $n$ terms sum to $\ds s_n = a_1 + a_2 + \cdots + a_n = \frac{2n}{3n+5}$ converges or diverges. \\ \emph{Note} This does not mean that our series is $\ds \sum_{n = 1}^{\infty} \frac{2n}{3n+5}$.  To find the sequence, one would have to find $a_1, a_2, a_3, \ldots$ and find the pattern, which is a very difficult problem in general.
+% \end{problem}
+
+% \vfill
+
+% % \newpage
+
+% \begin{theorem}[Geometric Series\index{Geometric Series}]
+%  The \textbf{geometric series} $$\sum_{n = 1}^{\infty} ar^{n-1} = a + ar + ar^2 + \cdots$$ is convergent if $\left|r\right| < 1$ and its sum is $$\sum_{n = 1}^{\infty} ar^{n-1} = \frac{a}{1-r}.$$  The geometric series is divergent if $\left|r\right| \geq 1$.
+% \end{theorem}
+
+
+% \begin{problem}
+%  Show that the geometric series converges when $\left|r\right| < 1$ and diverges otherwise.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{problem}
+%  Find the sum of the series $\ds 5 - \frac{10}{3} + \frac{20}{9} - \frac{40}{27} + \cdots$
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Is $\ds \sum_{n = 1}^{\infty} 2^{2n}3^{1-n}$ convergent or divergent?
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find the sum of the series $\ds \sum_{n = 0}^{\infty} x^n$ for $\left|x\right| < 1$.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Show that $\ds \sum_{n = 1}^{\infty} \frac{1}{n\left(n+1\right)}$ converges and find its sum.  \emph{Hint} Look at the partial sums.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Harmonic Series\index{Harmonic Series}]
+%  The \textbf{harmonic series} $$\sum_{n = 1}^{\infty} \frac{1}{n}$$ is divergent.
+% \end{theorem}
+
+% \begin{problem}
+%  Show that the harmonic series diverges.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Divergence Test\index{Divergence Test}]
+%  If $\lim_{n \rightarrow \infty} a_n \neq 0,$ then $\sum_{n = 1}^{\infty} a_n$ is divergent.
+% \end{theorem}
+
+% \begin{problem}
+%  Write the contrapositive of the Divergence Test.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Show that $\ds \sum_{n = 1}^{\infty} \frac{n^2}{5n^2 + 4}$ diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find the sum of $\ds \sum_{n = 1}^{\infty} \left( \frac{3}{n\left(n+1\right)} + \frac{1}{2^n} \right)$
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.2$ numbers $3,$ $15,$ $17,$ $18,$ $21,$ $27,$ $29,$ $30,$ $31,$ $33,$ $38,$ $45$
+
+% \newpage
+
+% \section{The Integral Test}
+
+% \begin{observation}
+%  Let the sequence $\left(a_n\right)$ is defined to be integer points on a positive, continuous, non-increasing function $f$ (that is points are labeled as $(n, a_n) = (n, f(n))$ where $n \in \mathbb{N}$).  Then if we were to examine the area under the curve with the same technique as we did with Riemann Sums, we would see that the width of each rectangle would be $1$, and the height would be $f(n)$ for each point $n$.  Moreover, the area of each rectangle is $f(n)$ and the summation of that sequence as a series would be the summation of all of those rectangles.  This {\sc Does Not}, however, give us the true summation of the sequence, since we are not allowing these rectangles to be infinitely close together within each integer point.  The best we can say is that the series converges if and only if the integral converges.
+% \end{observation}
+
+% \begin{figure}[H]
+%  \centering
+
+%   \definecolor{yqqqqq}{rgb}{0.16,0.16,0.16}
+%   \definecolor{zzttqq}{rgb}{0.27,0.27,0.27}
+%   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%   \draw[->,color=black] (-0.43,0) -- (7.81,0);
+%   \foreach \x in {,1,2,3,4,5,6,7}
+%   \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+%   \draw[->,color=black] (0,-0.97) -- (0,1.98);
+%   \foreach \y in {,1}
+%   \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+%   \draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+%   \clip(-0.43,-0.97) rectangle (7.81,1.98);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (0,0) rectangle (1,1);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (1,0) rectangle (2,0.25);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (2,0) rectangle (3,0.11);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (3,0) rectangle (4,0.06);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (4,0) rectangle (5,0.04);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (5,0) rectangle (6,0.03);
+%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (6,0) rectangle (7,0.02);
+%   \draw[line width=1.3pt, smooth,samples=100,domain=0.4264097600445289:7.811322048806551]
+%   plot(\x,{1/((\x)^2)});
+%   \draw (0.92,1.8) node[anchor=north west] {$\mathit{ f(x) = \frac{1}{x^2} }$};
+%   \draw [color=yqqqqq](0.2,0.82) node[anchor=north west] {$\frac{1}{1^2}$};
+%   \draw [color=yqqqqq](1.2,0.06) node[anchor=north west] {$\frac{1}{2^2}$};
+%   \draw [color=yqqqqq](2.2,0.04) node[anchor=north west] {$\frac{1}{3^2}$};
+%   \draw [color=yqqqqq](3.2,0.07) node[anchor=north west] {$\frac{1}{4^2}$};
+%   \draw [color=yqqqqq](4.2,0.07) node[anchor=north west] {$\frac{1}{5^2}$};
+%   \draw [color=yqqqqq](5.2,0.07) node[anchor=north west] {$\frac{1}{6^2}$};
+%   \draw [color=yqqqqq](6.2,0.07) node[anchor=north west] {$\frac{1}{7^2}$};
+%   \end{tikzpicture}
+
+%   \caption{Integral Test}
+%   \label{IntegralTestFigure}
+% \end{figure}
+
+
+% \begin{theorem}\index{Integral Test}
+%  Suppose that $f$ is a continuous, positive, non-increasing function on $[1, \infty)$ such that $a_n = f(n)$.  Then the series $\sum_{n=1}^{\infty} a_n$ is convergent if and only if $\int_1^\infty f(x) \, dx = \lim_{t \rightarrow \infty} \int_1^t f(x) \, dx = L$ is convergent (that is the limit exists and $L \in \mathbb{R}$ and $L \neq \pm \infty$).
+% \end{theorem}
+
+% \begin{problem}
+%  Does $\ds \sum_{n=1}^{\infty} \frac{1}{n^2+1}$ converge or diverge?
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[$p$-Series\index{$p$-Series}]
+%  The \textbf{$p$-Series} $\sum_{n=1}^{\infty} \frac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$.
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether or not the following is convergent or divergent:
+%  \begin{itemize}
+%   \item $\ds \sum_{n=1}^{\infty} \frac{1}{n^3}$
+%   \item $\ds \sum_{n=1}^{\infty} \frac{1}{n^{1/3}}.$
+%  \end{itemize}
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{\ln\left(n\right)}{n}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.3$ numbers $3,$ $4,$ $5,$ $11,$ $12,$ $13,$ $15,$ $25$
+
+% \newpage
+
+% \section{The Comparison Test}
+
+% \begin{theorem}[Direct Comparison Test\index{Direct Comparison Test}]
+%  Suppose that $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are series with positive terms.
+%  \begin{itemize}
+%   \item If $\sum_{n=1}^{\infty} b_n$ is convergent and $a_n \leq b_n$ for all $n \in \mathbb{N}$, then $\sum_{n=1}^{\infty} a_n$ is also convergent.
+%   \item If $\sum_{n=1}^{\infty} b_n$ is divergent and $a_n \geq b_n$ for all $n \in \mathbb{N}$, then $\sum_{n=1}^{\infty} a_n$ is also divergent.
+%  \end{itemize}
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{5}{2n^2+4n+3}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Limit Comparison Test\index{Limit Comparison Test}]
+%  Suppose that $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are series with positive terms and $c \in \mathbb{R}$.  If $$\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = c > 0,$$ then either both series converge or both series diverge.
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n = 1}^{\infty} \frac{1}{2^n-1}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{2n^2+3n}{\sqrt{5+n^5}}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.4$ numbers $3,$ $4,$ $5,$ $7,$ $14,$ $15,$ $17,$ $21,$ $23,$ $29,$ $30$
+
+% \newpage
+
+% \section{Alternating Series}
+
+% \begin{theorem}[Alternating Series Test\index{Alternating Series Test}]
+%  If the alternating series $\sum_{n=1}^{\infty} \left(-1\right)^{n-1} b_n$ where each term in the sequence $\left(b_n\right)$ is positive satisfies
+%  \begin{itemize}
+%   \item $\left(b_n\right)$ is non-increasing
+%   \item $\ds \lim_{n \rightarrow \infty} b_n = 0$
+%  \end{itemize}
+%  then the series $\sum_{n=1}^{\infty} \left(-1\right)^{n-1} b_n$ converges.
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether the \textbf{alternating harmonic series}\index{Alternating Harmonic Series} $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n}3n}{4n-1}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether $\ds\sum_{n=1}^{\infty} \left(-1\right)^{n+1} \frac{n^2}{n^3+1}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.5$ numbers $2 - 6,$ $8,$ $9,$ $11,$ $13,$ $17,$ $19$
+
+% \newpage
+
+% \section{Absolute Convergence, Ratio, \& Root Test}
+
+% \begin{definition}[Absolutely Convergent\index{Absolutely Convergent}]
+%  A series $\sum a_n$ is called \textbf{absolutely convergent} if the series $\sum \left|a_n\right|$ is convergent.
+% \end{definition}
+
+% \begin{definition}[Conditionally Convergent\index{Conditionally Convergent}]
+%  A series is called \textbf{conditionally convergent} if it is convergent but {\sc not} absolutely convergent.
+% \end{definition}
+
+% \begin{theorem}[Absolute $\Rightarrow$ Conditional]
+%  If a series $\sum a_n$ is absolutely convergent, then it is also conditionally convergent.
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n^2}$ is absolutely convergent.  Is it conditionally convergent?
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n}$ is absolutely convergent.  Is it conditionally convergent?
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\cos\left(n\right)}{n^2}$ is absolutely convergent.  Is it conditionally convergent?
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Ratio Test\index{Ratio Test}]
+%  Let $\sum_{n=1}^{\infty} a_n$ be a series.  Then
+%  \begin{itemize}
+%   \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = L < 1,$ then the series $\sum_{n = 1}^{\infty} a_n$ is absolutely (and therefore conditionally) convergent.
+%   \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = L > 1$ or $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = \infty$ then the series $\sum_{n = 1}^{\infty} a_n$ is divergent.
+%   \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = 1,$ then no conclusion can be drawn from this test.
+%  \end{itemize}
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \left(-1\right)^{n} \frac{n^3}{3^n}$ is convergent or divergent. Is it absolutely convergent?
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{n^n}{n!}$ is convergent or divergent. Is it absolutely convergent?
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Root Test\index{Root Test}]
+%  Let $\sum_{n=1}^{\infty} a_n$ be a series.  Then
+%  \begin{itemize}
+%   \item If $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = L < 1,$ then $\sum_{n=1}^{\infty} a_n$ is absolutely (and therefore conditionally) convergent.
+%   \item if $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = L > 1$ or $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = \infty$ then the series $\sum_{n = 1}^{\infty} a_n$ is divergent.
+%   \item $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = 1,$ then no conclusion can be drawn from this test.
+%  \end{itemize}
+% \end{theorem}
+
+% \begin{problem}
+%  Determine whether $\ds \sum_{n=1}^{\infty} \left( \frac{2n+3}{3n+2} \right)^n$ is convergent or divergent. Is it absolutely convergent?
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.6$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11 - 13,$ $16,$ $17,$ $19,$ $21,$ $23,$ $27,$ $28$
+
+% \newpage
+
+% \section{Strategies for Testing Series}
+
+% The only thing I really have to say here is that practice makes better.  If you do enough problems, eventually you will get an intuition for what will work in what situation.  Nevertheless, here is a list of tests that could come in handy.
+
+% \
+
+% {\scriptsize \centering \index{List Of Series Tests}\begin{tabular}{|c|c|c|}
+% \hline
+% {\bf Test} & {\bf When to Use} & {\bf Conclusion} \\
+% \hline
+
+% \multirow{2}{*}{{\bf Geometric Series}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} ar^k$} & Converges to $\frac{a}{1-r}$ if $|r| < 1$; \\ & &diverges if $|r| \geq 1$. \\
+% \hline
+
+% {\bf $k^{\rm{th}}$ Term Test} & All Series & If $\lim_{k \rightarrow \infty} a_k \neq 0$, the series diverges. \\
+% \hline
+
+% \multirow{2}{*}{{\bf Integral Test}} & $\sum_{k=1}^{\infty} a_k$ where $f(k) = a_k$ and & $\sum_{k = 1}^{\infty} a_k$ and $\int_1^\infty f(x) \, dx$ \\
+% &$f$ is continuous, decreasing, and $f(x) \geq 0$ & {\bf both} converge or {\bf both} diverge.\\
+% \hline
+
+% {\bf $p$-series} & $\sum_{k=1}^{\infty} \frac{1}{k^p}$ & Converges for $p > 1$, diverges for $p \leq 1$.\\
+% \hline
+
+% \multirow{2}{*}{{\bf Comparison Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where $0 \leq a_k \leq b_k$} & If $\sum_{k=1}^{\infty} b_k$ converges, then $\sum_{k=1}^{\infty} a_k$ converges. \\ & & If $\sum_{k=1}^{\infty} a_k$ diverges, then $\sum_{k=1}^{\infty} b_k$ diverges.\\
+% \hline
+
+% \multirow{2}{*}{{\bf Limit Comparison Test}} & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$ \\ & $a_k, b_k > 0$ and $\lim_{k\rightarrow \infty} \frac{a_k}{b_k} = L > 0$ & {\bf both} converge or {\bf both} diverge. \\
+% \hline
+
+% \multirow{2}{*}{{\bf Alternating Series Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} \left(-1\right)^{k+1} a_k$ where $a_k > 0$ for all $k$} & If $\lim_{k \rightarrow \infty} a_k = 0$ and $a_{k+1} \leq a_k$ for all $k$, \\ & & then the series converges. \\
+% \hline
+
+% \multirow{2}{*}{{\bf Absolute Convergence}} & Series with some positive and some & If $\sum_{k=1}^{\infty} |a_k|$ converges, then\\
+%  & negative terms (including alternating series) & $\sum_{k=1}^{\infty} a_k$ converges (absolutely).\\
+%  \hline
+
+% \multirow{4}{*}{{\bf Ratio Test}} & & For $\lim_{k \rightarrow \infty} \left|\frac{a_{k+1}}{a_k}\right| = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials and/or factorials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
+% \hline
+
+% \multirow{4}{*}{{\bf Root Test}} & & For $\lim_{k \rightarrow \infty} \sqrt[k]{|a_k|} = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
+% \hline
+% \end{tabular} }
+
+% \begin{problem}
+%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{n-1}{2n+1}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{problem}
+%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{\sqrt{n^3+1}}{3n^3+4n^2+2}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether the series $\ds \sum_{n = 1}^{\infty} ne^{-n^2}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \left(-1\right)^n \frac{n^3}{n^4+1}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{problem}
+%  Determine whether the series $\ds \sum_{k = 1}^{\infty} \frac{2^k}{k!}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{1}{2+3^n}$ converges or diverges.
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.7$ numbers $1,$ $2,$ $5 - 9,$ $11,$ $13,$ $14,$ $15 - 18,$ $23,$ $25 - 34,$ $37$
+
+% \newpage
+
+% \section{Power Series}
+
+% \begin{definition}[Power Series\index{Power Series}]
+%  A \textbf{power series} is a series of the form $$\sum_{n=0}^{\infty} c_nx^n = c_0x^0+c_1x^1+x_2x^2 + \cdots$$ where $c_i$ represent coefficients and $x$ denotes our variable.
+% \end{definition}
+
+% \begin{definition}[Power Series Centered at $a$\index{Power Series Centered at $a$}]
+%  A \textbf{power series centered at $a$} is a series of the form $$\sum_{n=1}^{\infty} c_n\left(x-a\right)^n.$$
+% \end{definition}
+
+% \begin{note}
+%  When $x=a$, all of the terms are $0$; so, naturally the power series centered at $a$ always converges when $x=a$.
+% \end{note}
+
+% \begin{problem}
+%  For what values of $x$ is the series $\ds \sum_{n=0}^{\infty} n! x^n$ convergent?
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  For what values of $x$ is the series $\ds \sum_{n=1}^{\infty} \frac{\left(x-3\right)^n}{n}$ converge?
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Radius of Convergence\index{Radius of Convergence}]
+%  For a given power series $\sum_{n=1}^{\infty} c_n\left(x-a\right)^n$, there are only three possibilities:
+%  \begin{itemize}
+%   \item The series converges only when $x=a$,
+%   \item The series converges for all $x \in \mathbb{R}$, and
+%   \item There is a positive real number $R$ such that the series converges if $\left|x-a\right| < R$ and divergent otherwise.
+%  \end{itemize}
+%  This number $R$ is called the \textbf{radius of convergence}.
+% \end{theorem}
+
+% \begin{problem}
+%  Find the radius of convergence for the series $\ds \sum_{n=0}^{\infty} \frac{\left(-3\right)^n x^n}{\sqrt{n+2}}.$
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find the radius of convergence for the series $\ds \sum_{n=0}^{\infty} \frac{n\left(x+2\right)^n}{3^{n+1}}$
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.8$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11,$ $13,$ $16,$ $18,$ $19$
+
+% \newpage
+
+% \section{Representation of Functions as Power Series}
+
+% \begin{recall}
+%  There is only one series whose sum we actually know -- the geometric series.  Let's recall what that says.  Recall, $$\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}$$ whenever $\left|x\right| < 1$.
+% \end{recall}
+
+% \begin{problem}
+%  Express $\ds \frac{1}{1+x^2}$ as a power series and find its radius of convergence.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find a power series representation for $\ds \frac{1}{x+2}$ and find its radius of convergence
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find a power series representation of $\ds \frac{x^3}{x+2}$ and find its radius of convergence.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{theorem}[Integration and Differentiation\index{Integration and Differentiation}]
+%  If the power series $\sum_{n=0}^{\infty} c_n\left(x-a\right)^n$ has a radius of convergence $R > 0$, then the function $f$ defined by $$f(x) = c_0 + c_1\left(x-a\right) + c_2\left(x-a\right)^2 + \cdots = \sum_{n=0}^{\infty} c_n\left(x-a\right)^n$$ is differentiable on the interval $\left(a-R, a+R\right)$ and
+%  \begin{itemize}
+%   \item $\ds f^\prime(x) = \sum_{n=\ast}^{\infty} nc_n\left(x-a\right)^{n-1}$
+%   \item $\ds \int f(x) \, dx = k + \sum_{n=0}^{\infty} c_n \frac{\left(x-a\right)^{n+1}}{n+1}$
+%  \end{itemize}
+%  where $\ast$ represents the index of the first non-constant term of the series and $k \in \mathbb{R}$ is a constant.  In both cases, the radius of convergence is $R$.
+% \end{theorem}
+
+% \begin{problem}
+%  Express $\ds \frac{1}{\left(1-x\right)^2}$ as a power series.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{problem}
+%  Find a power series representation for $\ln\left(1+x\right)$.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find a power series representation for $f(x) = \arctan\left(x\right)$
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.9$ numbers $6,$ $7,$ $9,$ $10,$ $12,$ $17,$ $27,$ $39$
+
+% \newpage
+
+% \section{Taylor and Maclaurin Series}
+
+% \begin{goal}
+%  To represent as many functions as we can as a power series.
+% \end{goal}
+
+% \begin{theorem}[Taylor Series\index{Taylor Series}]
+%  If $f$ has a power series representation at $a$ (that is $f(x) = \sum_{n=0}^{\infty} c_n \left(x-a\right)^n$ for $\left|x-a\right| <R$) then its coefficients are of the form $$c_n = \frac{f^{\left(n\right)}\left(a\right)}{n!}.$$  That is to say that if $f$ has a power series representation then it can be written in the form $$f(x) = \sum_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(a\right)}{n!} \left(x-a\right)^n$$ and has radius of convergence $R$.
+% \end{theorem}
+
+% \begin{definition}[Maclaurin Series\index{Maclaurin Series}]
+%  A Taylor Series centered at $a=0$ is called a \textbf{Maclaurin Series}.  That is to say that a Maclaurin Series can be written as $$f(x) = \sum_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(0\right)}{n!}x^n.$$
+% \end{definition}
+
+% \begin{problem}
+%  Find the Maclaurin Series of $f(x) = e^x$ and find its radius of convergence.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{problem}
+%  Find the Maclaurin Series for $\sin\left(x\right)$.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Find the Maclaurin Series for $\cos\left(x\right)$.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{problem}
+%  Find the Maclaurin Series for $f(x) = x \cos\left(x\right)$.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}
+%  Represent $\sin\left(x\right)$ as a Taylor Series centered at $\ds \frac{\pi}{3}$.
+% \end{problem}
+
+% \vfill
+
+% \begin{problem}[The Binomial Series\index{The Binomial Series}]
+%  Find the Maclaurin Series for $f(x) = \left(1+x\right)^k$ for all $k \in \mathbb{R}$
+% \end{problem}
+
+% \vfill
+
+% \noindent Suggested Problems: Section $11.10$ numbers $3,$ $4,$ $6 - 8,$ $15,$ $16,$ $27,$ $28,$ $30,$ $32,$ $36$
+\end{document}
