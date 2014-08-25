@@ -469,118 +469,160 @@ If $\left(a_n\right)$ and $\left(b_n\right)$ are convergent sequences and $c \in
 
 \noindent Suggested Problems: Section $11.1$ numbers $5,$ $9,$ $13 - 15,$ $23 - 29,$ $33,$ $35,$ $37,$ $41,$ $42,$ $44,$ $49,$ $50,$ $53,$ $56$
 
-% \newpage
+\newpage
 
-% \section{Series}
+\section{Series}
 
-% \begin{observation}
-%  What do we mean when we write $\pi = 3.1415926535\ldots$?  It is a convenient way to write the following:
-%  $$\pi = \frac{3}{10^0} + \frac{1}{10^1} + \frac{4}{10^2} + \frac{1}{10^3} + \frac{5}{10^4} + \frac{9}{10^5} + \frac{2}{10^6} + \frac{6}{10^7} + \frac{5}{10^8} + \frac{3}{10^9} + \frac{5}{10^{10}} + \cdots.$$
-% \end{observation}
+\begin{observation}
+ What do we mean when we write $\pi = 3.1415926535\ldots$?  It is a convenient way to write the following:
+ $$\pi = \frac{3}{10^0} + \frac{1}{10^1} + \frac{4}{10^2} + \frac{1}{10^3} + \frac{5}{10^4} + \frac{9}{10^5} + \frac{2}{10^6} + \frac{6}{10^7} + \frac{5}{10^8} + \frac{3}{10^9} + \frac{5}{10^{10}} + \cdots.$$
+\end{observation}
 
-% \begin{definition}[Series\index{Series}]
-%  Adding up the terms in an infinite sequence is a \textbf{series}.  That is to say, given a sequence $\left(a_n\right)$, the series would be denoted as $$\sum_{i = 1}^{\infty} a_i.$$
-% \end{definition}
+\begin{definition}[Series\index{Series}]
+ Adding up the terms in an infinite sequence is a \textbf{series}.  That is to say, given a sequence $\left(a_n\right)_{n=1}^\infty$, the series would be denoted as
+  \[
+    \sum_{i = 1}^{\infty} a_i
+    = a_1 + a_2 + a_3 + \dots
+  \]
+\end{definition}
 
-% \begin{definition}[Partial Sum\index{Partial Sum}]
-%  Let $\left( a_n \right)$ be a sequence.  The \textbf{partial sums} are
-%  $$\begin{array}{rclcl}
-%     s_1 &=& a_1 \\
-%     s_2 &=& a_1 + a_2 \\
-%     s_3 &=& a_1 + a_2 + a_3 \\
-%     \vdots \\
-%     s_m &=& a_1 + a_2 + a_3 &=& \ds \sum_{i = 1}^{m} a_i.
-%    \end{array}$$
-% \end{definition}
+\begin{definition}[Partial Sum\index{Partial Sum}]
+  Let $\left( a_n \right)$ be a sequence.  The \textbf{partial sums} of the
+  sequence are
+  $$\begin{array}{rclcl}
+    s_1 &=& a_1 \\
+    s_2 &=& a_1 + a_2 \\
+    s_3 &=& a_1 + a_2 + a_3 \\
+    \vdots \\
+    s_n &=& a_1 + a_2 + a_3 + \dots + a_n &=& \ds \sum_{i = 1}^{n} a_i.
+   \end{array}$$
+\end{definition}
 
-% \begin{definition}[Series Convergence \& Sum\index{Series Convergence}\index{Series Divergence}\index{Series Sum}]
-%  Given a series $\sum_{i = 1}^{\infty} a_i$, let $s_n$ be the $n^{\rm th}$ partial sum.  If the sequence $\left( s_n \right)$ converges (that is $\lim_{n \rightarrow \infty} s_n = s$), then the series $\sum_{i = 1}^{\infty} a_n$ is said to \textbf{converge} and we write $$\sum_{i = 1}^{\infty} a_n = s.$$  The number $s$ is called the \textbf{sum} of the series.  Moreover, if $\left( s_n \right)$ diverges, then the series is also said to be \textbf{divergent}.
-% \end{definition}
+\begin{definition}[Definition of Series\index{Definition of Series}\index{Series Sum}]
+  If $s_n=\sum_{i=1}^n a_i$ is the $n^{\rm th}$ partial sum of the sequence
+  $(a_i)_{i=1}^\infty$, then the \textbf{value} or \textbf{sum} of the series
+  $\sum_{i=1}^\infty a_i$ is defined to be the limit of its sequence of
+  partial sums:
+    \[
+      \sum_{i=1}^\infty a_i = \lim_{n\to\infty}\sum_{i=1}^n a_i
+      = \lim_{n\to\infty} s_n
+    \]
+  whenever the limit exists.
+\end{definition}
 
-% \newpage
+\begin{definition}[Series Convergence \& Divergence\index{Series Convergence}\index{Series Divergence}]
+  The series $\sum_{i=1}^\infty a_i$ \textbf{converges} or \textbf{diverges}
+  based on whether its sequence of partial sums
+    \[
+      \lim_{n\to\infty}\sum_{i=1}^n a_i
+      = \lim_{n\to\infty} s_n
+    \]
+  converges or diverges.
+\end{definition}
 
-% \begin{problem}
-%  Determine whether or not the series whose first $n$ terms sum to $\ds s_n = a_1 + a_2 + \cdots + a_n = \frac{2n}{3n+5}$ converges or diverges. \\ \emph{Note} This does not mean that our series is $\ds \sum_{n = 1}^{\infty} \frac{2n}{3n+5}$.  To find the sequence, one would have to find $a_1, a_2, a_3, \ldots$ and find the pattern, which is a very difficult problem in general.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{problem}
+  Determine whether or not the series $\sum_{i=1}^\infty a_i$ converges or
+  diverges, given its $n^{\rm th}$ partial sum
+  $\ds s_n = a_1 + a_2 + \cdots + a_n = \frac{2n^2}{3n^2+5}$.
+\end{problem}
 
-% % \newpage
+\vfill
 
-% \begin{theorem}[Geometric Series\index{Geometric Series}]
-%  The \textbf{geometric series} $$\sum_{n = 1}^{\infty} ar^{n-1} = a + ar + ar^2 + \cdots$$ is convergent if $\left|r\right| < 1$ and its sum is $$\sum_{n = 1}^{\infty} ar^{n-1} = \frac{a}{1-r}.$$  The geometric series is divergent if $\left|r\right| \geq 1$.
-% \end{theorem}
-
-
-% \begin{problem}
-%  Show that the geometric series converges when $\left|r\right| < 1$ and diverges otherwise.
-% \end{problem}
-
-% \vfill
-
-% \newpage
-
-% \begin{problem}
-%  Find the sum of the series $\ds 5 - \frac{10}{3} + \frac{20}{9} - \frac{40}{27} + \cdots$
-% \end{problem}
-
-% \vfill
-
-% \begin{problem}
-%  Is $\ds \sum_{n = 1}^{\infty} 2^{2n}3^{1-n}$ convergent or divergent?
-% \end{problem}
-
-% \vfill
-
-% \begin{problem}
-%  Find the sum of the series $\ds \sum_{n = 0}^{\infty} x^n$ for $\left|x\right| < 1$.
-% \end{problem}
-
-% \vfill
-
-% \begin{problem}
-%  Show that $\ds \sum_{n = 1}^{\infty} \frac{1}{n\left(n+1\right)}$ converges and find its sum.  \emph{Hint} Look at the partial sums.
-% \end{problem}
-
-% \vfill
+\noindent\emph{Note} The above problem does not say anything about the series
+$\ds \sum_{n = 1}^{\infty} \frac{2n^2}{3n^2+5}$.
 
 % \newpage
 
-% \begin{theorem}[Harmonic Series\index{Harmonic Series}]
-%  The \textbf{harmonic series} $$\sum_{n = 1}^{\infty} \frac{1}{n}$$ is divergent.
-% \end{theorem}
+\begin{theorem}[Geometric Series\index{Geometric Series}]
+ The \textbf{geometric series} $$\sum_{n = 1}^{\infty} ar^{n-1} = a + ar + ar^2 + \cdots$$ is convergent if $\left|r\right| < 1$ and its sum is $$\sum_{n = 1}^{\infty} ar^{n-1} = \frac{a}{1-r}.$$  The geometric series is divergent if $\left|r\right| \geq 1$.
+\end{theorem}
 
-% \begin{problem}
-%  Show that the harmonic series diverges.
-% \end{problem}
 
-% \vfill
+\begin{problem}
+ Show that the geometric series converges when $\left|r\right| < 1$ and diverges otherwise.
+\end{problem}
 
-% \newpage
+\noindent\emph{Hint} Show that its $n^{\rm th}$ partial sum is
+$s_n = a\frac{1-r^n}{1-r}$.
 
-% \begin{theorem}[Divergence Test\index{Divergence Test}]
-%  If $\lim_{n \rightarrow \infty} a_n \neq 0,$ then $\sum_{n = 1}^{\infty} a_n$ is divergent.
-% \end{theorem}
+\vfill
 
-% \begin{problem}
-%  Write the contrapositive of the Divergence Test.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{problem}
+ Find the sum of the series $\ds 5 - \frac{10}{3} + \frac{20}{9} - \frac{40}{27} + \cdots$
+\end{problem}
 
-% \begin{problem}
-%  Show that $\ds \sum_{n = 1}^{\infty} \frac{n^2}{5n^2 + 4}$ diverges.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Is $\ds \sum_{n = 1}^{\infty} 2^{2n}3^{1-n}$ convergent or divergent?
+\end{problem}
 
-% \begin{problem}
-%  Find the sum of $\ds \sum_{n = 1}^{\infty} \left( \frac{3}{n\left(n+1\right)} + \frac{1}{2^n} \right)$
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+  Compute the sum of the series $\ds \sum_{n = 0}^{\infty} ar^n$ for
+  $\left|r\right| < 1$.
+\end{problem}
 
-% \noindent Suggested Problems: Section $11.2$ numbers $3,$ $15,$ $17,$ $18,$ $21,$ $27,$ $29,$ $30,$ $31,$ $33,$ $38,$ $45$
+\vfill
+
+\newpage
+
+\begin{theorem}[Harmonic Series\index{Harmonic Series}]
+ The \textbf{harmonic series} $$\sum_{n = 1}^{\infty} \frac{1}{n}$$ is divergent.
+\end{theorem}
+
+\begin{problem}
+ Show that the harmonic series diverges.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Show that $\ds \sum_{n = 1}^{\infty} \frac{1}{n\left(n+1\right)}$ converges
+ and find its sum.
+\end{problem}
+\noindent \emph{Hint} Show that
+$\frac{1}{n\left(n+1\right)}=\frac{1}{n}-\frac{1}{n+1}$.
+
+\vfill
+
+\newpage
+
+\begin{theorem}[Divergence Test\index{Divergence Test}]
+ If $\lim_{n \rightarrow \infty} a_n \neq 0,$ then $\sum_{n = 1}^{\infty} a_n$ is divergent.
+\end{theorem}
+
+\begin{problem}
+ Show that $\ds \sum_{n = 1}^{\infty} \frac{2n^2}{3n^2+5}$ diverges.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Write the contrapositive of the Divergence Test.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+Use the contrapositive of the Divergence Test to show that the sequence
+$\langle(0.6)^n\rangle$ converges.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+ Find the sum of $\ds \sum_{n = 1}^{\infty} \left( \frac{3}{n\left(n+1\right)} + \frac{1}{2^n} \right)$
+\end{problem}
+
+\vfill
+
+\noindent Suggested Problems: Section $11.2$ numbers $3,$ $15,$ $17,$ $18,$ $21,$ $27,$ $29,$ $30,$ $31,$ $33,$ $38,$ $45$
 
 % \newpage
 
