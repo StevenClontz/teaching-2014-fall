@@ -416,6 +416,7 @@ If $\left(a_n\right)$ and $\left(b_n\right)$ are convergent sequences and $c \in
 
 \vfill
 
+% FIXME - move this with rest of theorems
 \begin{theorem}
  If $\ds \lim_{n \rightarrow \infty} a_n = L$ and $f$ is continuous at $L$, then $\ds \lim_{n \rightarrow \infty} f\left(a_n\right) = f\left(L\right).$
 \end{theorem}
@@ -622,376 +623,439 @@ $\langle(0.6)^n\rangle$ converges.
 
 \vfill
 
+\begin{theorem}
+  If $\ds\sum_{i=1}^\infty a_i$ converges, then $\ds\sum_{i=1}^\infty ca_i$
+  converges for all real numbers $c$.
+  If $\ds\sum_{i=1}^\infty a_i$ diverges, then $\ds\sum_{i=1}^\infty ca_i$
+  diverges for all real numbers $c$.
+\end{theorem}
+
 \noindent Suggested Problems: Section $11.2$ numbers $3,$ $15,$ $17,$ $18,$ $21,$ $27,$ $29,$ $30,$ $31,$ $33,$ $38,$ $45$
 
-% \newpage
-
-% \section{The Integral Test}
-
-% \begin{observation}
-%  Let the sequence $\left(a_n\right)$ is defined to be integer points on a positive, continuous, non-increasing function $f$ (that is points are labeled as $(n, a_n) = (n, f(n))$ where $n \in \mathbb{N}$).  Then if we were to examine the area under the curve with the same technique as we did with Riemann Sums, we would see that the width of each rectangle would be $1$, and the height would be $f(n)$ for each point $n$.  Moreover, the area of each rectangle is $f(n)$ and the summation of that sequence as a series would be the summation of all of those rectangles.  This {\sc Does Not}, however, give us the true summation of the sequence, since we are not allowing these rectangles to be infinitely close together within each integer point.  The best we can say is that the series converges if and only if the integral converges.
-% \end{observation}
-
-% \begin{figure}[H]
-%  \centering
-
-%   \definecolor{yqqqqq}{rgb}{0.16,0.16,0.16}
-%   \definecolor{zzttqq}{rgb}{0.27,0.27,0.27}
-%   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%   \draw[->,color=black] (-0.43,0) -- (7.81,0);
-%   \foreach \x in {,1,2,3,4,5,6,7}
-%   \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
-%   \draw[->,color=black] (0,-0.97) -- (0,1.98);
-%   \foreach \y in {,1}
-%   \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
-%   \draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
-%   \clip(-0.43,-0.97) rectangle (7.81,1.98);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (0,0) rectangle (1,1);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (1,0) rectangle (2,0.25);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (2,0) rectangle (3,0.11);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (3,0) rectangle (4,0.06);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (4,0) rectangle (5,0.04);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (5,0) rectangle (6,0.03);
-%   \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (6,0) rectangle (7,0.02);
-%   \draw[line width=1.3pt, smooth,samples=100,domain=0.4264097600445289:7.811322048806551]
-%   plot(\x,{1/((\x)^2)});
-%   \draw (0.92,1.8) node[anchor=north west] {$\mathit{ f(x) = \frac{1}{x^2} }$};
-%   \draw [color=yqqqqq](0.2,0.82) node[anchor=north west] {$\frac{1}{1^2}$};
-%   \draw [color=yqqqqq](1.2,0.06) node[anchor=north west] {$\frac{1}{2^2}$};
-%   \draw [color=yqqqqq](2.2,0.04) node[anchor=north west] {$\frac{1}{3^2}$};
-%   \draw [color=yqqqqq](3.2,0.07) node[anchor=north west] {$\frac{1}{4^2}$};
-%   \draw [color=yqqqqq](4.2,0.07) node[anchor=north west] {$\frac{1}{5^2}$};
-%   \draw [color=yqqqqq](5.2,0.07) node[anchor=north west] {$\frac{1}{6^2}$};
-%   \draw [color=yqqqqq](6.2,0.07) node[anchor=north west] {$\frac{1}{7^2}$};
-%   \end{tikzpicture}
-
-%   \caption{Integral Test}
-%   \label{IntegralTestFigure}
-% \end{figure}
+\newpage
+
+\section{The Integral Test}
+
+\begin{figure}[H]
+ \centering
+
+  \definecolor{yqqqqq}{rgb}{0.16,0.16,0.16}
+  \definecolor{zzttqq}{rgb}{0.27,0.27,0.27}
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+  \draw[->,color=black] (-0.43,0) -- (7.81,0);
+  \foreach \x in {,1,2,3,4,5,6,7}
+  \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+  \draw[->,color=black] (0,-0.97) -- (0,1.98);
+  \foreach \y in {,1}
+  \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+  \draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+  \clip(-0.43,-0.97) rectangle (7.81,1.98);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (0,0) rectangle (1,1);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (1,0) rectangle (2,0.25);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (2,0) rectangle (3,0.11);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (3,0) rectangle (4,0.06);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (4,0) rectangle (5,0.04);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (5,0) rectangle (6,0.03);
+  \draw[line width=1.2pt,color=zzttqq,fill=zzttqq,fill opacity=0.1] (6,0) rectangle (7,0.02);
+  \draw[line width=1.3pt, smooth,samples=100,domain=0.4264097600445289:7.811322048806551]
+  plot(\x,{1/((\x)^2)});
+  \draw (0.92,1.8) node[anchor=north west] {$\mathit{ f(x) = \frac{1}{x^2} }$};
+  \draw [color=yqqqqq](0.2,0.82) node[anchor=north west] {$\frac{1}{1^2}$};
+  \draw [color=yqqqqq](1.2,0.06) node[anchor=north west] {$\frac{1}{2^2}$};
+  \draw [color=yqqqqq](2.2,0.04) node[anchor=north west] {$\frac{1}{3^2}$};
+  \draw [color=yqqqqq](3.2,0.07) node[anchor=north west] {$\frac{1}{4^2}$};
+  \draw [color=yqqqqq](4.2,0.07) node[anchor=north west] {$\frac{1}{5^2}$};
+  \draw [color=yqqqqq](5.2,0.07) node[anchor=north west] {$\frac{1}{6^2}$};
+  \draw [color=yqqqqq](6.2,0.07) node[anchor=north west] {$\frac{1}{7^2}$};
+  \end{tikzpicture}
+
+  \caption{Integral Test}
+  \label{IntegralTestFigure}
+\end{figure}
+
+
+\begin{theorem}\index{Integral Test}
+ Suppose that $f$ is a continuous, positive, non-increasing function on
+ $[1, \infty)$ such that $a_n = f(n)$.
+ If $\ds\lim_{t \rightarrow \infty} \int_1^t f(x) \, dx$ exists,
+ then $\ds\sum_{n=1}^{\infty} a_n$ converges.
+ Otherwise, $\ds\sum_{n=1}^{\infty} a_n$ diverges.
+\end{theorem}
+
+\begin{theorem}[$p$-Series\index{$p$-Series}]
+ The \textbf{$p$-Series} $\sum_{n=1}^{\infty} \frac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$.
+\end{theorem}
+
+\begin{problem}
+ Determine whether or not the following is convergent or divergent:
+ \begin{itemize}
+  \item $\ds \sum_{n=1}^{\infty} \frac{1}{n^3}$
+  \item $\ds \sum_{n=1}^{\infty} \frac{1}{n^{1/3}}.$
+  \item $\ds \sum_{n=1}^\infty n^{-{4/3}}$
+ \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{theorem}
+ $\ds \sum_{n=1}^{\infty} \frac{1}{n\ln\left(n\right)}$ diverges.
+\end{theorem}
+
+\noindent No Suggested Problems.
+
+\newpage
+
+\section{The Comparison Test}
+
+\begin{theorem}[Direct Comparison Test\index{Direct Comparison Test}]
+ Suppose that $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are series with positive terms.
+ \begin{itemize}
+  \item If $\sum_{n=1}^{\infty} b_n$ is convergent and $a_n \leq b_n$ for all $n \in \mathbb{N}$, then $\sum_{n=1}^{\infty} a_n$ is also convergent.
+  \item If $\sum_{n=1}^{\infty} b_n$ is divergent and $a_n \geq b_n$ for all $n \in \mathbb{N}$, then $\sum_{n=1}^{\infty} a_n$ is also divergent.
+ \end{itemize}
+\end{theorem}
+
+\begin{theorem}
+  If $0<q<1$ and $Q>1$, then the following inequalities hold for sufficiently
+  large $n$:
+  \[
+    \frac{1}{n^n}
+      <
+    \frac{1}{n!}
+      <
+    \frac{1}{Q^n}
+      <
+    \frac{1}{n^Q}
+      <
+    \frac{1}{n}
+      <
+    \frac{1}{n^q}
+      <
+    1
+      <
+    n^q
+      <
+    n
+      <
+    n^Q
+      <
+    Q^n
+      <
+    n!
+      <
+    n^n
+  \]
+\end{theorem}
 
-
-% \begin{theorem}\index{Integral Test}
-%  Suppose that $f$ is a continuous, positive, non-increasing function on $[1, \infty)$ such that $a_n = f(n)$.  Then the series $\sum_{n=1}^{\infty} a_n$ is convergent if and only if $\int_1^\infty f(x) \, dx = \lim_{t \rightarrow \infty} \int_1^t f(x) \, dx = L$ is convergent (that is the limit exists and $L \in \mathbb{R}$ and $L \neq \pm \infty$).
-% \end{theorem}
+\begin{problem}
+ Use the Direct Comparison Test to
+ determine whether $\ds \sum_{n=1}^{\infty} \frac{5}{2n^2+4n+3}$ converges or diverges.
+\end{problem}
 
-% \begin{problem}
-%  Does $\ds \sum_{n=1}^{\infty} \frac{1}{n^2+1}$ converge or diverge?
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Use the Direct Comparison Test to
+ determine whether $\ds \sum_{n=2}^{\infty} \frac{n^2+1}{n^3-3}$ converges or diverges.
+\end{problem}
 
-% \newpage
+\vfill
 
-% \begin{theorem}[$p$-Series\index{$p$-Series}]
-%  The \textbf{$p$-Series} $\sum_{n=1}^{\infty} \frac{1}{n^p}$ is convergent if $p > 1$ and divergent if $p \leq 1$.
-% \end{theorem}
+\newpage
 
-% \begin{problem}
-%  Determine whether or not the following is convergent or divergent:
-%  \begin{itemize}
-%   \item $\ds \sum_{n=1}^{\infty} \frac{1}{n^3}$
-%   \item $\ds \sum_{n=1}^{\infty} \frac{1}{n^{1/3}}.$
-%  \end{itemize}
-% \end{problem}
+\begin{theorem}[Limit Comparison Test\index{Limit Comparison Test}]
+ Suppose that $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are series with positive terms and $c \in \mathbb{R}$.  If $$\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = c > 0,$$ then either both series converge or both series diverge.
+\end{theorem}
 
-% \vfill
+\begin{problem}
+Use the Limit Comparison Test to
+determine whether $\ds \sum_{n = 1}^{\infty} \frac{1}{2^n-1}$
+converges or diverges.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{\ln\left(n\right)}{n}$ converges or diverges.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+Use the Limit Comparison Test to
+determine whether $\ds \sum_{n=0}^{\infty} \frac{2n^2+3n}{\sqrt{5+n^5}}$
+converges or diverges.
+\end{problem}
 
-% \noindent Suggested Problems: Section $11.3$ numbers $3,$ $4,$ $5,$ $11,$ $12,$ $13,$ $15,$ $25$
+\vfill
 
-% \newpage
+\noindent Suggested Problems: Section $11.4$ numbers $3,$ $4,$ $5,$ $7,$ $14,$ $15,$ $17,$ $21,$ $23,$ $29,$ $30$
 
-% \section{The Comparison Test}
+\newpage
 
-% \begin{theorem}[Direct Comparison Test\index{Direct Comparison Test}]
-%  Suppose that $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are series with positive terms.
-%  \begin{itemize}
-%   \item If $\sum_{n=1}^{\infty} b_n$ is convergent and $a_n \leq b_n$ for all $n \in \mathbb{N}$, then $\sum_{n=1}^{\infty} a_n$ is also convergent.
-%   \item If $\sum_{n=1}^{\infty} b_n$ is divergent and $a_n \geq b_n$ for all $n \in \mathbb{N}$, then $\sum_{n=1}^{\infty} a_n$ is also divergent.
-%  \end{itemize}
-% \end{theorem}
+\section{Alternating Series}
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{5}{2n^2+4n+3}$ converges or diverges.
-% \end{problem}
+\begin{theorem}[Alternating Series Test\index{Alternating Series Test}]
+ If the alternating series $\sum_{n=1}^{\infty} \left(-1\right)^{n-1} b_n$ where each term in the sequence $\left(b_n\right)$ is positive satisfies
+ \begin{itemize}
+  \item $\left(b_n\right)$ is non-increasing
+  \item $\ds \lim_{n \rightarrow \infty} b_n = 0$
+ \end{itemize}
+ then the series $\sum_{n=1}^{\infty} \left(-1\right)^{n-1} b_n$ converges.
+\end{theorem}
 
-% \vfill
+\begin{problem}
+ Determine whether the \textbf{alternating harmonic series}\index{Alternating Harmonic Series} $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n}$ converges or diverges.
+\end{problem}
 
-% \newpage
+\vfill
 
-% \begin{theorem}[Limit Comparison Test\index{Limit Comparison Test}]
-%  Suppose that $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ are series with positive terms and $c \in \mathbb{R}$.  If $$\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = c > 0,$$ then either both series converge or both series diverge.
-% \end{theorem}
+\begin{problem}
+ Determine whether $\ds\sum_{n=1}^{\infty} \left(-1\right)^{n+1} \frac{n^2}{n^3+1}$ converges or diverges.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n = 1}^{\infty} \frac{1}{2^n-1}$ converges or diverges.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Determine whether $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n}3n}{4n-1}$ converges or diverges.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{2n^2+3n}{\sqrt{5+n^5}}$ converges or diverges.
-% \end{problem}
+\vfill
 
-% \vfill
+\noindent Suggested Problems: Section $11.5$ numbers $2 - 6,$ $8,$ $9,$ $11,$ $13,$ $17,$ $19$
 
-% \noindent Suggested Problems: Section $11.4$ numbers $3,$ $4,$ $5,$ $7,$ $14,$ $15,$ $17,$ $21,$ $23,$ $29,$ $30$
+\newpage
 
-% \newpage
+\section{Absolute Convergence, Ratio, \& Root Test}
 
-% \section{Alternating Series}
+\begin{definition}[Absolutely Convergent\index{Absolutely Convergent}]
+ A series $\sum a_n$ is called \textbf{absolutely convergent} if the series $\sum \left|a_n\right|$ is convergent.
+\end{definition}
 
-% \begin{theorem}[Alternating Series Test\index{Alternating Series Test}]
-%  If the alternating series $\sum_{n=1}^{\infty} \left(-1\right)^{n-1} b_n$ where each term in the sequence $\left(b_n\right)$ is positive satisfies
-%  \begin{itemize}
-%   \item $\left(b_n\right)$ is non-increasing
-%   \item $\ds \lim_{n \rightarrow \infty} b_n = 0$
-%  \end{itemize}
-%  then the series $\sum_{n=1}^{\infty} \left(-1\right)^{n-1} b_n$ converges.
-% \end{theorem}
+\begin{theorem}
+  Absolutely convergent series are convergent.
+\end{theorem}
 
-% \begin{problem}
-%  Determine whether the \textbf{alternating harmonic series}\index{Alternating Harmonic Series} $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n}$ converges or diverges.
-% \end{problem}
+\begin{definition}[Conditionally Convergent\index{Conditionally Convergent}]
+ A series is called \textbf{conditionally convergent} if it is convergent but {\sc not} absolutely convergent.
+\end{definition}
 
-% \vfill
+\begin{problem}
+ Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n^2}$ is absolutely convergent, conditionally convergent, or divergent.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n}3n}{4n-1}$ converges or diverges.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n}$ is absolutely convergent, conditionally convergent, or divergent.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds\sum_{n=1}^{\infty} \left(-1\right)^{n+1} \frac{n^2}{n^3+1}$ converges or diverges.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\cos\left(n\right)}{n^2}$ is absolutely convergent, conditionally convergent, or divergent.
+\end{problem}
 
-% \noindent Suggested Problems: Section $11.5$ numbers $2 - 6,$ $8,$ $9,$ $11,$ $13,$ $17,$ $19$
+\vfill
 
-% \newpage
+\begin{theorem}
+  The value of a conditionally convergent series can be changed to any real
+  number by changing the order of its terms. The value of an absolutely
+  convergent series cannot.
+\end{theorem}
 
-% \section{Absolute Convergence, Ratio, \& Root Test}
+\newpage
 
-% \begin{definition}[Absolutely Convergent\index{Absolutely Convergent}]
-%  A series $\sum a_n$ is called \textbf{absolutely convergent} if the series $\sum \left|a_n\right|$ is convergent.
-% \end{definition}
+\begin{theorem}[Ratio Test\index{Ratio Test}]
+ Let $\sum_{n=1}^{\infty} a_n$ be a series.  Then
+ \begin{itemize}
+  \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| < 1$
+  then the series $\sum_{n = 1}^{\infty} a_n$ is absolutely convergent.
+  \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| > 1$
+  or $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right|$
+  diverges to $\infty$,
+  then the series $\sum_{n = 1}^{\infty} a_n$ is divergent.
+  \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = 1$
+  then no conclusion can be drawn from this test.
+ \end{itemize}
+\end{theorem}
 
-% \begin{definition}[Conditionally Convergent\index{Conditionally Convergent}]
-%  A series is called \textbf{conditionally convergent} if it is convergent but {\sc not} absolutely convergent.
-% \end{definition}
+\begin{problem}
+ Determine whether $\ds \sum_{n=1}^{\infty} \left(-1\right)^{n} \frac{n^3}{3^n}$ is convergent or divergent. Is it absolutely convergent?
+\end{problem}
 
-% \begin{theorem}[Absolute $\Rightarrow$ Conditional]
-%  If a series $\sum a_n$ is absolutely convergent, then it is also conditionally convergent.
-% \end{theorem}
+\vfill
 
-% \begin{problem}
-%  Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n^2}$ is absolutely convergent.  Is it conditionally convergent?
-% \end{problem}
+\begin{problem}
+ Determine whether $\ds \sum_{n=1}^{\infty} \frac{n!}{n^n}$ is convergent or divergent. Is it absolutely convergent?
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\left(-1\right)^{n-1}}{n}$ is absolutely convergent.  Is it conditionally convergent?
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{theorem}[Root Test\index{Root Test}]
+ Let $\sum_{n=1}^{\infty} a_n$ be a series.  Then
+ \begin{itemize}
+  \item If $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} < 1$ then $\sum_{n=1}^{\infty} a_n$ is absolutely convergent.
+  \item if $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} > 1$ or $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} $ diverges to $ \infty$, then the series $\sum_{n = 1}^{\infty} a_n$ is divergent.
+  \item $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = 1,$ then no conclusion can be drawn from this test.
+ \end{itemize}
+\end{theorem}
 
-% \begin{problem}
-%  Determine whether whether or not $\ds \sum_{n=1}^{\infty} \frac{\cos\left(n\right)}{n^2}$ is absolutely convergent.  Is it conditionally convergent?
-% \end{problem}
+\begin{theorem}
+  $\lim_{n\to\infty} \sqrt[n]{n}=1$
+\end{theorem}
 
-% \vfill
+\begin{problem}
+ Determine whether $\ds \sum_{n=1}^{\infty} \left( \frac{2n+3}{3n+2} \right)^n$ is convergent or divergent. Is it absolutely convergent?
+\end{problem}
 
-% \newpage
+\vfill
 
-% \begin{theorem}[Ratio Test\index{Ratio Test}]
-%  Let $\sum_{n=1}^{\infty} a_n$ be a series.  Then
-%  \begin{itemize}
-%   \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = L < 1,$ then the series $\sum_{n = 1}^{\infty} a_n$ is absolutely (and therefore conditionally) convergent.
-%   \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = L > 1$ or $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = \infty$ then the series $\sum_{n = 1}^{\infty} a_n$ is divergent.
-%   \item if $\ds \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| = 1,$ then no conclusion can be drawn from this test.
-%  \end{itemize}
-% \end{theorem}
+\begin{problem}
+ Determine whether $\ds \sum_{n=1}^{\infty} \frac{n+1}{n^{2n}}$ is convergent or divergent. Is it absolutely convergent?
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \left(-1\right)^{n} \frac{n^3}{3^n}$ is convergent or divergent. Is it absolutely convergent?
-% \end{problem}
+\vfill
 
-% \vfill
+\noindent Suggested Problems: Section $11.6$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11 - 13,$ $16,$ $17,$ $19,$ $21,$ $23,$ $27,$ $28$
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \frac{n^n}{n!}$ is convergent or divergent. Is it absolutely convergent?
-% \end{problem}
+\newpage
 
-% \vfill
+\section{Strategies for Testing Series}
 
-% \newpage
+The only thing I really have to say here is that practice makes better.  If you do enough problems, eventually you will get an intuition for what will work in what situation.  Nevertheless, here is a list of tests that could come in handy.
 
-% \begin{theorem}[Root Test\index{Root Test}]
-%  Let $\sum_{n=1}^{\infty} a_n$ be a series.  Then
-%  \begin{itemize}
-%   \item If $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = L < 1,$ then $\sum_{n=1}^{\infty} a_n$ is absolutely (and therefore conditionally) convergent.
-%   \item if $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = L > 1$ or $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = \infty$ then the series $\sum_{n = 1}^{\infty} a_n$ is divergent.
-%   \item $\ds \lim_{n \rightarrow \infty} \sqrt[n]{\left|a_n\right|} = 1,$ then no conclusion can be drawn from this test.
-%  \end{itemize}
-% \end{theorem}
+\
 
-% \begin{problem}
-%  Determine whether $\ds \sum_{n=1}^{\infty} \left( \frac{2n+3}{3n+2} \right)^n$ is convergent or divergent. Is it absolutely convergent?
-% \end{problem}
+{\scriptsize \centering \index{List Of Series Tests}\begin{tabular}{|c|c|c|}
+\hline
+{\bf Test} & {\bf When to Use} & {\bf Conclusion} \\
+\hline
 
-% \vfill
+\multirow{2}{*}{{\bf Geometric Series}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} ar^k$} & Converges to $\frac{a}{1-r}$ if $|r| < 1$; \\ & &diverges if $|r| \geq 1$. \\
+\hline
 
-% \noindent Suggested Problems: Section $11.6$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11 - 13,$ $16,$ $17,$ $19,$ $21,$ $23,$ $27,$ $28$
+{\bf $k^{\rm{th}}$ Term Test} & All Series & If $\lim_{k \rightarrow \infty} a_k \neq 0$, the series diverges. \\
+\hline
 
-% \newpage
+\multirow{2}{*}{{\bf Integral Test}} & $\sum_{k=1}^{\infty} a_k$ where $f(k) = a_k$ and & $\sum_{k = 1}^{\infty} a_k$ and $\int_1^\infty f(x) \, dx$ \\
+&$f$ is continuous, decreasing, and $f(x) \geq 0$ & {\bf both} converge or {\bf both} diverge.\\
+\hline
 
-% \section{Strategies for Testing Series}
+{\bf $p$-series} & $\sum_{k=1}^{\infty} \frac{1}{k^p}$ & Converges for $p > 1$, diverges for $p \leq 1$.\\
+\hline
 
-% The only thing I really have to say here is that practice makes better.  If you do enough problems, eventually you will get an intuition for what will work in what situation.  Nevertheless, here is a list of tests that could come in handy.
+\multirow{2}{*}{{\bf Comparison Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where $0 \leq a_k \leq b_k$} & If $\sum_{k=1}^{\infty} b_k$ converges, then $\sum_{k=1}^{\infty} a_k$ converges. \\ & & If $\sum_{k=1}^{\infty} a_k$ diverges, then $\sum_{k=1}^{\infty} b_k$ diverges.\\
+\hline
 
-% \
+\multirow{2}{*}{{\bf Limit Comparison Test}} & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$ \\ & $a_k, b_k > 0$ and $\lim_{k\rightarrow \infty} \frac{a_k}{b_k} = L > 0$ & {\bf both} converge or {\bf both} diverge. \\
+\hline
 
-% {\scriptsize \centering \index{List Of Series Tests}\begin{tabular}{|c|c|c|}
-% \hline
-% {\bf Test} & {\bf When to Use} & {\bf Conclusion} \\
-% \hline
+\multirow{2}{*}{{\bf Alternating Series Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} \left(-1\right)^{k+1} a_k$ where $a_k > 0$ for all $k$} & If $\lim_{k \rightarrow \infty} a_k = 0$ and $a_{k+1} \leq a_k$ for all $k$, \\ & & then the series converges. \\
+\hline
 
-% \multirow{2}{*}{{\bf Geometric Series}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} ar^k$} & Converges to $\frac{a}{1-r}$ if $|r| < 1$; \\ & &diverges if $|r| \geq 1$. \\
-% \hline
+\multirow{2}{*}{{\bf Absolute Convergence}} & Series with some positive and some & If $\sum_{k=1}^{\infty} |a_k|$ converges, then\\
+ & negative terms (including alternating series) & $\sum_{k=1}^{\infty} a_k$ converges (absolutely).\\
+ \hline
 
-% {\bf $k^{\rm{th}}$ Term Test} & All Series & If $\lim_{k \rightarrow \infty} a_k \neq 0$, the series diverges. \\
-% \hline
+\multirow{4}{*}{{\bf Ratio Test}} & & For $\lim_{k \rightarrow \infty} \left|\frac{a_{k+1}}{a_k}\right| = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials and/or factorials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
+\hline
 
-% \multirow{2}{*}{{\bf Integral Test}} & $\sum_{k=1}^{\infty} a_k$ where $f(k) = a_k$ and & $\sum_{k = 1}^{\infty} a_k$ and $\int_1^\infty f(x) \, dx$ \\
-% &$f$ is continuous, decreasing, and $f(x) \geq 0$ & {\bf both} converge or {\bf both} diverge.\\
-% \hline
+\multirow{4}{*}{{\bf Root Test}} & & For $\lim_{k \rightarrow \infty} \sqrt[k]{|a_k|} = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
+\hline
+\end{tabular} }
 
-% {\bf $p$-series} & $\sum_{k=1}^{\infty} \frac{1}{k^p}$ & Converges for $p > 1$, diverges for $p \leq 1$.\\
-% \hline
+\begin{problem}
+ Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{n-1}{2n+1}$ converges or diverges.
+\end{problem}
 
-% \multirow{2}{*}{{\bf Comparison Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where $0 \leq a_k \leq b_k$} & If $\sum_{k=1}^{\infty} b_k$ converges, then $\sum_{k=1}^{\infty} a_k$ converges. \\ & & If $\sum_{k=1}^{\infty} a_k$ diverges, then $\sum_{k=1}^{\infty} b_k$ diverges.\\
-% \hline
+\vfill
 
-% \multirow{2}{*}{{\bf Limit Comparison Test}} & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$ \\ & $a_k, b_k > 0$ and $\lim_{k\rightarrow \infty} \frac{a_k}{b_k} = L > 0$ & {\bf both} converge or {\bf both} diverge. \\
-% \hline
+\newpage
 
-% \multirow{2}{*}{{\bf Alternating Series Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} \left(-1\right)^{k+1} a_k$ where $a_k > 0$ for all $k$} & If $\lim_{k \rightarrow \infty} a_k = 0$ and $a_{k+1} \leq a_k$ for all $k$, \\ & & then the series converges. \\
-% \hline
+\begin{problem}
+ Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{\sqrt{n^3+1}}{3n^3+4n^2+2}$ converges or diverges.
+\end{problem}
 
-% \multirow{2}{*}{{\bf Absolute Convergence}} & Series with some positive and some & If $\sum_{k=1}^{\infty} |a_k|$ converges, then\\
-%  & negative terms (including alternating series) & $\sum_{k=1}^{\infty} a_k$ converges (absolutely).\\
-%  \hline
+\vfill
 
-% \multirow{4}{*}{{\bf Ratio Test}} & & For $\lim_{k \rightarrow \infty} \left|\frac{a_{k+1}}{a_k}\right| = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials and/or factorials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
-% \hline
+\begin{problem}
+ Determine whether the series $\ds \sum_{n = 1}^{\infty} ne^{-n^2}$ converges or diverges.
+\end{problem}
 
-% \multirow{4}{*}{{\bf Root Test}} & & For $\lim_{k \rightarrow \infty} \sqrt[k]{|a_k|} = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
-% \hline
-% \end{tabular} }
+\vfill
 
-% \begin{problem}
-%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{n-1}{2n+1}$ converges or diverges.
-% \end{problem}
+\begin{problem}
+ Determine whether the series $\ds \sum_{n = 1}^{\infty} \left(-1\right)^n \frac{n^3}{n^4+1}$ converges or diverges.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \newpage
+\newpage
 
-% \begin{problem}
-%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{\sqrt{n^3+1}}{3n^3+4n^2+2}$ converges or diverges.
-% \end{problem}
+\begin{problem}
+ Determine whether the series $\ds \sum_{k = 1}^{\infty} \frac{2^k}{k!}$ converges or diverges.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Determine whether the series $\ds \sum_{n = 1}^{\infty} ne^{-n^2}$ converges or diverges.
-% \end{problem}
+\begin{problem}
+ Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{1}{2+3^n}$ converges or diverges.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \left(-1\right)^n \frac{n^3}{n^4+1}$ converges or diverges.
-% \end{problem}
+\noindent Suggested Problems: Section $11.7$ numbers $1,$ $2,$ $5 - 9,$ $11,$ $13,$ $14,$ $15 - 18,$ $23,$ $25 - 34,$ $37$
 
-% \vfill
+\newpage
 
-% \newpage
+\section{Power Series}
 
-% \begin{problem}
-%  Determine whether the series $\ds \sum_{k = 1}^{\infty} \frac{2^k}{k!}$ converges or diverges.
-% \end{problem}
+\begin{definition}[Power Series\index{Power Series}]
+ A \textbf{power series} is a series of the form $$\sum_{n=0}^{\infty} c_nx^n = c_0x^0+c_1x^1+x_2x^2 + \cdots$$ where $c_i$ represent coefficients and $x$ denotes our variable.
+\end{definition}
 
-% \vfill
+\begin{definition}[Power Series Centered at $a$\index{Power Series Centered at $a$}]
+ A \textbf{power series centered at $a$} is a series of the form $$\sum_{n=1}^{\infty} c_n\left(x-a\right)^n.$$
+\end{definition}
 
-% \begin{problem}
-%  Determine whether the series $\ds \sum_{n = 1}^{\infty} \frac{1}{2+3^n}$ converges or diverges.
-% \end{problem}
+\begin{note}
+ When $x=a$, all of the terms are $0$; so, naturally the power series centered at $a$ always converges when $x=a$.
+\end{note}
 
-% \vfill
+\begin{problem}
+ For what values of $x$ is the series $\ds \sum_{n=0}^{\infty} n! x^n$ convergent?
+\end{problem}
 
-% \noindent Suggested Problems: Section $11.7$ numbers $1,$ $2,$ $5 - 9,$ $11,$ $13,$ $14,$ $15 - 18,$ $23,$ $25 - 34,$ $37$
+\vfill
 
-% \newpage
+\begin{problem}
+ For what values of $x$ is the series $\ds \sum_{n=1}^{\infty} \frac{\left(x-3\right)^n}{n}$ convergent?
+\end{problem}
 
-% \section{Power Series}
+\vfill
 
-% \begin{definition}[Power Series\index{Power Series}]
-%  A \textbf{power series} is a series of the form $$\sum_{n=0}^{\infty} c_nx^n = c_0x^0+c_1x^1+x_2x^2 + \cdots$$ where $c_i$ represent coefficients and $x$ denotes our variable.
-% \end{definition}
+\newpage
 
-% \begin{definition}[Power Series Centered at $a$\index{Power Series Centered at $a$}]
-%  A \textbf{power series centered at $a$} is a series of the form $$\sum_{n=1}^{\infty} c_n\left(x-a\right)^n.$$
-% \end{definition}
+\begin{theorem}[Radius of Convergence\index{Radius of Convergence}]
+ For a given power series $\sum_{n=1}^{\infty} c_n\left(x-a\right)^n$, there are only three possibilities:
+ \begin{itemize}
+  \item The series converges only when $x=a$,
+  \item The series converges for all $x \in \mathbb{R}$, and
+  \item There is a positive real number $R$ such that the series converges if $\left|x-a\right| < R$ and divergent otherwise.
+ \end{itemize}
+ This number $R$ is called the \textbf{radius of convergence}.
+\end{theorem}
 
-% \begin{note}
-%  When $x=a$, all of the terms are $0$; so, naturally the power series centered at $a$ always converges when $x=a$.
-% \end{note}
+\begin{problem}
+ Find the radius of convergence for the series $\ds \sum_{n=0}^{\infty} \frac{\left(-3\right)^n x^n}{\sqrt{n+2}}.$
+\end{problem}
 
-% \begin{problem}
-%  For what values of $x$ is the series $\ds \sum_{n=0}^{\infty} n! x^n$ convergent?
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Find the radius of convergence for the series $\ds \sum_{n=0}^{\infty} \frac{n\left(x+2\right)^n}{3^{n+1}}$
+\end{problem}
 
-% \begin{problem}
-%  For what values of $x$ is the series $\ds \sum_{n=1}^{\infty} \frac{\left(x-3\right)^n}{n}$ converge?
-% \end{problem}
+\vfill
 
-% \vfill
-
-% \newpage
-
-% \begin{theorem}[Radius of Convergence\index{Radius of Convergence}]
-%  For a given power series $\sum_{n=1}^{\infty} c_n\left(x-a\right)^n$, there are only three possibilities:
-%  \begin{itemize}
-%   \item The series converges only when $x=a$,
-%   \item The series converges for all $x \in \mathbb{R}$, and
-%   \item There is a positive real number $R$ such that the series converges if $\left|x-a\right| < R$ and divergent otherwise.
-%  \end{itemize}
-%  This number $R$ is called the \textbf{radius of convergence}.
-% \end{theorem}
-
-% \begin{problem}
-%  Find the radius of convergence for the series $\ds \sum_{n=0}^{\infty} \frac{\left(-3\right)^n x^n}{\sqrt{n+2}}.$
-% \end{problem}
-
-% \vfill
-
-% \begin{problem}
-%  Find the radius of convergence for the series $\ds \sum_{n=0}^{\infty} \frac{n\left(x+2\right)^n}{3^{n+1}}$
-% \end{problem}
-
-% \vfill
-
-% \noindent Suggested Problems: Section $11.8$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11,$ $13,$ $16,$ $18,$ $19$
+\noindent Suggested Problems: Section $11.8$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11,$ $13,$ $16,$ $18,$ $19$
 
 % \newpage
 
