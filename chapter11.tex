@@ -1057,64 +1057,90 @@ The only thing I really have to say here is that practice makes better.  If you 
 
 \noindent Suggested Problems: Section $11.8$ numbers $3,$ $5,$ $7,$ $9,$ $10,$ $11,$ $13,$ $16,$ $18,$ $19$
 
-% \newpage
+\newpage
 
-% \section{Representation of Functions as Power Series}
+\section{Representation of Functions as Power Series}
 
-% \begin{recall}
-%  There is only one series whose sum we actually know -- the geometric series.  Let's recall what that says.  Recall, $$\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}$$ whenever $\left|x\right| < 1$.
-% \end{recall}
+\begin{recall}
+ The geometric series $$\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}$$
+ converges when $\left|x\right| < 1$ and diverges otherwise.
+\end{recall}
 
-% \begin{problem}
-%  Express $\ds \frac{1}{1+x^2}$ as a power series and find its radius of convergence.
-% \end{problem}
+\begin{problem}
+ Express $\ds \frac{1}{1+x^2}$ as a power series and find its
+ radius of convergence.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Find a power series representation for $\ds \frac{1}{x+2}$ and find its radius of convergence
-% \end{problem}
+\begin{problem}
+ Find a power series representation for $\ds \frac{1}{1-3x}$ and find its
+ radius of convergence.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Find a power series representation of $\ds \frac{x^3}{x+2}$ and find its radius of convergence.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{problem}
+ Find a power series representation of $\ds \frac{1}{x+2}$ and find
+ its radius of convergence.
+\end{problem}
 
-% \newpage
+\vfill
 
-% \begin{theorem}[Integration and Differentiation\index{Integration and Differentiation}]
-%  If the power series $\sum_{n=0}^{\infty} c_n\left(x-a\right)^n$ has a radius of convergence $R > 0$, then the function $f$ defined by $$f(x) = c_0 + c_1\left(x-a\right) + c_2\left(x-a\right)^2 + \cdots = \sum_{n=0}^{\infty} c_n\left(x-a\right)^n$$ is differentiable on the interval $\left(a-R, a+R\right)$ and
-%  \begin{itemize}
-%   \item $\ds f^\prime(x) = \sum_{n=\ast}^{\infty} nc_n\left(x-a\right)^{n-1}$
-%   \item $\ds \int f(x) \, dx = k + \sum_{n=0}^{\infty} c_n \frac{\left(x-a\right)^{n+1}}{n+1}$
-%  \end{itemize}
-%  where $\ast$ represents the index of the first non-constant term of the series and $k \in \mathbb{R}$ is a constant.  In both cases, the radius of convergence is $R$.
-% \end{theorem}
+\begin{problem}
+ Find a power series representation of $\ds \frac{x^3}{1-x}$ and find
+ its radius of convergence.
+\end{problem}
 
-% \begin{problem}
-%  Express $\ds \frac{1}{\left(1-x\right)^2}$ as a power series.
-% \end{problem}
+\vfill
 
-% \vfill
+\newpage
 
-% \newpage
+\begin{theorem}[Integration and Differentiation\index{Integration and Differentiation}]
+ If the power series $\sum_{n=0}^{\infty} c_n\left(x-a\right)^n$ has a radius
+ of convergence $R > 0$, then the function $f$ defined by
+  \[
+    f(x) = c_0 + c_1\left(x-a\right) + c_2\left(x-a\right)^2 + \cdots
+         = \sum_{n=0}^{\infty} c_n\left(x-a\right)^n
+  \]
+ has the following derivative and integral defined within the same radius
+ of convergence:
+ \[
+  f^\prime(x) = c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + \dots
+              = \sum_{n=1}^{\infty} nc_n\left(x-a\right)^{n-1}
+ \]
+ \[
+  \int f(x) \, dx
+   =
+  \left(c_0(x-a) + \frac{1}{2}c_1(x-a)^2 + \frac{1}{3}c_2(x-a)^3+\dots \right) + C
+   =
+  \left(\sum_{n=0}^{\infty} c_n \frac{\left(x-a\right)^{n+1}}{n+1}\right) + C
+ \]
+\end{theorem}
 
-% \begin{problem}
-%  Find a power series representation for $\ln\left(1+x\right)$.
-% \end{problem}
+\begin{problem}
+ Express $\ds \frac{1}{\left(1-x\right)^2}$ as a power series.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Find a power series representation for $f(x) = \arctan\left(x\right)$
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{problem}
+ Find a power series representation for $\ln\left(1+x\right)$.
+\end{problem}
 
-% \noindent Suggested Problems: Section $11.9$ numbers $6,$ $7,$ $9,$ $10,$ $12,$ $17,$ $27,$ $39$
+\vfill
+
+\begin{problem}
+ Find a power series representation for $f(x) = \arctan\left(x\right)$
+\end{problem}
+
+\vfill
+
+\noindent Suggested Problems: Section $11.9$ numbers $6,$ $7,$ $9,$ $10,$ $12,$ $17,$ $27,$ $39$
 
 % \newpage
 
