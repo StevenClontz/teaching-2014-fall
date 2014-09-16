@@ -1038,7 +1038,8 @@ The only thing I really have to say here is that practice makes better.  If you 
  \begin{itemize}
   \item The series converges only when $x=a$,
   \item The series converges for all $x \in \mathbb{R}$, and
-  \item There is a positive real number $R$ such that the series converges if $\left|x-a\right| < R$ and divergent otherwise.
+  \item There is a positive real number $R$ such that the series converges if
+   $\left|x-a\right| < R$ and diverges when $\left|x-a\right| > R$.
  \end{itemize}
  This number $R$ is called the \textbf{radius of convergence}.
 \end{theorem}
@@ -1142,61 +1143,67 @@ The only thing I really have to say here is that practice makes better.  If you 
 
 \noindent Suggested Problems: Section $11.9$ numbers $6,$ $7,$ $9,$ $10,$ $12,$ $17,$ $27,$ $39$
 
-% \newpage
+\newpage
 
-% \section{Taylor and Maclaurin Series}
+\section{Taylor and Maclaurin Series}
 
-% \begin{goal}
-%  To represent as many functions as we can as a power series.
-% \end{goal}
+\begin{theorem}[Taylor Series\index{Taylor Series}]
+ If $f$ has a power series representation at $a$ (that is
+ $f(x) = \sum_{n=0}^{\infty} c_n \left(x-a\right)^n$ for $\left|x-a\right| <R$)
+ then its coefficients are of the form
+ $$c_n = \frac{f^{\left(n\right)}\left(a\right)}{n!}.$$
+ That is to say that if $f$ has a power series representation then it can be
+ written in the form
+ $$f(x) = \sum_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(a\right)}{n!} \left(x-a\right)^n$$
+ and has radius of convergence $R$.
+\end{theorem}
 
-% \begin{theorem}[Taylor Series\index{Taylor Series}]
-%  If $f$ has a power series representation at $a$ (that is $f(x) = \sum_{n=0}^{\infty} c_n \left(x-a\right)^n$ for $\left|x-a\right| <R$) then its coefficients are of the form $$c_n = \frac{f^{\left(n\right)}\left(a\right)}{n!}.$$  That is to say that if $f$ has a power series representation then it can be written in the form $$f(x) = \sum_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(a\right)}{n!} \left(x-a\right)^n$$ and has radius of convergence $R$.
-% \end{theorem}
+\begin{definition}[Maclaurin Series\index{Maclaurin Series}]
+ A Taylor Series centered at $a=0$ is called a \textbf{Maclaurin Series}.  That is to say that a Maclaurin Series can be written as $$f(x) = \sum_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(0\right)}{n!}x^n.$$
+\end{definition}
 
-% \begin{definition}[Maclaurin Series\index{Maclaurin Series}]
-%  A Taylor Series centered at $a=0$ is called a \textbf{Maclaurin Series}.  That is to say that a Maclaurin Series can be written as $$f(x) = \sum_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(0\right)}{n!}x^n.$$
-% \end{definition}
+\begin{problem}
+ Find the Maclaurin Series of $f(x) = e^x$ and find its radius of convergence.
+\end{problem}
 
-% \begin{problem}
-%  Find the Maclaurin Series of $f(x) = e^x$ and find its radius of convergence.
-% \end{problem}
+\vfill
 
-% \vfill
+\newpage
 
-% \newpage
+\begin{problem}
+ Find the Maclaurin Series for $\sin\left(x\right)$.
+\end{problem}
 
-% \begin{problem}
-%  Find the Maclaurin Series for $\sin\left(x\right)$.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Find the Maclaurin Series for $f(x) = x \cos\left(x\right)$.
+\end{problem}
 
-% \begin{problem}
-%  Find the Maclaurin Series for $\cos\left(x\right)$.
-% \end{problem}
+\vfill
 
-% \vfill
+\newpage
 
-% \newpage
+\begin{problem}
+ Represent $\sin\left(x\right)$ as a Taylor Series centered at $\ds \frac{\pi}{3}$.
+\end{problem}
 
-% \begin{problem}
-%  Find the Maclaurin Series for $f(x) = x \cos\left(x\right)$.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Give a polynomial which approximates $\cos(x)$ near $x=0$ by finding the
+ Maclaurin Series for $\cos\left(x\right)$ and then writing out its first four
+ non-zero terms.
+\end{problem}
 
-% \begin{problem}
-%  Represent $\sin\left(x\right)$ as a Taylor Series centered at $\ds \frac{\pi}{3}$.
-% \end{problem}
+\vfill
 
-% \vfill
-
+% (Punt due to time)
 % \begin{problem}[The Binomial Series\index{The Binomial Series}]
 %  Find the Maclaurin Series for $f(x) = \left(1+x\right)^k$ for all $k \in \mathbb{R}$
 % \end{problem}
 
 % \vfill
 
-% \noindent Suggested Problems: Section $11.10$ numbers $3,$ $4,$ $6 - 8,$ $15,$ $16,$ $27,$ $28,$ $30,$ $32,$ $36$
+\noindent Suggested Problems: Section $11.10$ numbers $3,$ $4,$ $6 - 8,$ $15,$ $16,$ $27,$ $28,$ $30,$ $32,$ $36$
 \end{document}
