@@ -2,6 +2,10 @@
 
 \newcommand{\ds}{\ensuremath{\displaystyle}}
 
+\usepackage{multicol}
+\usepackage{multirow}
+\renewcommand{\arraystretch}{1.5}
+
 % \printanswers
 
 \begin{document}
@@ -27,7 +31,47 @@ Calculus II - Fall 2014 - Mr. Clontz - Midterm Exam
 \end{itemize}
 
 \noindent
-Good luck!
+Good luck! Here are the series tests in case you need them:
+
+\vspace{12pt}
+
+{\scriptsize \centering \index{List Of Series Tests}\begin{tabular}{|c|c|c|}
+\hline
+{\bf Test} & {\bf When to Use} & {\bf Conclusion} \\
+\hline
+
+\multirow{2}{*}{{\bf Geometric Series}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} ar^k$} & Converges to $\frac{a}{1-r}$ if $|r| < 1$; \\ & &diverges if $|r| \geq 1$. \\
+\hline
+
+{\bf Divergence Test} & All Series & If $\lim_{k \rightarrow \infty} a_k \neq 0$, the series diverges. \\
+\hline
+
+\multirow{2}{*}{{\bf Integral Test}} & $\sum_{k=1}^{\infty} a_k$ where $f(k) = a_k$ and & $\sum_{k = 1}^{\infty} a_k$ and $\int_1^\infty f(x) \, dx$ \\
+&$f$ is continuous, decreasing, and $f(x) \geq 0$ & {\bf both} converge or {\bf both} diverge.\\
+\hline
+
+{\bf $p$-series} & $\sum_{k=1}^{\infty} \frac{1}{k^p}$ & Converges for $p > 1$, diverges for $p \leq 1$.\\
+\hline
+
+\multirow{2}{*}{{\bf Comparison Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where $0 \leq a_k \leq b_k$} & If $\sum_{k=1}^{\infty} b_k$ converges, then $\sum_{k=1}^{\infty} a_k$ converges. \\ & & If $\sum_{k=1}^{\infty} a_k$ diverges, then $\sum_{k=1}^{\infty} b_k$ diverges.\\
+\hline
+
+\multirow{2}{*}{{\bf Limit Comparison Test}} & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$, where & $\sum_{k=1}^{\infty} a_k$ and $\sum_{k=1}^{\infty} b_k$ \\ & $a_k, b_k > 0$ and $\lim_{k\rightarrow \infty} \frac{a_k}{b_k} = L > 0$ & {\bf both} converge or {\bf both} diverge. \\
+\hline
+
+\multirow{2}{*}{{\bf Alternating Series Test}} & \multirow{2}{*}{$\sum_{k=1}^{\infty} \left(-1\right)^{k+1} a_k$ where $a_k > 0$ for all $k$} & If $\lim_{k \rightarrow \infty} a_k = 0$ and $a_{k+1} \leq a_k$ for all $k$, \\ & & then the series converges. \\
+\hline
+
+\multirow{2}{*}{{\bf Absolute Convergence}} & Series with some positive and some & If $\sum_{k=1}^{\infty} |a_k|$ converges, then\\
+ & negative terms (including alternating series) & $\sum_{k=1}^{\infty} a_k$ converges (absolutely).\\
+ \hline
+
+\multirow{4}{*}{{\bf Ratio Test}} & & For $\lim_{k \rightarrow \infty} \left|\frac{a_{k+1}}{a_k}\right| = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials and/or factorials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
+\hline
+
+\multirow{4}{*}{{\bf Root Test}} & & For $\lim_{k \rightarrow \infty} \sqrt[k]{|a_k|} = L,$ \\ & \multirow{2}{*}{Any Series (especially those involving} & if $L < 1$, $\sum_{k = 1}^{\infty} a_k$ converges absolutely, \\ &exponentials) & if $L > 1$, $\sum_{k=1}^{\infty} a_k$ diverges, \\ & & if $L = 1$, no conclusion.\\
+\hline
+\end{tabular} }
 
 \newpage
 
@@ -41,17 +85,53 @@ Please only mark the correct choice for each question.
 
 \setcounter{question}{0}
 \question[3]
-foo
+Nick Saban wrote the following\footnote{
+  I can't back that up, but I feel like he would, y'know?
+}:
+
+\begin{center}
+``Since $\ds\lim_{n\to\infty} \frac{n}{n^2+1} = 0$, the series
+$\ds\sum_{n=0}^\infty \frac{n}{n^2+1}$ converges.''
+\end{center}
+
+Why is this horribly wrong?
+
+\begin{checkboxes}
+\choice The limit $\lim_{n\to\infty} \frac{n}{n^2+1}$ is
+        $\frac{1}{2}$, not $0$.
+\choice Since $\lim_{n\to\infty} \frac{n}{n^2+1} = 0$, the series
+        $\sum_{n=0}^\infty \frac{n}{n^2+1}$ diverges.
+\choice The Divergence Test requires that the limit be different from $0$, and
+        cannot prove that a series converges.
+\choice The Divergence Test doesn't work on a series with only positive terms.
+\end{checkboxes}
 
 \vfill
 
 \question[3]
-foo
+Integration by parts is the reverse version of which rule?
+
+\begin{checkboxes}
+\choice Chain Rule ...... $\frac{d}{dx}[f(g(x))]=f'(g(x))g'(x)$
+\choice Power Rule ...... $\frac{d}{dx}[x^p]=px^{-1}$
+\choice Product Rule ...... $\frac{d}{dx}[f(x)g(x)]=f(x)g'(x)+g(x)f'(x)$
+\choice Exponential Rule ...... $\frac{d}{dx}[b^x]=b^x\ln b$
+\end{checkboxes}
 
 \vfill
 
 \question[4]
-foo
+Since $\sin(x)$ has the MacLaurin Series
+$\sum_{n=0}^\infty \frac{(-1)^nx^{2n+1}}{(2n+1)!}$,
+which of these is the best approximating polynomial for the value of
+$\sin(x)$ when $x$ is close to $0$?
+
+\begin{checkboxes}
+\choice $1-\frac{x^2}{2}+\frac{x^4}{24}-\frac{x^6}{720}$
+\choice $1+x^2+x^3+x^4$
+\choice $x-\frac{x^3}{6}+\frac{x^5}{120}-\frac{x^7}{5040}$
+\choice $1+x+\frac{x^2}{2}+\frac{x^3}{6}$
+\end{checkboxes}
 
 \vfill
 
@@ -104,27 +184,10 @@ is absolutely convergent, conditionally convergent, or divergent.
 
 \newpage
 
-\question[10]\label{convergenceRoundUp}
+\question[10]
 Determine whether the series
-$\ds \sum_{n = 2}^{\infty} \frac{\sqrt{n^5}}{n^3-3}$
+$\ds \sum_{n = 0}^{\infty} \frac{3n^2}{n^3+1}$
 converges or diverges.
-
-\textit{Compare with Ch 11 Problems 94-99 and similar problems from earlier
-sections.}
-
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Use an identifiable series convergence test. & 2 points \\
-    \hline
-    Use an appropriate series convergence test. & 2 points \\
-    \hline
-    Correctly use the chosen series convergence test. & 4 points \\
-    \hline
-    Identify series as convergent or divergent. & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
 
 \vfill
 
@@ -132,21 +195,8 @@ sections.}
 
 \question[10]
 Determine whether the series
-$\ds \sum_{n = 0}^{\infty} \frac{e^n}{(n+1)!}$
+$\ds \sum_{n = 2}^{\infty} \frac{\sqrt{n-1}}{2+n^2}$
 converges or diverges.
-
-\textit{See question \#\ref{convergenceRoundUp} for details.}
-
-\vfill
-
-\newpage
-
-\question[10]
-Determine whether the series
-$\ds \sum_{n = 0}^{\infty} \frac{3+x^2}{x^2(x^2+1)}$
-converges or diverges.
-
-\textit{See question \#\ref{convergenceRoundUp} for details.}
 
 \vfill
 
@@ -154,143 +204,31 @@ converges or diverges.
 
 \question[10]
 For what values of $x$ is the series
-$\ds \sum_{n=1}^{\infty} \frac{\left(2x+1\right)^n}{n^2}$ convergent?
+$\ds \sum_{n=0}^{\infty} \frac{\left(1-x\right)^n}{n+1}$ convergent?
 What is its radius of convergence?
 
-\textit{Compare with Ch 11 Problems 103-107.}
-
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Use either the Ratio or Root Test as appropriate. & 2 points \\
-    \hline
-    Find a correct inequality for convergent $x$-values,
-    ignoring endpoints. & 2 points \\
-    \hline
-    Correctly identify each endpoint as convergent/divergent. & 2 points each \\
-    \hline
-    Give the correct radius of convergence. & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
-
 \vfill
 
 \newpage
 
 \question[10]
-Give a power series representing the function $f(x)=\frac{2}{2-x}$ and
+Give a power series representing the function $f(x)=\frac{1}{1+3x}$ and
 its radius of convergence.
 
-\textit{Compare with Ch 11 Problems 109-112.}
+\vfill
 
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Set up function in the form $\frac{a}{1-r}$. & 4 points \\
-    \hline
-    Set up the geometric series $\sum_{n=0}^\infty ar^n$. & 4 points \\
-    \hline
-    Give the radius of convergence. & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
+\newpage
+
+\question[10]
+Find the Maclaurin series representing the ``hyperbolic cosine'' function
+\[f(x)=\cosh(x)=\frac{e^x+e^{-x}}{2}\]
 
 \vfill
 
 \newpage
 
 \question[10]
-The function $f(x)=\frac{3x}{1-x}$ is represented by the power series
-$\sum_{n=0}^\infty 3x^{n+1}$. Give a power series representing the function
-$f'(x)=\frac{3}{(1-x)^2}$.
-
-\textit{Compare with Ch 11 Problems 114-116.}
-
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Attempt to differentiate/integrate the given series as appropriate.
-    & 4 points \\
-    \hline
-    Correctly differentiate/integrate the given series as appropriate.
-    & 4 points \\
-    \hline
-    Give correctly formatted series for final answer. & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
-
-\vfill
-
-\newpage
-
-\question[10]
-Find the Maclaurin series representing the function $f(x)=e^{2x}$.
-
-\textit{Compare with Ch 11 Problems 119-122.}
-
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Use MacLaurin series formula. & 2 points \\
-    \hline
-    Compute derivatives $f^{(n)}(x)$. & 2 points \\
-    \hline
-    Find formula for $f^{(n)}(0)$ (possibly splitting up odds/evens).
-    & 4 points \\
-    \hline
-    Give correctly formatted series for final answer. & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
-
-\vfill
-
-\newpage
-
-\question[10]
-Evaluate $\ds\int 3x^2\cos(x)\,dx$.
-
-\textit{Compare with Ch 7 Problems 3-7.}
-
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Set up correct $u$ and $dv$. & 2 points \\
-    \hline
-    Compute correct $du$ and $v$. & 2 points \\
-    \hline
-    Apply integration by parts to get solvable $uv-\int v\,du$. & 4 points \\
-    \hline
-    Find correct final answer (possibly using int. by parts
-    multiple times). & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
-
-\vfill
-
-\newpage
-
-\question[10]
-Evaluate $\ds\int \tan^7(y)\sec^4(y)\,dy$.
-
-\textit{Compare with Ch 7 Problems 9,10,14,15}
-
-\begin{center}
-  \begin{tabular}{|c|c|}
-    \hline
-    Use correct trigonometric identities. & 3 points \\
-    \hline
-    Rewrite integral with single trig function and its derivative. & 3 points \\
-    \hline
-    Use $u$ substitution to eliminate trig functions. & 2 points \\
-    \hline
-    Find correct final answer. & 2 points \\
-    \hline
-  \end{tabular}
-\end{center}
+Evaluate $\ds\int 4xe^x\,dx$.
 
 \vfill
 
