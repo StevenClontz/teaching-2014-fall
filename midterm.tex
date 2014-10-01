@@ -232,6 +232,30 @@ Evaluate $\ds\int 4xe^x\,dx$.
 
 \vfill
 
+\newpage
+
+\question[5] (BONUS - no partial credit)
+
+A common mistake I see Calculus I students do when taking derivatives is
+the following:
+\[
+  \frac{d}{dx}\left[x^2\sin(x)\right]
+    \not=
+  \frac{d}{dx}\left[x^2\right]\frac{d}{dx}\left[\sin(x)\right]
+    =
+  2x\cos(x)
+\]
+instead of using the product rule to get the correct answer
+$x^2\cos(x)+2x\sin(x)$.
+
+Prove that this ``freshman product rule''
+\[
+  \frac{d}{dx}\left[f(x)g(x)\right]
+    =
+  f'(x)g'(x)
+\]
+actually works if $\ds g(x)=e^{\int\frac{f'(x)}{f'(x)-f(x)}\,dx}$.
+(An example is when $f(x)=g(x)=e^{2x}$.)
 
 
 
