@@ -379,83 +379,141 @@ $$\begin{array}{|c|c|c|c|}
 
 \noindent Suggested Homework: Section $7.3$ numbers $2,$ $4,$ $5,$ $7,$ $9,$ $10,$ $11,$ $16,$ $22$
 
-% \newpage
+\newpage
 
-% \section{Partial Fraction Decomposition}
+\section{Partial Fraction Decomposition}
 
-% \begin{goal}
-%  To be able to integrate {\sc any} rational function!
-% \end{goal}
+\begin{strategy}
+ If the degree in the numerator is greater than or equal to the degree in the
+ denominator, use long division.
+\end{strategy}
 
-% \begin{theorem}[Fundamental Theorem of Algebra\index{Fundamental Theorem of Algebra}]
-%  Every polynomial in $\mathbb{R}$ is factorable into linear terms and irreducible quadratics.
-% \end{theorem}
+\begin{problem}
+ Evaluate $\ds \int \frac{x^3 + x^2 - 4}{x-1} \, dx$.
+\end{problem}
 
-% \begin{strategy}
-%  If the degree in the numerator is greater than or equal to the degree in the denominator, use long division.
-% \end{strategy}
+\vfill
 
-% \begin{problem}
-%  Evaluate $\ds \int \frac{x^3 + x}{x-1} \, dx$.
-% \end{problem}
+\begin{problem}
+ Evaluate $\ds \int \frac{x^4+1}{x^2+1} \, dx$.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{motivation}
-%  If we were asked to add fractions, we would do the following: $$\frac{2}{x} + \frac{1}{x+1} = \frac{2(x+1)}{x(x+1)} + \frac{1(x)}{(x+1)(x)} = \frac{2x+2}{x(x+1)} + \frac{x}{x(x+1)} = \frac{2x+2+x}{x(x+1)} = \frac{3x+2}{x^2+x}.$$  What we would like to do is to figure out how to do this same procedure in reverse.
-% \end{motivation}
+\begin{theorem}[Fundamental Theorem of Algebra\index{Fundamental Theorem of Algebra}]
+ Every polynomial of real numbers is factorable into linear terms ($ax+b$)
+ and irreducible quadratics ($ax^2+bx+c$).
+\end{theorem}
 
-% \vspace{1in}
+\begin{recall}
+  To add fractions, we find a common denominator:
+  \[
+    \frac{2}{x} + \frac{1}{x+1}
+      =
+    \frac{2(x+1)}{x(x+1)} + \frac{1(x)}{(x+1)(x)}
+      =
+    \frac{2x+2}{x(x+1)} + \frac{x}{x(x+1)}
+      =
+    \frac{2x+2+x}{x(x+1)}
+      =
+    \frac{3x+2}{x^2+x}.
+  \]
+  More work is required to undo this process.
+\end{recall}
 
-% \newpage
+\newpage
 
-% \begin{strategy}
-%  If the denominator is the product of distinct linear factors, split the linear factors up and solve the system of equations.
-% \end{strategy}
+\begin{strategy}
+ If the denominator is the product of distinct linear factors,
+ the fraction may be split into the sum of fractions with constant numerators
+ and distinct linear factor denominators:
+  \[
+    \frac{-x^2+14x+6}{2x^3+7x^2+3}
+      =
+    \frac{A}{x} + \frac{B}{2x+1} + \frac{C}{x+3}
+  \]
+  \[
+    -x^2+14x+6 = A(2x+1)(x+3) + Bx(x+3) + Cx(2x+1)
+  \]
+  \[
+    (-1)x^2+(14)x+(6) = (2A+B+2C)x^2 + (7A+3B+C)x + (3A)
+  \]
+  \[
+    -1 = 2A+B+2C \qquad 14=7A+3B+C \qquad 6 = 3A
+  \]
+\end{strategy}
 
-% \begin{problem}
-%  Evaluate $\ds \int \frac{x^2+2x-1}{2x^3+3x^2-2x} \, dx$.
-% \end{problem}
+\begin{problem}
+ Evaluate $\ds \int \frac{-x^2+14x+6}{2x^3+7x^2+3} \, dx$.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \newpage
+\begin{problem}
+ Evaluate $\ds \int \frac{14x^2-8x+5}{(x+1)(1-2x)(x-2)} \, dx$.
+\end{problem}
 
-% \begin{strategy}
-%  If the denominator is a product of linear factors, some of which are repeated roots, split the factors adding one to the degree of the repeated root until it is of the desired power.
-% \end{strategy}
+\vfill
 
-% \begin{problem}
-%  Evaluate $\ds \int \frac{x^4-2x^2+4x+1}{x^3 - x^2 -x+1} = \int x + 1 + \frac{4x}{x^3 - x^2 -x+1} \, dx$. \emph{Notice} that long division on the first integral produces the second.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{strategy}
+  If the denominator has a repeated linear factor,
+  use an additional fraction with a constant numerator and a higher power
+  for each repeated linear factor:
+  \[
+    \frac{4x}{x^3-x^2-x+1}
+      =
+    \frac{A}{x+1} + \frac{B}{x-1} + \frac{C}{(x-1)^2}
+  \]
+\end{strategy}
 
-% \newpage
+\begin{problem}
+ Evaluate $\ds \int \frac{4x}{x^3 - x^2 -x+1} \, dx$.
+\end{problem}
 
-% \begin{strategy}
-%  If the denominator has an irreducible quadratic, make the numerator of degree one less.
-% \end{strategy}
+\vfill
 
-% \begin{problem}
-%  Evaluate $\ds \int \frac{3x^2-x+4}{x^3 + 4x} \, dx$.
-% \end{problem}
+\begin{problem}
+ Evaluate $\ds \int \frac{6x^2-7x-2}{x^3 - 2x^2} \, dx$.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \newpage
+\newpage
 
-% \begin{strategy}
-%  If the denominator contains repeated irreducible, treat the repeated roots as before with the denominator of degree one less than the denominator.
-% \end{strategy}
+\begin{strategy}
+  If the denominator has an irreducible quadratic, use a linear factor
+  for the numerator:
+  \[
+    \frac{3x^2-x+4}{x^3 + 4x} = \frac{A}{x} + \frac{Bx+C}{x^2+4}
+  \]
+\end{strategy}
 
-% \begin{problem}
-%  Evaluate $\ds \int \frac{1-x+2x^2-x^3}{x(x^2+1)^2} \, dx$
-% \end{problem}
+\begin{problem}
+ Evaluate $\ds \int \frac{3x^2-x+4}{x^3 + 4x} \, dx$.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \noindent Suggested Homework: Section $7.4$ numbers $2,$ $3,$ $12,$ $15,$ $16,$ $17,$ $18,$ $19,$ $26,$ $27$
+\begin{strategy}
+  If the denominator has a repeated irreducable quadractic factor,
+  use an additional fraction with a linear numerator and a higher power
+  for each repeated irreducable quadratic:
+  \[
+    \frac{2-2x+4x^2-2x^3}{x(x^2+1)^2}
+      =
+    \frac{A}{x}+\frac{Bx+C}{x^2+1}+\frac{Dx+E}{(x^2+1)^2}
+  \]
+\end{strategy}
+
+\begin{problem}
+ Evaluate $\ds \int \frac{2-2x+4x^2-2x^3}{x(x^2+1)^2} \, dx$
+\end{problem}
+
+\vfill
+
+\noindent Suggested Homework: Section $7.4$ numbers $2,$ $3,$ $12,$ $15,$ $16,$ $17,$ $18,$ $19,$ $26,$ $27$
 
 % \newpage
 
