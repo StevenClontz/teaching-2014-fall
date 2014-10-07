@@ -525,119 +525,144 @@ $$\begin{array}{|c|c|c|c|}
 
 \noindent Suggested Homework: Section $7.4$ numbers $2,$ $3,$ $12,$ $15,$ $16,$ $17,$ $18,$ $19,$ $26,$ $27$
 
-% \newpage
+\newpage
 
-% \setcounter{section}{7}
-% \section{Improper Integrals}
+\setcounter{section}{7}
+\section{Improper Integrals}
 
-% \subsection{Infinite Intervals}
+\begin{definition}[Improper Integral with Infinite Bounds\index{Improper Integral with Infinite Bounds}]
+  An integral with at least one infinite bound is computed as the
+  limit of definite integrals:
+  \[
+    \int_a^\infty f(x)\,dx = \lim_{t\to\infty} \int_a^t f(x)\,dx
+  \]
+  \[
+    \int_{-\infty}^b f(x)\,dx = \lim_{t\to-\infty} \int_t^b f(x)\,dx
+  \]
+  \[
+    \int_{-\infty}^\infty f(x)\,dx
+      =
+    \int_{-\infty}^c f(x)\,dx + \int_c^\infty f(x)\,dx
+    \text{ for any value of } c
+  \]
+  These equalities hold only when the given limits exist. In that case, the
+  improper integral \textbf{converges}; otherwise, the improper integral
+  \textbf{diverges}.
+\end{definition}
 
-% \begin{definition}[Integral Over an Infinite Interval\index{Integral Over Infinite Interval}]
-% The following will help us evaluate integrals without bound in at least one direction:
-%  \begin{itemize}
-%   \item If $\int_a^t f(x) \, dx$ exists for every $t \geq a$, then $\int_a^\infty f(x) \, dx = \lim_{t \rightarrow \infty} \int_a^t f(x) \, dx = L$ provided $L \in \mathbb{R}$ (that is, $L$ cannot be $\pm \infty$).
-%   \item If $\int_t^b f(x) \, dx$ exists for every $t < b$, then $\int_{-\infty}^b f(x) \, dx = \lim_{t \rightarrow -\infty} \int_t^b f(x) \, dx = L$ provided $L \in \mathbb{R}$ (that is, $L$ cannot be $\pm \infty$).
-%   \item If both $\int_a^\infty f(x) \, dx$ and $\int_{-\infty}^b f(x) \, dx$ exist, then $\int_{-\infty}^{\infty} f(x) \, dx= \int_a^\infty f(x) \, dx + \int_{-\infty}^b f(x) \, dx$
-%  \end{itemize}
-%  If $L \in \mathbb{R}$ and not $\pm \infty$, then the integral is said to converge.  If the limit does not exist or $L = \pm \infty$, then the integral is said to diverge.
-% \end{definition}
+\begin{problem}
+ Find the area bounded by the curves $\ds y = \frac{1}{x^2}$, $x=1$, and $y=0$.
+\end{problem}
 
-% \begin{problem}
-%  Find the area under the curve $\ds y = \frac{1}{x^2}$ from $x=1$ and onward.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Determine whether $\ds \int_1^\infty \frac{1}{2\sqrt{x}} \, dx$ is
+ convergent or divergent. If it converges give its value.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \int_1^\infty \frac{1}{x} \, dx$ is convergent or divergent.
-% \end{problem}
+\vfill
 
-% \vfill
+\newpage
 
-% \newpage
+\begin{problem}
+  Determine whether $\ds \int_{-\infty}^0 xe^x \, dx$ is convergent or
+  divergent. If it converges give its value.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \int_{-\infty}^0 xe^x \, dx$ is convergent or divergent.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+  Compute $\ds\int_{-\infty}^\infty \frac{1}{1+x^2}$.
+\end{problem}
 
-% \begin{problem}
-%  Determine whether $\ds \int_{-\infty}^\infty \frac{1}{1+x^2} \, dx$ is convergent or divergent.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+  Use the Integral Test to show that $\ds\sum_{n=0}^\infty \frac{1}{1+n^2}$
+  converges.
+\end{problem}
 
-% \begin{problem}
-%  For what values of $p$ is the integral $\ds \int_1^\infty \frac{1}{x^p} \, dx$ convergent?
-% \end{problem}
+\vfill
 
-% \vfill
+\newpage
 
-% \newpage
+\begin{definition}[Improper Integral of Function Undefined within Interval\index{Improper Integral of Function Undefined within Interval}]
+  An integral of a function undefined for a point within the interval
+  of integration is computed as the limit of definite integrals:
+  \[
+    \int_a^b f(x)\,dx = \lim_{t\to b} \int_a^t f(x)\,dx
+  \]
+  \[
+    \int_a^b f(x)\,dx = \lim_{t\to a} \int_t^b f(x)\,dx
+  \]
+  \[
+    \int_a^b f(x)\,dx
+      =
+    \int_a^c f(x)\,dx + \int_c^b f(x)\,dx
+    \text{ for any value of } c
+  \]
+  These equalities hold only when the given limits exist. In that case, the
+  improper integral \textbf{converges}; otherwise, the improper integral
+  \textbf{diverges}.
+\end{definition}
 
-% \subsection{Discontinuous Integrals}
+\begin{problem}
+  Determine whether $\ds \int_2^5 \frac{1}{\sqrt{x-2}} \, dx$ converges or
+  diverges. If it converges, give its value.
+\end{problem}
 
-% \begin{definition}[Integral Over Discontinuous Interval\index{Integral Over Discontinuous Interval}]
-% The following will help us evaluate integrals that are not continuous over a given interval:
-%  \begin{itemize}
-%   \item If $f$ is continuous on $\left[a,b\right)$ and discontinuous at $b$, then $\int_a^b f(x) \, dx = \lim_{t \rightarrow b^-} \int_a^t f(x) \, dx = L$ provided $L \in \mathbb{R}$ (that is, $L$ cannot be $\pm \infty$).
-%   \item If $f$ is continuous on $\left(a,b\right]$ and discontinuous at $a$, then $\int_a^b f(x) \, dx = \lim_{t \rightarrow a^+} \int_t^b f(x) \, dx = L$ provided $L \in \mathbb{R}$ (that is, $L$ cannot be $\pm \infty$).
-%   \item If $f$ is discontinuous at $c$ where $a < c < b$ and both $\int_a^c f(x) \, dx$ and $\int_c^b f(x) \, dx$ are convergent, then $\int_{a}^{b} f(x) \, dx = \int_a^c f(x) \, dx + \int_{c}^b f(x) \, dx$
-%  \end{itemize}
-%  If $L \in \mathbb{R}$ and not $\pm \infty$, then the integral is said to converge.  If the limit does not exist or $L = \pm \infty$, then the integral is said to diverge.
-% \end{definition}
+\vfill
 
-% \begin{problem}
-%  Determine whether $\ds \int_2^5 \frac{1}{\sqrt{x-2}} \, dx$ converges or diverges.
-% \end{problem}
+\begin{problem}
+  Determine whether $\ds \int_0^{\frac{\pi}{2}} \sec(x) \, dx$ converges or
+  diverges. If it converges, give its value.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Determine whether $\ds \int_0^{\frac{\pi}{2}} \sec(x) \, dx$ converges or diverges.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{problem}
+  Determine whether $\ds \int_0^1 \ln(x) \, dx$ converges or diverges.
+  If it converges, give its value.
+\end{problem}
 
-% \newpage
+\vfill
 
-% \begin{problem}
-%  Determine whether $\ds \int_0^1 \ln(x) \, dx$ converges or diverges.
-% \end{problem}
+\begin{problem}
+  Determine whether $\ds \int_0^3 \frac{1}{x-1} \, dx$ converges or diverges.
+  If it converges, give its value.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Determine whether $\ds \int_0^3 \frac{1}{x-1} \, dx$ converges or diverges.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{theorem}[Comparison Test for Integrals\index{Integral Comparison Test}]
+  Suppose that $f$ and $g$ are continuous functions with
+  $0 \leq g(x) \leq f(x)$ for sufficiently large $x$.
+  \begin{itemize}
+    \item If the larger $\int_a^\infty f(x) \, dx$ is convergent,
+          then the smaller $\int_a^\infty g(x) \, dx$ is also convergent.
+    \item If the smaller $\int_a^\infty g(x) \, dx$ is divergent,
+          then the larger $\int_a^\infty f(x) \, dx$ is also divergent.
+  \end{itemize}
+\end{theorem}
 
-% \newpage
+\begin{problem}
+  Determine whether $\ds \int_0^\infty e^{-x^2} \, dx$ converges or diverges.
+\end{problem}
 
-% \subsection{Comparison Test for Integrals}
+\vfill
 
-% \begin{theorem}[Comparison Test for Integrals\index{Integral Comparison Test}]
-%  Suppose that $f$ and $g$ are continuous functions with $0 \leq g(x) \leq f(x)$ for $x \geq a$.
-%  \begin{itemize}
-%   \item If $\int_a^\infty f(x) \, dx$ is convergent, then $\int_a^\infty g(x) \, dx$ is also convergent.
-%   \item If $\int_a^\infty g(x) \, dx$ is divergent, then $\int_a^\infty f(x) \, dx$ is also divergent.
-%  \end{itemize}
-% \end{theorem}
+\begin{problem}
+  Determine whether $\ds \int_1^\infty \frac{1+e^{-x}}{x} \, dx$
+  converges or diverges.
+\end{problem}
 
-% \begin{problem}
-%  Show that $\ds \int_0^\infty e^{-x^2} \, dx$ is convergent.  \emph{Note} $\ds \int e^{-x^2} \, dx$ has no closed form integral.
-% \end{problem}
+\vfill
 
-% \vfill
-
-% \begin{problem}
-%  Determine whether $\ds \int_1^\infty \frac{1+e^{-x}}{x} \, dx$ converges or diverges.
-% \end{problem}
-
-% \vfill
-
-% \noindent Suggested Homework: Section $7.8$ numbers $1,$ $7,$ $9,$ $13,$ $14 - 16,$ $18,$ $25,$ $27 - 33,$ $35,$ $49 - 52,$ $54,$ $55,$ $57$
+\noindent Suggested Homework: Section $7.8$ numbers $1,$ $7,$ $9,$ $13,$ $14 - 16,$ $18,$ $25,$ $27 - 33,$ $35,$ $49 - 52,$ $54,$ $55,$ $57$
 
 \end{document}
