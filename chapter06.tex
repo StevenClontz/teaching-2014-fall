@@ -114,72 +114,26 @@
 
 \subsection{Area with Respect to the \emph{x}-axis}
 
-\begin{figure}[H]
-\centering
-%tikz Picture
-\definecolor{ffzztt}{rgb}{0.6,0.6,0.6}
-\definecolor{wwqqqq}{rgb}{0.13,0.13,0.13}
-\definecolor{qqqqcc}{rgb}{0.27,0.27,0.27}
-\definecolor{qqzzqq}{rgb}{0.2,0.2,0.2}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\draw[->,color=black] (-2.97,0) -- (3.18,0);
-\foreach \x in {-2,-1,1,2,3}
-\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
-\draw[->,color=black] (0,-0.46) -- (0,7.12);
-\foreach \y in {1,2,3,4,5,6,7}
-\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
-\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
-\clip(-2.97,-0.46) rectangle (3.18,7.12);
-\draw[line width=1.5pt,color=black] (-1.73,4.07) -- (-1.73,1.93) -- (-1.04,1.93) -- (-1.04,4.07) -- cycle;
-\fill[line width=2.4pt,color=ffzztt,fill=ffzztt,fill opacity=0.3] (-1.73,4.07) -- (-1.73,1.93) -- (-1.04,1.93) -- (-1.04,4.07) -- cycle;
-\draw[line width=1.5pt,color=black] (-1.04,5.52) -- (-1.04,0.48) -- (-0.35,0.48) -- (-0.35,5.52) -- cycle;
-\fill[line width=2.4pt,color=ffzztt,fill=ffzztt,fill opacity=0.3] (-1.04,5.52) -- (-1.04,0.48) -- (-0.35,0.48) -- (-0.35,5.52) -- cycle;
-\draw[line width=1.5pt,color=black] (-0.35,6) -- (-0.35,0) -- (0.35,0) -- (0.35,6) -- cycle;
-\fill[line width=2.4pt,color=ffzztt,fill=ffzztt,fill opacity=0.3] (-0.35,6) -- (-0.35,0) -- (0.35,0) -- (0.35,6) -- cycle;
-\draw[line width=1.5pt,color=black] (0.35,5.52) -- (0.35,0.48) -- (1.04,0.48) -- (1.04,5.52) -- cycle;
-\fill[line width=2.4pt,color=ffzztt,fill=ffzztt,fill opacity=0.3] (0.35,5.52) -- (0.35,0.48) -- (1.04,0.48) -- (1.04,5.52) -- cycle;
-\draw[line width=1.5pt,color=black] (1.04,4.09) -- (1.04,1.91) -- (1.73,1.91) -- (1.73,4.09) -- cycle;
-\fill[line width=2.4pt,color=ffzztt,fill=ffzztt,fill opacity=0.3] (1.04,4.09) -- (1.04,1.91) -- (1.73,1.91) -- (1.73,4.09) -- cycle;
-\draw[line width=2pt,color=qqzzqq, smooth,samples=100,domain=-2.9700384090603635:3.176476820910142] plot(\x,{(\x)^2});
-\draw[line width=2pt,color=qqqqcc, smooth,samples=100,domain=-2.9700384090603635:3.176476820910142] plot(\x,{6-(\x)^2});
-\draw (-2.55,7.12) node[anchor=north west] {$ApproximateArea \, = \,14.13$};
-\draw (-1.92,6.68) node[anchor=north west] {$ExactArea \, = \,13.86$};
-\begin{scriptsize}
-\draw[color=wwqqqq] (-1.65,-0.26) node {Start};
-\draw[color=wwqqqq] (1.92,-0.22) node {End};
-\end{scriptsize}
-\end{tikzpicture}
-% End Tikz Picture
-\caption{Area Between Two Curves}
-\label{AreaBetweenCurvesPic}
-\end{figure}
-
-\begin{goal}
- To be able to find the area between two curves.
-\end{goal}
-
-\begin{motivation}
-Say we want to find the area enclosed by two curves.  Over a given area, there is a top function and a bottom function.  Let's call the top function $f(x)$ and the bottom function $g(x)$.  Just as we did with area under the curve, we can split this region into $n$ rectangles and add up all of their areas to approximate the area between these curves.  Each rectangle has width $\Delta x$.  To find the length of each rectangle, let $x_i^*$ denote a point within the $i^{\rm th}$ rectangle.  Then the length (or height) of rectangle $i$ is $f(x_i^*) - g(x_i^*)$.
-\end{motivation}
-
-\begin{theorem}
-The area, $A$, between two curves can be found by
-$$A = \lim_{n \rightarrow \infty} \sum_{i = 1}^{n} \left( f\left(x_i^*\right) - g\left(x_i^*\right) \right) \, \Delta x.$$
-\end{theorem}
-
 \begin{recall}
- From Chapter $5.3$, we have seen that $$A = \lim_{n \rightarrow \infty} \sum_{i=1}^{n} f\left(x_i^*\right) \, \Delta x = \int_a^b f(x) \, dx.$$
+  If $f(x)$ is a continuous function and $a\leq b$, then
+  the definite integral $\ds\int_a^b f(x)\,dx$ represents the ``net area''
+  between the curve $y=f(x)$ and the $x$-axis between $x=a$ and $x=b$.
+  (``Net area'' means the area above the $x$-axis minus the area below
+  the $x$-axis.)
 \end{recall}
 
-Following the same line of reasoning, we have
-
-\begin{theorem}\index{Area Between Curves}
-The area $A$ of the region bounded by the curves $y = f(x), y = g(x), x = a$ and $x = b,$ where $f$ and $g$ are continous functions such that $f(x) \geq g(x)$ for all $x \in \left[a,b\right]$ is $$A = \lim_{n \rightarrow \infty} \sum_{i = 1}^{n} \left( f\left(x_i^*\right) - g\left(x_i^*\right) \right) \, \Delta x = \int_a^b f(x) - g(x) \, dx.$$
-\emph{(Think: ``Top minus Bottom'')}
+\begin{theorem}\index{Area Between Functions of $x$}
+  If $f,g$ are continuous functions of $x$ such that $f(x)\leq g(x)$ for all
+  $a\leq x\leq b$, then the area $A$ of the region bounded by the curves
+  $y = f(x)$, $y = g(x)$, $x = a$, and $x = b$ is
+  \[
+    A = \int_a^b g(x) - f(x) \, dx
+  \]
 \end{theorem}
 
 \begin{problem}
- Find the area of the region bounded above by $y = e^x$, below by $y = x$, and on the sides by $x = 0$ and $x = 1$.
+ Find the area of the region bounded above by $y = e^x$, below by $y = x$,
+ and on the sides by $x = 0$ and $x = 1$.
 \end{problem}
 
 \newpage
@@ -191,7 +145,8 @@ The area $A$ of the region bounded by the curves $y = f(x), y = g(x), x = a$ and
 \vfill
 
 \begin{problem}
- Find the area bounded by $y = \sin(x)$ and $y = \cos(x)$ from $x = 0$ to $x = \frac{\pi}{2}$.
+ Find the area bounded by $y = \sin(x)$ and $y = \cos(x)$ from $x = 0$ to
+ $x = \frac{\pi}{2}$.
 \end{problem}
 
 \vfill
@@ -200,7 +155,14 @@ The area $A$ of the region bounded by the curves $y = f(x), y = g(x), x = a$ and
 
 \subsection{Area with Respect to the \emph{y}-axis}
 
-Finding the area with respect to the $y$-axis is very similar.  One simply has to tilt his or her head to the right.  That is to say that instead of thinking ``Top Minus Bottom,'' think ``Right minus Left.''
+\begin{theorem}\index{Area Between Functions of $y$}
+  If $f,g$ are continuous functions of $y$ such that $f(y)\leq g(y)$ for all
+  $c\leq y\leq d$, then the area $A$ of the region bounded by the curves
+  $x = f(y)$, $x = g(y)$, $y = c$, and $y = d$ is
+  \[
+    A = \int_c^d g(y) - f(y) \, dy
+  \]
+\end{theorem}
 
 \begin{problem}
  Find the area enclosed by $y = x-1$ and $y^2 = 2x+6$.
@@ -214,102 +176,125 @@ Finding the area with respect to the $y$-axis is very similar.  One simply has t
 
 \vfill
 
-\noindent Suggested Homework: Section $6.1$ numbers $1,$ $4,$ $12,$ $24,$ $27,$ $44,$ $50$
+\noindent Suggested Homework: Section $6.1$ numbers
+  $1,$ $4,$ $12,$ $24,$ $27,$ $44,$ $50$
 
-% \newpage
+\newpage
 
-% \section{Volume Using the Disc/Washer Method}
+\section{Volumes by Cross-Sections}
 
-% \begin{motivation}
-%  Just as we used rectangles to approximate area under a curve in $\mathbb{R}^2$, we will use \emph{right circular cylinders} to approximate the volume of a solid in $\mathbb{R}^3$.
-% \end{motivation}
+\begin{definition}
+  The three-dimensional solid obtained by moving a planar shape
+  along a line perpendicular to the plane is called a \textbf{cylinder}.
+\end{definition}
 
-% \begin{recall}\index{Volume of Cylinder}
-%  The volume of a right circular cylinder is the area of the base $A$ times the height of the cylinder $h$.  That is to say $$V_{\mbox{cylinder}} = Ah.$$
-% \end{recall}
+\begin{definition}\index{Volume of Cylinder}
+  The volume $V$ of a cylinder with base area $B$ and height $h$ is defined
+  to be
+  \[
+    V = Bh
+  \]
+\end{definition}
 
-% \begin{strategy}
-%  So, we will be
-%  \begin{itemize}
-%   \item Cutting a solid $S$ into cylindrical cross sections,
-%   \item Finding the volume of each cross section, and
-%   \item adding them all up.
-%  \end{itemize}
-% That is to say that $$V(S) \approx \sum_{i=1}^n A(x_i^*)\Delta x.$$
-% \end{strategy}
+\begin{definition}\index{Volume of Solid}
+  The volume of a solid positioned between $x=a$ and $x=b$ with cross-sectional
+  areas given by $A(x)$ for each $x$-value between $a$ and $b$ is defined to be
+  \[
+    V
+      =
+    \lim_{n\to\infty} \sum_{i=1}^n A(x_{i,n})\,\Delta x_n
+      =
+    \int_a^b A(x)\,dx
+  \]
+\end{definition}
 
-% \begin{observation}
-%  It should be noted that the more cylindrical cross sections, the closer the approximation will be.
-% \end{observation}
+\begin{problem}
+  Show that the volume $V$ of a pyramid with height $h$
+  and a square base with side length $s$ is $\ds V = \frac{1}{3}s^2h$.
+\end{problem}
 
+\vfill
 
-% \begin{definition}[Disc Method\index{Disc Method}]
-%  Let $S$ be a solid that lies between $x=a$ and $x=b$.  If the cross sectional area of $S$ in the plane $P_x$ through $x$ and perpendicular to the $x$-axis is $A(x)$, where $A$ is a continuous function, then the \textbf{volume} of $S$ is $$V(S) = \lim_{n \rightarrow \infty} \sum_{i=1}^n A\left(x_i^*\right) \Delta x = \int_a^b A(x) \, dx.$$
-% \end{definition}
+\newpage
 
+\begin{definition}
+  A \textbf{solid of revolution} is the result of rotating a shape around
+  a line (called the \textbf{axis of revolution}).
+\end{definition}
 
-% \begin{figure}[H]
-%  \centering
-%  \includegraphics[width=3in]{DiscMethodLectureNotes.png}
-%  \caption{Disc Method}
-%  \label{DiscMethodFigure}
-% \end{figure}
+\begin{theorem}[Disc Method\index{Disc Method}]
+  Suppose that a solid of revolution is formed from a shape positioned flush
+  against a horizontal or vertical axis of revolution.
 
-% \newpage
+  If the axis of revolution is horizontal, and $R(x)$ gives the distance from the
+  axis to the outside of the shape being rotated for each value of $x$,
+  then the volume of the solid of revolution from $x=a$ to $x=b$ is
+  \[
+    V = \int_a^b \pi [R(x)]^2\, dx
+  \]
+  If the axis of revolution is vertical, and $R(y)$ gives the distance from the
+  axis to the outside of the shape being rotated for each value of $y$,
+  then the volume of the solid of revolution from $y=c$ to $y=d$ is
+  \[
+    V = \int_c^d \pi [R(y)]^2\, dy
+  \]
+\end{theorem}
 
-% \begin{problem}
-%  Show that the volume of a sphere of radius $r$ is $\ds V = \frac{4}{3}\pi r^3$.
-% \end{problem}
+\begin{problem}
+ Show that the volume of a sphere of radius $r$ is $\ds V = \frac{4}{3}\pi r^3$.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Find the volume of the solid obtained by rotating the curve $y=\sqrt{x}$ about the $x$-axis from $x = 0$ to $x = 1$.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{problem}
+ Find the volume of the solid obtained by rotating the shape bounded by
+ $y=\sqrt{x}$, $y=0$, $x=0$, and $x=1$ about the $x$-axis.
+\end{problem}
 
-% \newpage
+\vfill
 
-% \begin{problem}[Gabriel's Horn Pt. I\index{Gabriel's Horn Volume}]
-%  Find the volume of the solid obtained by rotating the curve $\ds y=\frac{1}{x}$ about the $x$-axis from $1$ to an arbitrary point $a > 1.$  What happens as $a$ gets extremely large?
-% \end{problem}
+\begin{problem}
+ Find the volume of the solid obtained by rotating the shape bounded by
+ $y = x^3$, $x=0$, $y = 0$, and $y=8$ about the $y$-axis.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Find the volume of the solid obtained by rotating the curve $y = x^3$ bounded by $y = 0$ and $y=8$ about the $y$-axis.
-% \end{problem}
+\newpage
 
-% \vfill
+\begin{theorem}[Washer Method\index{Washer Method}]
+  Suppose that a solid of revolution is formed from a shape not positioned flush
+  against a horizontal or vertical axis of revolution.
 
-% \newpage
+  If the axis of revolution is horizontal, $R(x)$ gives the distance from the
+  axis to the outside of the shape being rotated for each value of $x$, and
+  $r(x)$ gives the distance from the axis to the inside of the shape being
+  rotated for each value of $x$,
+  then the volume of the solid of revolution from $x=a$ to $x=b$ is
+  \[
+    V = \int_a^b \pi [R(x)]^2-\pi [r(x)]^2\, dx
+  \]
+  (The similar formula works for $y$ values and a vertial axis of revolution.)
+\end{theorem}
 
-% \begin{figure}[H]
-%  \centering
-%  \includegraphics[width=3in]{WasherMethodLectureNotes.png}
-%  \caption{Washer Method}
-%  \label{WasherMethodFigure}
-% \end{figure}
+\begin{problem}
+ Find the volume of the solid obtained by rotating the triangle with
+ vertices at $(1,1)$, $(3,1)$, and $(1,2)$ around the $x$-axis.
+\end{problem}
 
-% \begin{motivation}
-%  What if we wanted to rotate the area between two functions around the $x$-axis or $y$-axis?  That shape would look like a washer as depicted in Figure \ref{WasherMethodFigure}.
-% \end{motivation}
+\vfill
 
-% \begin{problem}\index{Washer Method}
-%  Given the outer radius of the disc is length $R$ from the axis of rotation and the inner circle of the disc is of length $r$ from the axis of rotation, what is the area of the base of the disc?
-% \end{problem}
+\begin{problem}
+ Find the volume of the solid obtained by rotating the region bounded by
+ $y=x$ and $y=x^2$ about the line $x = -1$.
+\end{problem}
 
-% \vfill
+\vfill
 
-% \begin{problem}
-%  Find the volume of the surface produced by rotating the region bounded by $y=x$ and $y=x^2$ about the line $x = -1$.
-% \end{problem}
-
-% \vfill
-
-% \noindent Suggested Homework: Section $6.2$ numbers $4,$ $5,$ $12,$ $15,$ $19,$ $25,$ $42,$ $54,$ $56,$ $59$
-% \newpage
+\noindent Suggested Homework: Section $6.2$ numbers $4,$ $5,$ $12,$ $15,$ $19,$ $25,$ $42,$ $54,$ $56,$ $59$
+\newpage
 
 % \section{Volume by Cylindrical Shell}
 
