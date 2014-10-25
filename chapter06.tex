@@ -296,50 +296,116 @@
 \noindent Suggested Homework: Section $6.2$ numbers $4,$ $5,$ $12,$ $15,$ $19,$ $25,$ $42,$ $54,$ $56,$ $59$
 \newpage
 
-% \section{Volume by Cylindrical Shell}
+\section{Volume by Cylindrical Shell}
 
-% \begin{figure}[H]
-%  \centering
-%  \includegraphics[width=3in]{ShellMethodLectureNotes.png}
-%  \caption{Shell Method}
-%  \label{ShellMethodFigure}
-% \end{figure}
+\begin{theorem}[Shell Method\index{Shell Method}]
+  Suppose that a solid of revolution is formed from a shape positioned flush
+  against a horizontal or vertical axis of revolution.
 
-% \begin{motivation}
-%  Sometimes it is easier to deal with cylindrical shells rather than discs.  When this happens, what we want to do is peal away sections of this surface one layer at a time, much like layers of an onion (not to be confused with \emph{The Onion}).  In this case, each layer can be straightened out and placed on a table so that it looks like a rectangular prism, which has volume length times width times height.  The length of the shell is the circumference of the shell, the length is the height, and the width is $\Delta x$.  This width will become arbitrarily small with the integration.
-% \end{motivation}
+  If the axis of revolution is vertical with equation $x=a$, $h(x)$ gives
+  the height of the shape between the axis $x=a$ to the shape's edge $x=b$,
+  and $C(x)=2\pi(x-a)$ is the circumference of a cylindrical shell formed from
+  the shape at each $x$-value,
+  then the volume of the solid of revolution is
+  \[
+    V = \int_a^b C(x)h(x)\, dx = \int_a^b 2\pi(x-a)h(x)\, dx
+  \]
+  If the axis of revolution is horizontal with equation $y=c$, and $w(y)$ gives
+  the width of the shape between the axis $y=c$ to the shape's edge $y=d$,
+  and $C(y)=2\pi(y-c)$ is the circumference of a cylindrical shell formed from
+  the shape at each $y$-value,
+  then the volume of the solid of revolution is
+  \[
+    V = \int_c^d C(y)w(y)\, dy = \int_c^d 2\pi(y-c)w(y)\, dy
+  \]
+\end{theorem}
 
-% \begin{theorem}[Shell Method\index{Shell Method}]
-%  The volume of a solid rotated about the $y$-axis under the curve $y = f(x)$ from $y = a$ to $y = b$ is $V = \int_a^b 2\pi x f(x) \, dx$.
-% \end{theorem}
+\begin{problem}
+ Find the volume of the solid obtained by rotating the shape with bounds
+ $y = 2x^2-x^3$ and $y = 0$ about the $y$-axis.
+\end{problem}
 
-% \begin{problem}
-%  Find the volume of the solid obtained by rotating $y = 2x^2-x^3$ and $y = 0$ about the $y$-axis.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Find the volume of the solid obtained by rotating the shape with bounds
+ $x = y$ and $x = y^2$ about the $x$-axis.
+\end{problem}
 
-% \begin{problem}
-%  Find the volume of the solid obtained by rotating $y = x$ and $y = x^2$ about the $y$-axis.
-% \end{problem}
+\vfill
 
-% \vfill
+\newpage
 
-% \newpage
+\begin{problem}
+ Find the volume of the solid obtained by rotating the shape with bounds
+ $y = \sqrt{x}$, $y=0$, and $x=4$ about the $y$-axis.
+\end{problem}
 
-% \begin{problem}
-%  Find the volume of the solid obtained by rotating $y = \sqrt{x}$  about the $x$-axis from $y = 0$ to $y = 1$.
-% \end{problem}
+\vfill
 
-% \vfill
+\begin{problem}
+ Find the volume of the solid obtained by rotating the shape with bounds
+ $y = x-x^2$ and $y = 0$ about the line $x=2$.
+\end{problem}
 
-% \begin{problem}
-%  Find the volume of the solid obtained by rotating $y = x-x^2$ and $y = 0$ about the line $x=2$.
-% \end{problem}
+\vfill
 
-% \vfill
+Suggested Homework: Section $6.3$ numbers $2,$ $7,$ $9,$ $17,$ $19,$ $37$
 
-% Suggested Homework: Section $6.3$ numbers $2,$ $7,$ $9,$ $17,$ $19,$ $37$
+
+\newpage
+
+\section{Work}
+
+\begin{definition}
+  The \textbf{work} $W$ done by a constant \textbf{force} $F$ exerted on
+  an object over a distance $d$ is given by the equation \[W=Fd\]
+\end{definition}
+
+\begin{theorem}
+  The work $W$ done by a variable force $F(x)$ exerted on an object over the
+  distance from $x=a$ to $x=b$ is given by the equation \[W=\int_a^b F(x)\,dx\]
+\end{theorem}
+
+\begin{problem}
+  A vehicle is moved from mile marker $x=1$ to mile marker $x=3$
+  with a force of $F(x)=x^2+2x$ tons at a given position $x$ on the
+  interstate. How much work is done in moving the vehicle in this way?
+\end{problem}
+
+\vfill
+
+\begin{problem}
+  \textbf{Hooke's Law} tells us that a spring with spring constant $k$ requires
+  $F(x)=kx$ units of force to stretch the spring $x$ units beyond its natural
+  length. If a force of $40$ newtons is required to stretch a spring from
+  its natural length of $10$ meters to $15$ meters, what is the value of the
+  spring's constant $k$, and how much
+  work is required to stretch the spring further from $15$ meters to
+  $18$ meters?
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+  A $200$ pound cable hangs $100$ feet from the top of a building. How much
+  work is required to retract the cable to the top of the building?
+\end{problem}
+
+\vfill
+
+\begin{problem}
+  A tank in the shape of an upside-down cone has a height of $16$ meters and
+  radius of $4$ meters. Assuming that the density of the water is $1000$
+  $kg$/$m^3$, compute the amount of work required to completely fill the tank
+  by pumping water into the tip of the tank.
+\end{problem}
+
+\vfill
+
+(No Suggested Homework)
 
 % \newpage
 
