@@ -276,7 +276,15 @@
   \[
     V = \int_a^b \pi [R(x)]^2-\pi [r(x)]^2\, dx
   \]
-  (The similar formula works for $y$ values and a vertial axis of revolution.)
+
+  If the axis of revolution is vertical, $R(y)$ gives the distance from the
+  axis to the outside of the shape being rotated for each value of $y$, and
+  $r(y)$ gives the distance from the axis to the inside of the shape being
+  rotated for each value of $y$,
+  then the volume of the solid of revolution from $y=c$ to $y=d$ is
+  \[
+    V = \int_c^d \pi [R(y)]^2-\pi [r(y)]^2\, dy
+  \]
 \end{theorem}
 
 \begin{problem}
@@ -299,24 +307,20 @@
 \section{Volume by Cylindrical Shell}
 
 \begin{theorem}[Shell Method\index{Shell Method}]
-  Suppose that a solid of revolution is formed from a shape positioned flush
-  against a horizontal or vertical axis of revolution.
-
-  If the axis of revolution is vertical with equation $x=a$, $h(x)$ gives
-  the height of the shape between the axis $x=a$ to the shape's edge $x=b$,
-  and $C(x)=2\pi(x-a)$ is the circumference of a cylindrical shell formed from
-  the shape at each $x$-value,
+  If the axis of revolution for a solid of revolution is vertical,
+  and the cylindrical shell formed by rotating a vertical line segment within
+  the shape at a fixed $x$ value has height $h(x)$ and radius $r(x)$,
   then the volume of the solid of revolution is
   \[
-    V = \int_a^b C(x)h(x)\, dx = \int_a^b 2\pi(x-a)h(x)\, dx
+    V = \int_a^b 2\pi r(x)h(x)\, dx
   \]
-  If the axis of revolution is horizontal with equation $y=c$, and $w(y)$ gives
-  the width of the shape between the axis $y=c$ to the shape's edge $y=d$,
-  and $C(y)=2\pi(y-c)$ is the circumference of a cylindrical shell formed from
-  the shape at each $y$-value,
+
+  If the axis of revolution for a solid of revolution is horizontal,
+  and the cylindrical shell formed by rotating a horizontal line segment within
+  the shape at a fixed $y$ value has height $h(y)$ and radius $r(y)$,
   then the volume of the solid of revolution is
   \[
-    V = \int_c^d C(y)w(y)\, dy = \int_c^d 2\pi(y-c)w(y)\, dy
+    V = \int_c^d 2\pi r(y)h(y)\, dy
   \]
 \end{theorem}
 
