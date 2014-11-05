@@ -1,0 +1,220 @@
+\documentclass[letterpaper, twoside, 12pt]{book}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{yfonts}
+\usepackage{amsrefs}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{esint}
+\usepackage{harpoon}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+
+\usepackage{makeidx}
+\makeindex
+
+\definecolor{AuburnOrange}{RGB}{221,85,12}
+\definecolor{AuburnBlue}{RGB}{3,36,77}
+\definecolor{AuburnSecondaryBlue}{RGB}{73,110,156}
+\definecolor{AuburnSecondaryOrange}{RGB}{246,128,38}
+\definecolor{AlabamaCrimson}{RGB}{163,38,65}
+\definecolor{LSUpurple}{RGB}{70,29,124}
+\definecolor{VanderbiltGold}{RGB}{207,181,59}
+
+\usepackage[pdfpagelabels]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=AuburnSecondaryOrange}
+
+% \usepackage[tracking]{microtype}
+% \UseMicrotypeSet{all}
+% \SetTracking[spacing = {35*,0*,0*}]{encoding = *}{7}
+% \linespread{1.025}
+
+\def\scaleint#1{\vcenter{\hbox{\scaleto[3ex]{\displaystyle\int}{#1}}}}
+\def\bs{\!\!}
+
+\renewcommand{\arraystretch}{1.5}
+
+\pagestyle{fancy} \headheight 14.49998pt
+
+\newcommand{\tstamp}{\today}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\chaptermark}[1]{\markright{#1}}
+
+\lhead[\fancyplain{}{Clontz \thepage}]         {\fancyplain{}{\scshape\nouppercase{\rightmark}}}
+
+\chead[\fancyplain{}{}]
+{\fancyplain{}{}}
+
+
+\rhead[\fancyplain{}{Calculus II Lecture Notes}]       {\fancyplain{}{Clontz \thepage}}
+
+\lfoot[\fancyplain{}{Auburn University}]                 {\fancyplain{\tstamp}{\tstamp}}
+
+\cfoot[\fancyplain{\thepage}{}]         {\fancyplain{\thepage}{}}
+
+\rfoot[\fancyplain{\tstamp} {\tstamp}]  {\fancyplain{}{Auburn University}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+% \theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{recall}[theorem]{Recall}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{goal}[theorem]{Goal}
+\newtheorem{motivation}[theorem]{Motivation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{TrueFact}[theorem]{True Fact}
+\newtheorem{FalseFact}[theorem]{False Fact}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{eqn}[theorem]{Equation}
+\newtheorem{strategy}[theorem]{Strategy}
+\newtheorem{properties}[theorem]{Properties}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand*{\threevec}[3]{\ensuremath{\left\langle #1, #2, #3 \right\rangle}}
+\newcommand*{\twovec}[2]{\ensuremath{\left\langle #1, #2 \right\rangle}}
+\newcommand*{\unitvec}[1]{\ensuremath{\mathbf{\widehat{#1}}}}
+\newcommand{\veci}{\ensuremath{\mathbf{\widehat{i}}}}
+\newcommand{\vecj}{\ensuremath{\mathbf{\widehat{j}}}}
+\newcommand{\veck}{\ensuremath{\mathbf{\widehat{k}}}}
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+
+\newcommand{\contrasymb}{\mathrel{\raisebox{.1em}{\reflectbox{\rotatebox[origin=c]{220}{$\lightning$}}}}}
+
+\newenvironment{answer}{\paragraph{Answer.}}{\hfill$\blacklozenge$}
+\newenvironment{contraproof}{\paragraph{Proof.}}{\hfill$\contrasymb$}
+
+\begin{document}
+
+
+\setcounter{chapter}{7}
+
+\chapter{Further Applications of Integrals}
+
+\section{Arc Length}
+
+\begin{theorem}[Arc Length\index{Arc Length}]
+  If $\frac{df}{dx}$ is continuous on $\left[a,b\right]$, then the length of the
+  curve $y = f(x)$ where $a \leq x \leq b$ is
+  \[
+    L
+      =
+    \lim_{n\to\infty}\sum_{i=1}^n \sqrt{(\Delta x)^2+(\Delta f)^2}
+      =
+    \lim_{n\to\infty}\sum_{i=1}^n
+    \sqrt{1+\left(\frac{\Delta f}{\Delta x}\right)^2}\,\Delta x
+      =
+    \int_a^b \sqrt{1+\left(\frac{df}{dx}\right)^2} \, dx
+  \]
+\end{theorem}
+
+\begin{problem}
+  Prove that the circumference of a circle with radius $r$ is
+  $C=2\pi r$.
+\end{problem}
+
+\vfill
+
+\begin{problem}
+  Find the length of the arc on the curve $y^2 = x^3$ between
+  the points $(1,1)$ and $(4,8)$.
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+ Find the length of the arc of the parabola $y^2=x$ from $(0,0)$ to $(1,1).$
+\end{problem}
+
+\vfill
+
+\begin{theorem}[Arc Length Function\index{Arc Length Function}]
+  If $\frac{df}{dx}$ is continuous, then the \textbf{arc length function} with
+  initial point $(a,f(a))$ for the curve $y = f(x)$ is
+  \[
+    s(x)
+      =
+    \int_a^x \sqrt{1+\left(f'(t)\right)^2} \, dt
+  \]
+\end{theorem}
+
+\begin{problem}
+ Find the arc length function for the curve $\ds y = x^2-\frac{1}{8}\ln(x)$
+ taking $(1,1)$ as the initial point.
+\end{problem}
+
+\vfill
+
+\noindent Suggested Problems Section $8.1$ numbers $1,$ $2,$ $5,$ $7,$ $8,$ $10,$ $11,$ $13,$ $14,$ $19,$ $20,$ $35$
+
+\newpage
+
+\section{Area of a Surface of Revolution}
+
+\begin{theorem}[Surface Area\index{Surface Area}]
+  Let $f$ be a positive function with continuous derivative.
+  Then the area of the surface obtained by rotating the
+  curve $y = f(x)$ from $a \leq x \leq b$ about the $x$-axis is
+  \[
+    SA
+      =
+    \int_a^b 2\pi f(x) \sqrt{1+\left[f^\prime\left(x\right)\right]^2} \, dx
+  \]
+\end{theorem}
+
+\begin{problem}
+  Prove that the surface area of a sphere with radius $r$ is given by
+  $SA=4\pi r^2$
+\end{problem}
+
+\vfill
+
+\begin{problem}
+  Find the area of the surface generated by rotating the arc of the parabola
+  $y = x^2$ from $(1,1)$ to $(2,4)$ about the $y$-axis.
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{problem}
+ Find the area of the surface generated by rotating $y=e^x$
+ from $0 \leq x \leq 1$ about the $x$-axis.
+\end{problem}
+
+\vfill
+
+\begin{problem}[Gabriel's Horn\index{Gabriel's Horn}]
+  Show that the solid obtained by rotating the region
+  bounded by the curve $y=\frac{1}{x}$ and lines $y=0$, $x=1$ about the
+  $x$-axis has infinite volume and finite surface area.
+\end{problem}
+
+\vfill
+
+\noindent Suggested Homework: Section $8.2$ numbers $5,$ $6,$ $7,$ $9,$ $13,$ $14,$ $16$
+
+\end{document}
