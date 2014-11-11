@@ -200,10 +200,15 @@ Section $12.1$ numbers $4,$ $6,$ $7,$ $8,$ $10,$ $11,$ $12,$ $14,$ $15,$ $16$
 \section{Vectors}
 
 \begin{definition}[Vector\index{Vector}]
-  A \textbf{vector} is a mathematical object that stores a \textbf{magnitude}
-  (often thought of as length) and \textbf{direction}.
-  Two vectors are \textbf{equal} if and only if they have the same magnitude and
-  direction.
+  A \textbf{vector} $\harpvec v$ is a mathematical object that stores a
+  \textbf{magnitude} (a nonnegative real number often thought of as length)
+  and \textbf{direction}. Two vectors are \textbf{equal} if and only if they
+  have the same magnitude and direction.
+\end{definition}
+
+\begin{definition}
+  The \textbf{zero vector} $\harpvec0$ has zero magnitude and no direction.
+  (This is the only vector without a direction.)
 \end{definition}
 
 \begin{definition}
@@ -360,7 +365,7 @@ Section $12.1$ numbers $4,$ $6,$ $7,$ $8,$ $10,$ $11,$ $12,$ $14,$ $15,$ $16$
 \end{definition}
 
 \begin{theorem}
-  For any vector $\harpvec{v}$, the vector
+  For any non-zero vector $\harpvec{v}$, the vector
   \[
     \frac{1}{|\harpvec v|}\harpvec{v} = \frac{\harpvec v}{|\harpvec v|}
   \]
@@ -407,6 +412,12 @@ $\veci=\<1,0,0\>$, $\vecj=\<0,1,0\>$, and $\veck=\<0,0,1\>$, and any vector in
 $\mathbb{R}^3$ can be expressed in \textbf{standard unit vector form}:
   \[\<a,b,c\>=a\veci+b\vecj+c\veck\]
 \end{definition}
+
+\begin{note}
+  Since the $xy$-plane is the the plane $z=0$ in $xyz$-space, we say the
+  points $(a,b)=(a,b,0)$ and vectors $\<a,b\>=\<a,b,0\>=a\veci+b\vecj+0\veck$
+  are equal.
+\end{note}
 
 \noindent Suggested Homework:
 Section $12.2$ numbers $3,$ $5,$ $13,$ $14,$ $15,$ $19,$ $21,$ $24,$ $26$
