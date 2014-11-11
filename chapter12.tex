@@ -195,156 +195,233 @@
 \noindent Suggested Homework:
 Section $12.1$ numbers $4,$ $6,$ $7,$ $8,$ $10,$ $11,$ $12,$ $14,$ $15,$ $16$
 
-% \newpage
+\newpage
 
-% \section{Vectors}
+\section{Vectors}
 
-% \begin{definition}[Vector\index{Vector}]
-%   A \textbf{vector} is a mathematical object that stores a \textbf{magnitude}
-%   (often thought of as length) and \textbf{direction}.
-%   Two vectors are \textbf{equal} if and only if they have the same magnitude and
-%   direction.
-% \end{definition}
+\begin{definition}[Vector\index{Vector}]
+  A \textbf{vector} is a mathematical object that stores a \textbf{magnitude}
+  (often thought of as length) and \textbf{direction}.
+  Two vectors are \textbf{equal} if and only if they have the same magnitude and
+  direction.
+\end{definition}
 
-% \begin{definition}
-%   For a given point $P=(a,b)$ in $\mathbb{R}^2$, its \textbf{position vector}
-%   is given by $\harpvec{P}=\<a,b\>$: the vector from the origin $(0,0)$ to the
-%   point $P=(a,b)$.
+\begin{definition}
+  For a given point $P=(a,b)$ in $\mathbb{R}^2$, its \textbf{position vector}
+  is given by $\harpvec{P}=\<a,b\>$: the vector from the origin $(0,0)$ to the
+  point $P=(a,b)$.
 
-%   For a given point $P=(a,b,c)$ in $\mathbb{R}^3$, its \textbf{position vector}
-%   is given by $\harpvec{P}=\<a,b,c\>$: the vector from the origin $(0,0,0)$ to
-%   the point $P=(a,b,c)$.
+  For a given point $P=(a,b,c)$ in $\mathbb{R}^3$, its \textbf{position vector}
+  is given by $\harpvec{P}=\<a,b,c\>$: the vector from the origin $(0,0,0)$ to
+  the point $P=(a,b,c)$.
+\end{definition}
+
+\begin{theorem}
+  Two vectors are equal if and only if they share the same magnitude and
+  direction as a common position vector.
+\end{theorem}
+
+\begin{definition}
+  Since all vectors are equal to some position vector $\<a,b\>$ or $\<a,b,c\>$,
+  we usually define vectors by a position vector written in this
+  \textbf{component form}.
+  Since the component form of a vector stores the same information as a point,
+  we will use both interchangeably, that is, $\<a,b\>=(a,b)\in\mathbb{R}^2$ and
+  $\<a,b,c\>=(a,b,c)\in\mathbb{R}^3$
+  (although we usually sketch them differently).
+\end{definition}
+
+\begin{problem}
+  Plot the following points and position vectors.
+  \begin{itemize}
+    \item $(1,3)$ and $\<1,3\>$ in the $xy$-plane.
+    \item $(-2,5)$ and $\<-2,5\>$ in the $xy$-plane.
+    \item $(1,1,-3)$ and $\<1,1,-3\>$ in $xyz$-space.
+    \item $(0,5,0)$ and $\<0,5,0\>$ in $xyz$-space.
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{definition}
+  Let $P = \left(x_1,y_1,z_1\right)$ and $Q = \left(x_2,y_2,z_2\right).$
+  Then the vector with initial point $P$ and terminal point $Q$ is defined as
+  \[
+    \harpvec{PQ} = \threevec{x_2 - x_1}{y_2 - y_1}{z_2 - z_1}
+  \]
+\end{definition}
+
+\begin{problem}
+  Plot and sketch the points $P$, $Q$ and the vector $\harpvec{PQ}$ for each.
+  \begin{itemize}
+    \item $P=(1,3)$, $Q=(-3,6)$ in the $xy$-plane
+    \item $P=(3,1)$, $Q=(0,-2)$ in the $xy$-plane
+    \item $P=(1,1,1)$, $Q=(-3,-1,3)$ in $xyz$-space
+    \item $P=(-2,0,3)$, $Q=(1,3,-3)$ in $xyz$-space
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{definition}
+  The magnitude $|\harpvec{v}|$ of a vector $\harpvec{v}$ in $\mathbb{R}^2$ or
+  $\mathbb{R}^3$ is the distance between its initial and terminal points.
+\end{definition}
+
+\begin{theorem}
+  The magnitude of $\harpvec{v}=\<a,b\>$ is given by
+    \[|\harpvec{v}|=\sqrt{a^2+b^2}\]
+
+  The magnitude of $\harpvec{v}=\<a,b,c\>$ is given by
+    \[|\harpvec{v}|=\sqrt{a^2+b^2+c^2}\]
+\end{theorem}
+
+\newpage
+
+\begin{problem}
+  Evaluate the magnitude of the following vectors:
+  \begin{itemize}
+    \item $\<5,5\>$
+    \item $\<-4,3\>$
+    \item $\<12,-5\>$
+    \item $\<3,1,-2\>$
+    \item $\<4,-2,-4\>$
+    \item $\<8,0,-6\>$
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\subsection{Basic Vector Operations}
+
+\begin{definition}
+  \textbf{Vector addition} is defined component-wise as follows for
+  $\mathbb{R}^2$ and $\mathbb{R}^3$
+  \[
+    \harpvec{u}+\harpvec{v}
+      =
+    \<u_1,u_2\>+\<v_1,v_2\>
+      =
+    \<u_1+v_1,u_2+v_2\>
+  \]
+  \[
+    \harpvec{u}+\harpvec{v}
+      =
+    \<u_1,u_2,u_3\>+\<v_1,v_2,v_3\>
+      =
+    \<u_1+v_1,u_2+v_2,u_3+v_3\>
+  \]
+\end{definition}
+
+\begin{definition}
+  A \textbf{scalar} is simply a real number by itself
+  (as opposed to a vector of real numbers).
+\end{definition}
+
+\begin{definition}
+  \textbf{Scalar multiplication of a vector} is defined component-wise as
+  follows for $\mathbb{R}^2$ and $\mathbb{R}^3$:
+  \[
+    k\harpvec{u}
+      =
+    k\<u_1,u_2\>
+      =
+    \<ku_1,ku_2\>
+  \]
+  \[
+    k\harpvec{u}
+      =
+    k\<u_1,u_2,u_3\>
+      =
+    \<ku_1,ku_2,ku_3\>
+  \]
+\end{definition}
+
+\newpage
+
+\begin{problem}
+  Sketch the following vectors.
+  \begin{itemize}
+    \item $\harpvec{u}=\<1,-3\>$, $\harpvec{v}=\<3,1\>$
+          and $\harpvec{u}+\harpvec{v}$ in the $xy$-plane.
+    \item $\harpvec{u}=\<2,0,1\>$, $\harpvec{v}=\<-2,4,2\>$
+          and $\harpvec{u}+\harpvec{v}$ in $xyz$-space.
+    \item $\harpvec{u}=\<8,-2\>$ and $\frac{1}{2}\harpvec{u}$ in the $xy$-plane.
+    \item $\harpvec{u}=\<5,3,-1\>$ and $3\harpvec{u}$ in $xyz$-space.
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{definition}
+  A vector $\harpvec{v}$ is a \textbf{unit vector} if $|\harpvec v|=1$.
+\end{definition}
+
+\begin{theorem}
+  For any vector $\harpvec{v}$, the vector
+  \[
+    \frac{1}{|\harpvec v|}\harpvec{v} = \frac{\harpvec v}{|\harpvec v|}
+  \]
+  is a unit vector.
+\end{theorem}
+
+\begin{definition}
+  The \textbf{direction} of a vector $\harpvec v$ is the unit vector
+  $\frac{\harpvec v}{|\harpvec v|}$.
+\end{definition}
+
+\begin{theorem}
+  Any vector $\harpvec v$ is the scalar product of its magnitude and direction:
+  \[
+    \harpvec v = |\harpvec v|\frac{\harpvec v}{|\harpvec v|}
+  \]
+\end{theorem}
+
+\newpage
+
+\begin{problem}
+  Write the following vectors as the scalar product of their magnitude and
+  direction:
+  \begin{itemize}
+    \item $\<5,5\>$
+    \item $\<-4,3\>$
+    \item $\<12,-5\>$
+    \item $\<3,1,-2\>$
+    \item $\<4,-2,-4\>$
+    \item $\<8,0,-6\>$
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{definition}
+The \textbf{standard unit vectors} in $\mathbb{R}^2$ are
+$\veci=\<1,0\>$ and $\vecj=\<0,1\>$, and any vector in $\mathbb{R}^2$
+can be expressed in \textbf{standard unit vector form}:
+  \[\<a,b\>=a\veci+b\vecj\]
+
+The \textbf{standard unit vectors} in $\mathbb{R}^3$ are
+$\veci=\<1,0,0\>$, $\vecj=\<0,1,0\>$, and $\veck=\<0,0,1\>$, and any vector in
+$\mathbb{R}^3$ can be expressed in \textbf{standard unit vector form}:
+  \[\<a,b,c\>=a\veci+b\vecj+c\veck\]
+\end{definition}
+
+\noindent Suggested Homework:
+Section $12.2$ numbers $3,$ $5,$ $13,$ $14,$ $15,$ $19,$ $21,$ $24,$ $26$
+
+% \begin{definition}[Dot Product\index{Dot Product}]
+% Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the dot product or Euclidean Inner Product as it is sometimes referred is $$\harpvec{u} \cdot \harpvec{v} = u_1v_1 + u_2v_2 + u_3v_3 = \left|\harpvec{u}\right|\left|\harpvec{v}\right|\cos\left(\theta\right).$$
 % \end{definition}
 
 % \begin{theorem}
-%   Two vectors are equal if and only if they share the same magnitude and
-%   direction as a common position vector.
-% \end{theorem}
-
-% \begin{definition}
-%   Since all vectors are equal to some position vector $\<a,b\>$ or $\<a,b,c\>$,
-%   we usually define vectors by a position vector written in this
-%   \textbf{component form}.
-%   Since the component form of a vector stores the same information as a point,
-%   we will use both interchangeably, that is, $\<a,b\>=(a,b)\in\mathbb{R}^2$ and
-%   $\<a,b,c\>=(a,b,c)\in\mathbb{R}^3$
-%   (although we usually sketch them differently).
-% \end{definition}
-
-% \begin{problem}
-%   Plot the following points and position vectors.
-%   \begin{itemize}
-%     \item $(1,3)$ and $\<1,3\>$ in the $xy$-plane.
-%     \item $(-2,5)$ and $\<-2,5\>$ in the $xy$-plane.
-%     \item $(1,1,-3)$ and $\<1,1,-3\>$ in $xyz$-space.
-%     \item $(0,5,0)$ and $\<0,5,0\>$ in $xyz$-space.
-%   \end{itemize}
-% \end{problem}
-
-% \vfill
-
-% \newpage
-
-% \begin{definition}
-%   Let $P = \left(x_1,y_1,z_1\right)$ and $Q = \left(x_2,y_2,z_2\right).$
-%   Then the vector with initial point $P$ and terminal point $Q$ is defined as
-%   \[
-%     \harpvec{PQ} = \threevec{x_2 - x_1}{y_2 - y_1}{z_2 - z_1}
-%   \]
-% \end{definition}
-
-% \begin{problem}
-%   Plot and sketch the points $P$, $Q$ and the vector $\harpvec{PQ}$ for each.
-%   \begin{itemize}
-%     \item $P=(1,3)$, $Q=(-3,6)$ in the $xy$-plane
-%     \item $P=(-2,0,3)$, $Q=(1,3,-3)$ in $xyz$-space
-%   \end{itemize}
-% \end{problem}
-
-% \vfill
-
-% \begin{definition}
-%   The magnitude of a vector in $\mathbb{R}^2$ or $\mathbb{R}^3$ is the distance
-%   between its initial and terminal points.
-% \end{definition}
-
-% \begin{theorem}
-%   The magnitude of $\<a,b\>$ is given by $\sqrt{a^2+b^2}$, and the
-%   magnitude of $\<a,b,c\>$ is given by $\sqrt{a^2+b^2+c^2}$.
+% Two nonzero vectors $\harpvec{u}$ and $\harpvec{v}$ are \textbf{orthogonal} if and only if $\harpvec{u}\cdot\harpvec{v} = 0.$
 % \end{theorem}
 
 % \begin{problem}
-%   Give the magitude of $\harpvec{PQ}$ for each bullet in the previous problem.
+% Show that if two non-zero vector are orthogonal then $\harpvec{u} \cdot \harpvec{v} = 0.$
 % \end{problem}
-
-% \vfill
-
-% \newpage
-
-% \subsection{Operations}
-
-% \begin{definition}
-%   \textbf{Vector addition} is defined component-wise as follows for
-%   $\mathbb{R}^2$ and $\mathbb{R}^3$
-%   \[
-%     \harpvec{u}+\harpvec{v}
-%       =
-%     \<u_1,u_2\>+\<v_1,v_2\>
-%       =
-%     \<u_1+v_1,u_2+v_2\>
-%   \]
-%   \[
-%     \harpvec{u}+\harpvec{v}
-%       =
-%     \<u_1,u_2,u_3\>+\<v_1,v_2,v_3\>
-%       =
-%     \<u_1+v_1,u_2+v_2,u_3+v_3\>
-%   \]
-% \end{definition}
-
-% \begin{definition}
-%   A \textbf{scalar} is simply a real number by itself
-%   (as opposed to a vector of real numbers).
-% \end{definition}
-
-% \begin{definition}
-%   \textbf{Scalar multiplication of a vector} is defined component-wise as
-%   follows for $\mathbb{R}^2$ and $\mathbb{R}^3$:
-%   \[
-%     k\harpvec{u}
-%       =
-%     k\<u_1,u_2\>
-%       =
-%     \<ku_1,ku_2\>
-%   \]
-%   \[
-%     k\harpvec{u}
-%       =
-%     k\<u_1,u_2,u_3\>
-%       =
-%     \<ku_1,ku_2,ku_3\>
-%   \]
-% \end{definition}
-
-% % \begin{definition}[Unit Vector\index{Unit Vector}]
-% % A \textbf{unit vector} is a vector whose magnitude is $1.$  Note that we can given a vector $\harpvec{v}$, we can form a unit vector $\unitvec{v}$ by dividing by the magnitude of $\harpvec{v}.$  That is to say, Let $\harpvec{v} = \threevec{v_1}{v_2}{v_3}.$  Then $$\unitvec{v} = \frac{1}{\left|\harpvec{v}\right|}\threevec{v_1}{v_2}{v_3}.$$
-% % \end{definition}
-
-% % \begin{definition}[Standard Vectors\index{Standard Vectors}]
-% % Any vector can be denoted as the linear combination of the \textbf{standard unit vectors} $\veci = \threevec{1}{0}{0}, \vecj = \threevec{0}{1}{0},$ and $\veck = \threevec{0}{0}{1}.$  So given a vector $\harpvec{v} = \threevec{v_1}{v_2}{v_3},$ one can express it with respect to the standard vectors as $$\harpvec{v} = \threevec{v_1}{v_2}{v_3} = v_1 \veci + v_2\vecj + v_3\veck.$$  This text, however, will more often than not use the angle brace notation.
-% % \end{definition}
-
-% % \begin{definition}[Dot Product\index{Dot Product}]
-% % Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the dot product or Euclidean Inner Product as it is sometimes referred is $$\harpvec{u} \cdot \harpvec{v} = u_1v_1 + u_2v_2 + u_3v_3 = \left|\harpvec{u}\right|\left|\harpvec{v}\right|\cos\left(\theta\right).$$
-% % \end{definition}
-
-% % \begin{theorem}
-% % Two nonzero vectors $\harpvec{u}$ and $\harpvec{v}$ are \textbf{orthogonal} if and only if $\harpvec{u}\cdot\harpvec{v} = 0.$
-% % \end{theorem}
-
-% % \begin{problem}
-% % Show that if two non-zero vector are orthogonal then $\harpvec{u} \cdot \harpvec{v} = 0.$
-% % \end{problem}
 
 % % \newpage
 
