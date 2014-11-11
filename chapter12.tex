@@ -1,0 +1,419 @@
+\documentclass[letterpaper, twoside, 12pt]{book}
+
+\usepackage{amsmath,amsfonts, amsthm}
+\usepackage{yfonts}
+\usepackage{amsrefs}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{esint}
+\usepackage{harpoon}
+\usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+
+\usepackage{makeidx}
+\makeindex
+
+\definecolor{AuburnOrange}{RGB}{221,85,12}
+\definecolor{AuburnBlue}{RGB}{3,36,77}
+\definecolor{AuburnSecondaryBlue}{RGB}{73,110,156}
+\definecolor{AuburnSecondaryOrange}{RGB}{246,128,38}
+\definecolor{AlabamaCrimson}{RGB}{163,38,65}
+\definecolor{LSUpurple}{RGB}{70,29,124}
+\definecolor{VanderbiltGold}{RGB}{207,181,59}
+
+\usepackage[pdfpagelabels]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=AuburnSecondaryOrange}
+
+% \usepackage[tracking]{microtype}
+% \UseMicrotypeSet{all}
+% \SetTracking[spacing = {35*,0*,0*}]{encoding = *}{7}
+% \linespread{1.025}
+
+\def\scaleint#1{\vcenter{\hbox{\scaleto[3ex]{\displaystyle\int}{#1}}}}
+\def\bs{\!\!}
+
+\renewcommand{\arraystretch}{1.5}
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+\pagestyle{fancy} \headheight 14.49998pt
+
+\newcommand{\tstamp}{\today}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\chaptermark}[1]{\markright{#1}}
+
+\lhead[\fancyplain{}{Clontz \thepage}]         {\fancyplain{}{\scshape\nouppercase{\rightmark}}}
+
+\chead[\fancyplain{}{}]
+{\fancyplain{}{}}
+
+
+\rhead[\fancyplain{}{Calculus II Lecture Notes}]       {\fancyplain{}{Clontz \thepage}}
+
+\lfoot[\fancyplain{}{Auburn University}]                 {\fancyplain{\tstamp}{\tstamp}}
+
+\cfoot[\fancyplain{\thepage}{}]         {\fancyplain{\thepage}{}}
+
+\rfoot[\fancyplain{\tstamp} {\tstamp}]  {\fancyplain{}{Auburn University}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+% \theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{recall}[theorem]{Recall}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{goal}[theorem]{Goal}
+\newtheorem{motivation}[theorem]{Motivation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{TrueFact}[theorem]{True Fact}
+\newtheorem{FalseFact}[theorem]{False Fact}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{eqn}[theorem]{Equation}
+\newtheorem{strategy}[theorem]{Strategy}
+\newtheorem{properties}[theorem]{Properties}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\harpvec}[1]{\overrightharp{\ensuremath{\mathbf{#1}}}}
+\newcommand*{\threevec}[3]{\ensuremath{\left\langle #1, #2, #3 \right\rangle}}
+\newcommand*{\twovec}[2]{\ensuremath{\left\langle #1, #2 \right\rangle}}
+\newcommand*{\unitvec}[1]{\ensuremath{\mathbf{\widehat{#1}}}}
+\newcommand{\veci}{\ensuremath{\mathbf{\widehat{i}}}}
+\newcommand{\vecj}{\ensuremath{\mathbf{\widehat{j}}}}
+\newcommand{\veck}{\ensuremath{\mathbf{\widehat{k}}}}
+\newcommand{\ds}{\ensuremath{\displaystyle}}
+
+
+\newcommand{\contrasymb}{\mathrel{\raisebox{.1em}{\reflectbox{\rotatebox[origin=c]{220}{$\lightning$}}}}}
+
+\newenvironment{answer}{\paragraph{Answer.}}{\hfill$\blacklozenge$}
+\newenvironment{contraproof}{\paragraph{Proof.}}{\hfill$\contrasymb$}
+
+\begin{document}
+
+
+\setcounter{chapter}{11}
+
+\chapter{Vectors and the Geometry of Space}
+
+\section{Two and Three Dimensional Space}
+
+\begin{definition}
+  Let $\mathbb{R}$ be the collection of real numbers, let $\mathbb{R}^2$ be the
+  collection of all \textbf{ordered pairs} of real numbers, and let $\mathbb{R}^3$
+  be the collection of all \textbf{ordered triples} of real numbers.
+
+  $\mathbb{R}$ is known as the \textbf{real line}, $\mathbb{R}^2$ is known
+  as the \textbf{real plane} or the \textbf{$xy$-plane}, and $\mathbb{R}^3$
+  is known as \textbf{real (3D) space} or \textbf{$xyz$-space}.
+\end{definition}
+
+\begin{definition}
+  The \textbf{distance} between two points $P=(x_1,y_1)$ and
+  $Q=(x_2,y_2)$ in $\mathbb{R}^2$ is given by the formula
+  \[
+    d(P,Q) = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
+  \]
+
+  The \textbf{distance} between two points $P=(x_1,y_1,z_1)$ and
+  $Q=(x_2,y_2,z_2)$ in $\mathbb{R}^3$ is given by the formula
+  \[
+    d(P,Q) = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}
+  \]
+\end{definition}
+
+\begin{problem}
+  Plot and find the distance between the following pairs of points:
+  \begin{itemize}
+    \item $(-2,6)$ and $(3,-6)$
+    \item $(0,0,0)$ and $(4,2,4)$
+    \item $(3,7,-2)$ and $(-1,7,1)$
+    \item $(8,2,1)$ and $(4,-2,7)$
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\newpage
+
+\begin{definition}
+  \textbf{Simple lines} in $\mathbb{R}^2$ are given by the relations $x=a$,
+  and $y=b$ for real numbers $a,b$.
+
+  \textbf{Simple planes} in $\mathbb{R}^3$ are given by the relations $x=a$,
+  $y=b$, $z=c$ for real numbers $a,b,c$.
+\end{definition}
+
+\begin{definition}
+  A \textbf{circle} in $\mathbb{R}^2$ is the set of all points a fixed distance
+  (called its \textbf{radius}) from a fixed point (called its \textbf{center}).
+  For a center $(a,b)$ and radius $r$, the equation for a circle is
+  \[
+    (x-a)^2+(y-b)^2=r^2
+  \]
+
+  A \textbf{sphere} in $\mathbb{R}^3$ is the set of all points a fixed distance
+  (called its \textbf{radius}) from a fixed point (called its \textbf{center}).
+  For a center $(a,b,c)$ and radius $r$, the equation for a sphere is
+  \[
+    (x-a)^2+(y-b)^2+(z-c)^2=r^2
+  \]
+\end{definition}
+
+\begin{question}
+  Sketch the following curves and surfaces.
+  \begin{itemize}
+    \item $x=3$ in the $xy$-plane and $xyz$-space.
+    \item $y=-1$ in the $xy$-plane and $xyz$-space.
+    \item $z=0$ in $xyz$-space.
+    \item $(x-2)^2+(y+1)^2=9$ in the $xy$-plane.
+    \item $x^2+y^2+z^2=4$ in $xyz$-space.
+    \item $x^2+(y-1)^2+z^2=1$ in $xyz$-space.
+  \end{itemize}
+\end{question}
+
+\vfill
+
+\noindent Suggested Homework:
+Section $12.1$ numbers $4,$ $6,$ $7,$ $8,$ $10,$ $11,$ $12,$ $14,$ $15,$ $16$
+
+% \newpage
+
+% \section{Vectors}
+
+% \begin{definition}[Vector\index{Vector}]
+%   A \textbf{vector} is a mathematical object that stores a \textbf{magnitude}
+%   (often thought of as length) and \textbf{direction}.
+%   Two vectors are \textbf{equal} if and only if they have the same magnitude and
+%   direction.
+% \end{definition}
+
+% \begin{definition}
+%   For a given point $P=(a,b)$ in $\mathbb{R}^2$, its \textbf{position vector}
+%   is given by $\harpvec{P}=\<a,b\>$: the vector from the origin $(0,0)$ to the
+%   point $P=(a,b)$.
+
+%   For a given point $P=(a,b,c)$ in $\mathbb{R}^3$, its \textbf{position vector}
+%   is given by $\harpvec{P}=\<a,b,c\>$: the vector from the origin $(0,0,0)$ to
+%   the point $P=(a,b,c)$.
+% \end{definition}
+
+% \begin{theorem}
+%   Two vectors are equal if and only if they share the same magnitude and
+%   direction as a common position vector.
+% \end{theorem}
+
+% \begin{definition}
+%   Since all vectors are equal to some position vector $\<a,b\>$ or $\<a,b,c\>$,
+%   we usually define vectors by a position vector written in this
+%   \textbf{component form}.
+%   Since the component form of a vector stores the same information as a point,
+%   we will use both interchangeably, that is, $\<a,b\>=(a,b)\in\mathbb{R}^2$ and
+%   $\<a,b,c\>=(a,b,c)\in\mathbb{R}^3$
+%   (although we usually sketch them differently).
+% \end{definition}
+
+% \begin{problem}
+%   Plot the following points and position vectors.
+%   \begin{itemize}
+%     \item $(1,3)$ and $\<1,3\>$ in the $xy$-plane.
+%     \item $(-2,5)$ and $\<-2,5\>$ in the $xy$-plane.
+%     \item $(1,1,-3)$ and $\<1,1,-3\>$ in $xyz$-space.
+%     \item $(0,5,0)$ and $\<0,5,0\>$ in $xyz$-space.
+%   \end{itemize}
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \begin{definition}
+%   Let $P = \left(x_1,y_1,z_1\right)$ and $Q = \left(x_2,y_2,z_2\right).$
+%   Then the vector with initial point $P$ and terminal point $Q$ is defined as
+%   \[
+%     \harpvec{PQ} = \threevec{x_2 - x_1}{y_2 - y_1}{z_2 - z_1}
+%   \]
+% \end{definition}
+
+% \begin{problem}
+%   Plot and sketch the points $P$, $Q$ and the vector $\harpvec{PQ}$ for each.
+%   \begin{itemize}
+%     \item $P=(1,3)$, $Q=(-3,6)$ in the $xy$-plane
+%     \item $P=(-2,0,3)$, $Q=(1,3,-3)$ in $xyz$-space
+%   \end{itemize}
+% \end{problem}
+
+% \vfill
+
+% \begin{definition}
+%   The magnitude of a vector in $\mathbb{R}^2$ or $\mathbb{R}^3$ is the distance
+%   between its initial and terminal points.
+% \end{definition}
+
+% \begin{theorem}
+%   The magnitude of $\<a,b\>$ is given by $\sqrt{a^2+b^2}$, and the
+%   magnitude of $\<a,b,c\>$ is given by $\sqrt{a^2+b^2+c^2}$.
+% \end{theorem}
+
+% \begin{problem}
+%   Give the magitude of $\harpvec{PQ}$ for each bullet in the previous problem.
+% \end{problem}
+
+% \vfill
+
+% \newpage
+
+% \subsection{Operations}
+
+% \begin{definition}
+%   \textbf{Vector addition} is defined component-wise as follows for
+%   $\mathbb{R}^2$ and $\mathbb{R}^3$
+%   \[
+%     \harpvec{u}+\harpvec{v}
+%       =
+%     \<u_1,u_2\>+\<v_1,v_2\>
+%       =
+%     \<u_1+v_1,u_2+v_2\>
+%   \]
+%   \[
+%     \harpvec{u}+\harpvec{v}
+%       =
+%     \<u_1,u_2,u_3\>+\<v_1,v_2,v_3\>
+%       =
+%     \<u_1+v_1,u_2+v_2,u_3+v_3\>
+%   \]
+% \end{definition}
+
+% \begin{definition}
+%   A \textbf{scalar} is simply a real number by itself
+%   (as opposed to a vector of real numbers).
+% \end{definition}
+
+% \begin{definition}
+%   \textbf{Scalar multiplication of a vector} is defined component-wise as
+%   follows for $\mathbb{R}^2$ and $\mathbb{R}^3$:
+%   \[
+%     k\harpvec{u}
+%       =
+%     k\<u_1,u_2\>
+%       =
+%     \<ku_1,ku_2\>
+%   \]
+%   \[
+%     k\harpvec{u}
+%       =
+%     k\<u_1,u_2,u_3\>
+%       =
+%     \<ku_1,ku_2,ku_3\>
+%   \]
+% \end{definition}
+
+% % \begin{definition}[Unit Vector\index{Unit Vector}]
+% % A \textbf{unit vector} is a vector whose magnitude is $1.$  Note that we can given a vector $\harpvec{v}$, we can form a unit vector $\unitvec{v}$ by dividing by the magnitude of $\harpvec{v}.$  That is to say, Let $\harpvec{v} = \threevec{v_1}{v_2}{v_3}.$  Then $$\unitvec{v} = \frac{1}{\left|\harpvec{v}\right|}\threevec{v_1}{v_2}{v_3}.$$
+% % \end{definition}
+
+% % \begin{definition}[Standard Vectors\index{Standard Vectors}]
+% % Any vector can be denoted as the linear combination of the \textbf{standard unit vectors} $\veci = \threevec{1}{0}{0}, \vecj = \threevec{0}{1}{0},$ and $\veck = \threevec{0}{0}{1}.$  So given a vector $\harpvec{v} = \threevec{v_1}{v_2}{v_3},$ one can express it with respect to the standard vectors as $$\harpvec{v} = \threevec{v_1}{v_2}{v_3} = v_1 \veci + v_2\vecj + v_3\veck.$$  This text, however, will more often than not use the angle brace notation.
+% % \end{definition}
+
+% % \begin{definition}[Dot Product\index{Dot Product}]
+% % Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the dot product or Euclidean Inner Product as it is sometimes referred is $$\harpvec{u} \cdot \harpvec{v} = u_1v_1 + u_2v_2 + u_3v_3 = \left|\harpvec{u}\right|\left|\harpvec{v}\right|\cos\left(\theta\right).$$
+% % \end{definition}
+
+% % \begin{theorem}
+% % Two nonzero vectors $\harpvec{u}$ and $\harpvec{v}$ are \textbf{orthogonal} if and only if $\harpvec{u}\cdot\harpvec{v} = 0.$
+% % \end{theorem}
+
+% % \begin{problem}
+% % Show that if two non-zero vector are orthogonal then $\harpvec{u} \cdot \harpvec{v} = 0.$
+% % \end{problem}
+
+% % \newpage
+
+% % \begin{definition}[Cross Product\index{Cross Product}]
+% % Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the cross product is the determinant of the following matrix:
+% % $$\begin{array}{rcl}
+% % \harpvec{u} \times \harpvec{v} &=& \left|\begin{array}{ccc}
+% % \veci & \vecj & \veck \\
+% % u_1 & u_2 & u_3 \\
+% % v_1 & v_2 & v_3
+% % \end{array}\right|\\[2.5em]
+% %  &=& \left|\begin{array}{cc} u_2 & u_3 \\ v_2 & v_3 \end{array}\right|\veci - \left|\begin{array}{cc} u_1 & u_3 \\ v_1 & v_3 \end{array}\right|\vecj + \left|\begin{array}{cc} u_1 & u_2 \\ v_1 & v_2 \end{array}\right|\veck\\
+% %  &=& \threevec{u_2v_3 - u_3v_2}{u_3v_1 - u_1v_3}{u_1v_2 - u_2v_1}.
+% % \end{array}$$
+% % \end{definition}
+
+% % \begin{observation}
+% % The cross product of two vectors $\harpvec{u}$ and $\harpvec{v}$ gives us a vector that is orthogonal to both $\harpvec{u}$ and $\harpvec{v}$.
+% % \end{observation}
+
+% % \begin{definition}[Equivalent to Cross Product\index{Equivalent to Cross Product}]
+% % Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the cross product can also be defined as $$\left|\harpvec{u} \times \harpvec{v}\right| = \left|\harpvec{u}\right|\left|\harpvec{v}\right|\sin\left(\theta\right).$$
+% % \end{definition}
+
+% % \begin{problem}
+% % Show that is two non-zero vectors $\harpvec{u}$ and $\harpvec{v}$ are parallel if and only if $\harpvec{u} \times \harpvec{v} = \harpvec{0}.$
+% % \end{problem}
+
+% % \vfill
+
+% % \noindent Suggested Homework: Section $12.1$ numbers $4,$ $6,$ $7,$ $8,$ $10,$ $11,$ $12,$ $14,$ $15,$ $16$\\
+% % Section $12.2$ numbers $3,$ $5,$ $13,$ $14,$ $15,$ $19,$ $21,$ $24,$ $26$\\
+% % Section $12.3$ numbers $3,$ $5,$ $6,$ $7,$ $8,$ $9,$ $10,$ $11,$ $15,$ $17,$ $21,$ $27,$ $41,$ $42,$ $44$\\
+% % Section $12.4$ numbers $1 - 3,$ $17,$ $19,$ $28,$ $29,$ $33,$ $35$
+
+% % \newpage
+
+% % \setcounter{section}{4}
+
+% % \section{Equations in 3-Space}
+
+% % \begin{eqn}[Parametrization of a Line\index{Parametrization of a Line}]
+% % Let $O = \left(0,0,0\right)$ be the origin in $\mathbb{R}^3, P_0 = \left(x_0,y_0,z_0\right)$ be a point in $\mathbb{R}^3,$ and $\harpvec{v} = \threevec{A}{B}{C}$ be a vector in $\mathbb{R}^3$ parallel to the line being parametrized.  Then the line through $P_0$ parallel to $\harpvec{v}$ is $$\harpvec{r}(t) = \harpvec{OP_0} + t\harpvec{v} \hspace{.5in} t \in \mathbb{R}.$$ This can also be written as $$x = x_0 + At, \hspace{.5in} y = y_0 + Bt, \hspace{.5in} z = z_0 + Ct \hspace{.5in} t \in \mathbb{R}.$$ or as the symmetric equation $$\frac{x-x_0}{A} = \frac{y-y_o}{B} = \frac{z-z_0}{C}.$$
+% % \end{eqn}
+
+% % \begin{eqn}[Parametrization of a Line Segment\index{Parametrization of Line Segment}]
+% % Let $O$ denote the origin, $P$ be the initial point of a line segment, and $Q$ be the terminal point of a line segment.  Then the line segment $\overline{PQ}$ can be parametrized as $$\harpvec{r}(t) = (1-t)\harpvec{OP} + t\harpvec{OQ} \hspace{.5in} 0 \leq t \leq 1.$$
+% % \end{eqn}
+
+% % \newpage
+
+% % \begin{problem}
+% % Find a vector equation and parametric equation for the line that passes through the point $(5,1,3)$ and is parallel to the vector $\threevec{1}{4}{-2}.$
+% % \end{problem}
+
+% % \vfill
+
+% % \begin{problem}
+% % Find the parametric Equation of the line segment from $(2,4,-3)$ to $(3,-1,1).$
+% % \end{problem}
+
+% % \vfill
+
+% % \begin{eqn}[Planes\index{Plane (Equation)}]
+% % Let $P_0 = \left(x_0,y_0,z_0\right)$ be a point in the plane and $\harpvec{n} = \threevec{a}{b}{c}$ be a vector normal to the plane.  Then the equation of the plane is $$a\left(x-x_0\right) + b\left(y-y_0\right) + c\left(z-z_0\right).$$
+% % \end{eqn}\label{EquationOfPlane}
+
+% % \vfill
+
+% % \noindent Suggested Homework: Section $12.5$ numbers $3,$ $4,$ $6,$ $7,$ $17,$ $19,$ $24,$ $27,$ $31,$ $32$
+
+\end{document}
