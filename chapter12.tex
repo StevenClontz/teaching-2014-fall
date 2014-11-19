@@ -419,54 +419,320 @@ $\mathbb{R}^3$ can be expressed in \textbf{standard unit vector form}:
   are equal.
 \end{note}
 
+\newpage
+
+\begin{problem}
+  Write the following vectors in standard unit vector form.
+  \begin{itemize}
+    \item $\<5,5\>$
+    \item $\<-4,3\>$
+    \item $\<12,-5\>$
+    \item $\<3,1,-2\>$
+    \item $\<4,-2,-4\>$
+    \item $\<8,0,-6\>$
+  \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{theorem}
+The following properties hold for any two vectors $\harpvec{u}$, $\harpvec{v}$
+and scalars $a$, $b$.
+  \begin{itemize}
+  \item $\harpvec{u}+\harpvec{v} = \harpvec{v}+\harpvec{u}$
+  \item $(\harpvec{u}+\harpvec{v})+\harpvec{w} = \harpvec{u}+(\harpvec{v}+\harpvec{w})$
+  \item $\harpvec{u}+\harpvec{0} = \harpvec{u}$
+  \item $\harpvec{u}+(-\harpvec{u}) = \harpvec{0}$
+  \item $0\harpvec{u} = \harpvec{0}$
+  \item $1\harpvec{u} = \harpvec{u}$
+  \item $a(b\harpvec{u}) = (ab)\harpvec{u}$
+  \item $a(\harpvec{u} + \harpvec{v}) = a\harpvec{u} + a\harpvec{v}$
+  \item $(a+b)\harpvec{u} = a\harpvec{u} + b\harpvec{u}$
+  \end{itemize}
+\end{theorem}
+
+\begin{definition}
+  \textbf{Vector subtraction} is defined as the addition of a negative:
+  \[
+    \harpvec{u}-\harpvec{v}
+      =
+    \harpvec{u}+(-\harpvec{v})
+      =
+    \<u_1-v_1,u_2-v_2\>
+  \]
+  \[
+    \harpvec{u}-\harpvec{v}
+      =
+    \harpvec{u}+(-\harpvec{v})
+      =
+    \<u_1-v_1,u_2-v_2,u_3-v_3\>
+  \]
+\end{definition}
+
 \noindent Suggested Homework:
 Section $12.2$ numbers $3,$ $5,$ $13,$ $14,$ $15,$ $19,$ $21,$ $24,$ $26$
 
-% \begin{definition}[Dot Product\index{Dot Product}]
-% Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the dot product or Euclidean Inner Product as it is sometimes referred is $$\harpvec{u} \cdot \harpvec{v} = u_1v_1 + u_2v_2 + u_3v_3 = \left|\harpvec{u}\right|\left|\harpvec{v}\right|\cos\left(\theta\right).$$
-% \end{definition}
+\newpage
 
-% \begin{theorem}
-% Two nonzero vectors $\harpvec{u}$ and $\harpvec{v}$ are \textbf{orthogonal} if and only if $\harpvec{u}\cdot\harpvec{v} = 0.$
-% \end{theorem}
+\section{The Dot Product}
 
-% \begin{problem}
-% Show that if two non-zero vector are orthogonal then $\harpvec{u} \cdot \harpvec{v} = 0.$
-% \end{problem}
+\begin{definition}
+  Let $\theta$ be the angle between two non-zero vectors $\harpvec{u}$, $\harpvec{v}$.
+  The \textbf{dot product} $\harpvec{u}\cdot\harpvec{v}$ is the product of their
+  lengths when projected into the same direction, obtained by this formula:
+  \[
+    \harpvec{u} \cdot \harpvec{v} = |\harpvec{u}||\harpvec{v}|\cos \theta
+  \]
+\end{definition}
 
-% % \newpage
+\begin{definition}
+  The dot product with a zero vector is always zero:
+  \[\harpvec{v}\cdot\harpvec{0}=\harpvec{0}\cdot\harpvec{v}=0\]
+\end{definition}
 
-% % \begin{definition}[Cross Product\index{Cross Product}]
-% % Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the cross product is the determinant of the following matrix:
-% % $$\begin{array}{rcl}
-% % \harpvec{u} \times \harpvec{v} &=& \left|\begin{array}{ccc}
-% % \veci & \vecj & \veck \\
-% % u_1 & u_2 & u_3 \\
-% % v_1 & v_2 & v_3
-% % \end{array}\right|\\[2.5em]
-% %  &=& \left|\begin{array}{cc} u_2 & u_3 \\ v_2 & v_3 \end{array}\right|\veci - \left|\begin{array}{cc} u_1 & u_3 \\ v_1 & v_3 \end{array}\right|\vecj + \left|\begin{array}{cc} u_1 & u_2 \\ v_1 & v_2 \end{array}\right|\veck\\
-% %  &=& \threevec{u_2v_3 - u_3v_2}{u_3v_1 - u_1v_3}{u_1v_2 - u_2v_1}.
-% % \end{array}$$
-% % \end{definition}
+\begin{theorem}
+By the Law of Cosines:
+  \[
+    \harpvec{u} \cdot \harpvec{v}
+      =
+    \<u_1,u_2\>\cdot\<v_1,v_2\>
+      =
+    u_1v_1 + u_2v_2
+  \]
+  \[
+    \harpvec{u} \cdot \harpvec{v}
+      =
+    \<u_1,u_2,u_3\>\cdot\<v_1,v_2,v_3\>
+      =
+    u_1v_1 + u_2v_2 + u_3v_3
+  \]
+\end{theorem}
 
-% % \begin{observation}
-% % The cross product of two vectors $\harpvec{u}$ and $\harpvec{v}$ gives us a vector that is orthogonal to both $\harpvec{u}$ and $\harpvec{v}$.
-% % \end{observation}
+\begin{definition}
+  Two vectors $\harpvec{u},\harpvec{v}$ are \textbf{orthogonal} if
+  $\harpvec{u} \cdot \harpvec{v} = 0$.
+\end{definition}
 
-% % \begin{definition}[Equivalent to Cross Product\index{Equivalent to Cross Product}]
-% % Let $\harpvec{u} = \threevec{u_1}{u_2}{u_3}$ and $\harpvec{v} = \threevec{v_1}{v_2}{v_3}$.  Then the cross product can also be defined as $$\left|\harpvec{u} \times \harpvec{v}\right| = \left|\harpvec{u}\right|\left|\harpvec{v}\right|\sin\left(\theta\right).$$
-% % \end{definition}
+\begin{theorem}
+  Two non-zero vectors are orthogonal if the angle $\theta$ between them
+  is $\frac{\pi}{2}$ radians.
+\end{theorem}
 
-% % \begin{problem}
-% % Show that is two non-zero vectors $\harpvec{u}$ and $\harpvec{v}$ are parallel if and only if $\harpvec{u} \times \harpvec{v} = \harpvec{0}.$
-% % \end{problem}
+\begin{theorem}
+The following properties hold for any three vectors $\harpvec{u}$, $\harpvec{v}$,
+$\harpvec{w}$ and scalar $c$.
+  \begin{itemize}
+  \item $\harpvec{u} \cdot \harpvec{v} = \harpvec{v}\cdot\harpvec{u}$
+  \item $(c\harpvec{u})\cdot \harpvec{v} = \harpvec{u} \cdot (c\harpvec{v}) = c(\harpvec{u} \cdot \harpvec{v})$
+  \item $\harpvec{u} \cdot (\harpvec{v} + \harpvec{w}) = \harpvec{u}\cdot\harpvec{v} + \harpvec{u}\cdot \harpvec{w}$
+  \item $\harpvec{u} \cdot \harpvec{u} = |\harpvec{u}|^2$
+  \end{itemize}
+\end{theorem}
 
-% % \vfill
+\begin{problem}
+  Solve for $\cos\theta$ for the following pairs of vectors.
+  \begin{itemize}
+    \item $\harpvec{u}=\<4,-3\>$\\ $\harpvec{v}=\<5,12\>$
+    \item $\harpvec{u}=\<1,4,2\>$\\ $\harpvec{v}=\<4,1,-2\>$
+    \item $\harpvec{u}=\<0,5,-11\>$\\ $\harpvec{v}=\<2,0,0\>$
+  \end{itemize}
+\end{problem}
 
-% % \noindent Suggested Homework: Section $12.1$ numbers $4,$ $6,$ $7,$ $8,$ $10,$ $11,$ $12,$ $14,$ $15,$ $16$\\
-% % Section $12.2$ numbers $3,$ $5,$ $13,$ $14,$ $15,$ $19,$ $21,$ $24,$ $26$\\
-% % Section $12.3$ numbers $3,$ $5,$ $6,$ $7,$ $8,$ $9,$ $10,$ $11,$ $15,$ $17,$ $21,$ $27,$ $41,$ $42,$ $44$\\
-% % Section $12.4$ numbers $1 - 3,$ $17,$ $19,$ $28,$ $29,$ $33,$ $35$
+\vfill
+
+\begin{definition}
+  The work $W$ done by a force vector $\harpvec{F}$ over a displacement
+  vector $\harpvec{D}$ is given by
+  \[
+    W = \harpvec{F} \cdot \harpvec{D}
+      =
+    |\harpvec{F}||\harpvec{D}|\cos \theta
+  \]
+\end{definition}
+
+\noindent Suggested Homework: Section $12.3$ numbers
+$3,$ $5,$ $6,$ $7,$ $8,$ $9,$ $10,$ $11,$ $15,$ $17,$ $21,$ $27,$ $41,$ $42,$ $44$
+
+
+\newpage
+
+
+\section{The Cross Product}
+
+  \begin{definition}
+    For any two non-parallel vectors $\harpvec{u}$, $\harpvec{v}$ in $\mathbb R^3$,
+    the \textbf{Right-Hand Rule} gives a specific direction orthogonal to both:
+    position $\harpvec{u}$ with your right thumb and $\harpvec{v}$ with your
+    right index finger, and let your middle finger extend orthogonal to both
+    to give this direction.
+  \end{definition}
+
+  \begin{definition}
+    Let $\theta$ be the angle between two non-zero vectors $\harpvec{u}$,
+    $\harpvec{v}$ in $\mathbb{R}^3$, and let $\harpvec{n}$ be the direction
+    given by the Right-Hand Rule.
+    The \textbf{cross product} $\harpvec{u}\times\harpvec{v}$ is the vector
+    orthogonal to both which follows the Right-Hand Rule and has magnitude
+    equal to the area of the parallelogram formed from both.
+    \[
+      \harpvec{u}\times\harpvec{v}
+        =
+      (|\harpvec{u}||\harpvec{v}|\sin\theta)\harpvec{n}
+    \]
+    \[
+      |\harpvec{u}\times\harpvec{v}|
+        =
+      |\harpvec{u}||\harpvec{v}|\sin\theta
+    \]
+  \end{definition}
+
+  \begin{definition}
+    The cross product with a zero vector is always the zero vector:
+    \[\harpvec{v}\times\harpvec{0}=\harpvec{0}\times\harpvec{v}=\harpvec{0}\]
+  \end{definition}
+
+  \begin{theorem}
+    The following properties hold for any three vectors $\harpvec{u}$, $\harpvec{v}$,
+    $\harpvec{w}$ and scalars $a$,$b$.
+    \begin{itemize}
+    \item $(a\harpvec{u}) \times (b\harpvec{v}) = (ab)(\harpvec{u} \times \harpvec{v})$
+    \item
+      $\harpvec{u} \times (\harpvec{v} + \harpvec{w}) =
+      \harpvec{u} \times \harpvec{v} + \harpvec{u} \times \harpvec{w}$
+    \item
+      $(\harpvec{v} + \harpvec{w}) \times \harpvec{u} =
+      \harpvec{v} \times \harpvec{u} + \harpvec{w} \times \harpvec{u}$
+    \item $\harpvec{v} \times \harpvec{u} = -(\harpvec{u} \times \harpvec{v})$
+    \end{itemize}
+  \end{theorem}
+
+  \begin{definition}
+    Two vectors $\harpvec{u},\harpvec{v}$ are \textbf{parallel} if
+    $\harpvec{u} \times \harpvec{v} = 0$.
+  \end{definition}
+
+  \begin{theorem}
+    Two non-zero vectors are parallel if the angle $\theta$ between them
+    is $0$ or $\pi$ radians.
+  \end{theorem}
+
+  \begin{definition}
+    The cross products of the standard unit vectors are given as follows:
+    \begin{itemize}
+      \item $\veci \times \vecj = \veck$
+      \item $\vecj \times \veck = \veci$
+      \item $\veck \times \veci = \vecj$
+    \end{itemize}
+  \end{definition}
+
+  \begin{definition}
+    A \textbf{determinant} is a short hand for writing certain commonly
+    occuring algebraic expressions:
+      \[
+        \begin{array}{|c c|}
+        a_1 & a_2 \\
+        b_1 & b_2 \\
+        \end{array}
+          =
+        a_1b_2 - a_2b_1
+      \]
+      \[
+        \begin{array}{|c c c|}
+        a_1 & a_2 & a_3 \\
+        b_1 & b_2 & b_3 \\
+        c_1 & c_2 & c_3 \\
+        \end{array}
+          =
+        a_1 \,
+        \begin{array}{|c c|}
+        b_2 & b_3 \\
+        c_2 & c_3 \\
+        \end{array}
+          -
+        a_2 \,
+        \begin{array}{|c c|}
+        b_1 & b_3 \\
+        c_1 & c_3 \\
+        \end{array}
+          +
+        a_3 \,
+        \begin{array}{|c c|}
+        b_1 & b_2 \\
+        c_1 & c_2 \\
+        \end{array}
+      \]
+  \end{definition}
+
+\newpage
+
+  \begin{theorem}
+    By breaking up $\harpvec{u}$, $\harpvec{v}$ into standard unit vectors:
+    \[
+    \harpvec{u} \times \harpvec{v}
+      =
+    \begin{array}{|c c c|}
+    \veci & \vecj & \veck \\
+    u_1 & u_2 & u_3 \\
+    v_1 & v_2 & v_3 \\
+    \end{array}
+      =
+    \left\<
+      \begin{array}{|c c|}
+      u_2 & u_3 \\
+      v_2 & v_3 \\
+      \end{array}
+        \,,-\,
+      \begin{array}{|c c|}
+      u_1 & u_3 \\
+      v_1 & v_3 \\
+      \end{array}
+        \,,\,
+      \begin{array}{|c c|}
+      u_1 & u_2 \\
+      v_1 & v_2 \\
+      \end{array}
+    \right\>
+    \]
+  \end{theorem}
+
+\begin{problem}
+  Use the cross product to find a vector normal to both $\harpvec{u}$
+  and $\harpvec{v}$.
+    \begin{itemize}
+      \item $\harpvec{u}=\<4,-3,0\>$\\ $\harpvec{v}=\<2,6,-3\>$
+      \item $\harpvec{u}=\<1,4,2\>$\\ $\harpvec{v}=\<4,1,-2\>$
+      \item $\harpvec{u}=\<0,5,-11\>$\\ $\harpvec{v}=\<2,0,0\>$
+    \end{itemize}
+\end{problem}
+
+\vfill
+
+\begin{definition}
+  The torque $\tau$ done by a force vector $\harpvec{F}$ on an arm given by
+  $\harpvec{D}$ is given by
+  \[
+    \tau = |\harpvec{F} \times \harpvec{D}|
+      =
+    |\harpvec{F}||\harpvec{D}|\sin \theta
+  \]
+\end{definition}
+
+\begin{theorem}
+  The volume of a parallelpiped determined by the vectors
+  $\harpvec{u}$, $\harpvec{v}$, $\harpvec{w}$, is given by
+  the \textbf{triple scalar product}
+    \[
+      (\harpvec{u}\times\harpvec{v})\cdot\harpvec{w} =
+      \begin{array}{|c c c|}
+      u_1 & u_2 & u_3 \\
+      v_1 & v_2 & v_3 \\
+      w_1 & w_2 & w_3 \\
+      \end{array}
+    \]
+\end{theorem}
+
+\noindent Suggested Homework:
+Section $12.4$ numbers $1 - 3,$ $17,$ $19,$ $28,$ $29,$ $33,$ $35$
 
 % % \newpage
 
